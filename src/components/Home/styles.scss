@@ -1,11 +1,17 @@
 .home {
   height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
 .content {
 
   display: flex;
   flex-wrap: wrap;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-grow: 2;
+
 
   &__icon {
     display: flex;
@@ -17,6 +23,16 @@
     width: 120px;
     height: 120px;
     border-radius: 50%;
+  }
+
+  &__button {
+    padding: 0.5rem;
+  }
+
+  h3 {
+    text-align: center;
+    padding: 0.5rem;
+    font-size: 1.2rem;
   }
 
 }

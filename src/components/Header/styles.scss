@@ -1,6 +1,23 @@
 .header {
   display: flex;
   align-items: center;
+
+  &__appLogo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 3rem;
+    border: 1px solid gray;
+    color: gray;
+    border-radius: 50%;
+    width: 70px;
+    height: 70px;
+  }
+
+  &__hello {
+    padding: 0.5rem;
+    width: 60vw;
+  }
 }
 
 .header span {
@@ -8,8 +25,8 @@
 }
 
 .header h1 {
-  width: 60vw;
   text-align: center;
+  font-size: 1.5rem;
 }
 
 .header img {

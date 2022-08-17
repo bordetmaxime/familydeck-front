@@ -12,7 +12,7 @@ const Nav = () => {
 	return (
 		<div className="nav">
 
-			<NavLink to="/todolists" >
+			<NavLink to="/events" >
         <RiCalendarEventFill className='nav__icon' />
       </NavLink>
 
@@ -20,7 +20,7 @@ const Nav = () => {
         <FaHome className='nav__icon'/>
       </NavLink>
 
-      <NavLink to="/events" >
+      <NavLink to="/todolists" >
         <GoChecklist className='nav__icon'/>
       </NavLink>
 		
