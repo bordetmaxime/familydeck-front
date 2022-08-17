@@ -1,0 +1,36 @@
+.main_card{visibility: visible;
+padding:20px;
+height:80vw;
+background-color: s;}
+
+header{border-bottom: 2px solid grey;
+  border-top: 2px solid grey}
+
+.card{height:80vh;
+width: 100%;
+margin:auto }
+
+.header_todolist{
+  background-color:rgba(211, 211, 211, 0.452);
+  display: flex;
+  padding:10px;
+}
+
+.item_card{
+display: flex;
+align-items: center;
+justify-content: space-between;
+margin:5px;
+
+}
+
+#add_card_div{
+  border-bottom:2px lightgray solid;
+  width:100%
+}
+
+.form_card{
+  width:100%
+}
+
+

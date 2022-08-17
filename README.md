@@ -25,7 +25,7 @@
       - Start.js
       - Auth.js
       - styles.scss
-    - Registration
+    - Inscription
       - index.js
       - styles.scss
     - Home

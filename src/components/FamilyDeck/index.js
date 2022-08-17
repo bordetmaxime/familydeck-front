@@ -2,7 +2,9 @@
 import { Route, Routes } from 'react-router';
 import Home from '../Home';
 import Welcome from '../Welcome';
-import reactLogo from './react-logo.svg';
+import Inscription from '../Inscription';
+import Todolists from '../Todolists';
+import Todolist from '../Todolist';
 import './styles.css';
 
 // == Composant
@@ -12,6 +14,11 @@ const FamilyDeck = () => {
       <Routes>
         <Route path="/" element={ <Welcome /> } />
         <Route path="/home" element={ <Home /> } />
+        <Route path="/inscription" element={ <Inscription /> } />
+        <Route path="/todolists" element={ <Todolists /> } />
+        <Route path="/todolist/5" element={ <Todolist /> } />
+
+
       </Routes>	
 		</div>
 	);
