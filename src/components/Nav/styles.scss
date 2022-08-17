@@ -2,6 +2,11 @@
   width: 100%;
   display: flex;
   justify-content: space-evenly;
-  position: fixed;
-  bottom: 0;
+  align-items: center;
+  background-color: lightgray;
+  padding: 0.5rem;
+
+  &__icon {
+    font-size: 2rem;
+  }
 }
