@@ -4,6 +4,9 @@
 
 .content {
 
+  display: flex;
+  flex-wrap: wrap;
+
   &__icon {
     display: flex;
     align-items: center;

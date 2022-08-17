@@ -52,3 +52,13 @@
 
     - Header: Utilisé dans Home, TodoList, Events
     - Nav: : Utilisé dans Home, TodoList, Events
+
+## Lancement du projet
+
+### Installation des dépendances
+
+`npm install`
+
+### Demarrage du projet
+
+`npm run start`
