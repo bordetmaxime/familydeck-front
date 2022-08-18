@@ -56,7 +56,7 @@ const Inscription = () => {
     </div>
 
     <div id="inscription_box" >
-        <label for="email" id="center_title">* Password </label>
+        <label for="password" id="center_title">* Password </label>
         <span className="span_line"></span>
         <input type="password" id="password" name="user_password" placeholder="password" className="input-margin"/>
         <input type="password" id="validation_password" name="user_validation_password" placeholder="Confirmation password"/>

@@ -1,13 +1,18 @@
 // == Import
 import './styles.scss';
+import { Link } from 'react-router-dom';
 
 // == Composant
 function Start() {
   return (
     <div className="start">
-      <h1>Composant : Start</h1>
-      <button>Je me connecte</button>
-      <button>Je m'inscris</button>
+          <button className="connection_button">Je me connecte</button>
+          
+      <Link to='/inscription'>
+      <button className="inscription_button">Je m'inscris</button>
+      </Link>
+  
+   
     </div>
   );
 }

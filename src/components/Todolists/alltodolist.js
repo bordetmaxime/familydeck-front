@@ -2,12 +2,17 @@
 import './styles.scss';
 import { FaPen } from '@react-icons/all-files/fa/FaPen';
 import { FaTrash } from '@react-icons/all-files/fa/FaTrash';
+import { Link } from 'react-router-dom';
+
 
 
 // == Composant
 const AllTodolists = () => {
 	return (
 <div className="all_card">
+
+<Link to='/todolist/5'>
+
  <div className="card_alltodolists">
   <header className="header_alltodolists">
 <h2 className="title">Loisirs</h2>
@@ -24,8 +29,10 @@ const AllTodolists = () => {
 
 </div>
 
+</Link>
 
 
+<Link to='/todolist/5'>
 <div className="card_alltodolists">
   <header className="header_alltodolists">
 <h2 className="title">Sandwich</h2>
@@ -42,11 +49,11 @@ const AllTodolists = () => {
 </main>
 
 </div>
+</Link>
 
 
 
-
-
+<Link to='/todolist/5'>
 <div className="card_alltodolists">
   <header className="header_alltodolists">
 <h2 className="title">Ecole</h2>
@@ -64,6 +71,7 @@ const AllTodolists = () => {
 </main>
 
 </div>
+</Link>
 </div>
 
 	);
