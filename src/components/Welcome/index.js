@@ -7,10 +7,18 @@ import './styles.scss';
 
 // == Composant
 function Welcome() {
+let user = false
+
   return (
+
+    
     <div className="welcome">
       <Header />
       <Content />
+      
+      if (user) {
+        
+      }
       <Start />
       <Auth />
     </div>
