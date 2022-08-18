@@ -9,6 +9,7 @@ import Event from './Event';
 import ChildsSelect from '../ChildsSelect';
 import Header from '../Header';
 import Nav from '../Nav';
+import AddEvent from './AddEvent';
 
 // == Composant
 const Events = ({ event }) => {
@@ -17,7 +18,7 @@ const Events = ({ event }) => {
 			<Header app={ 'events' } />
 			<ChildsSelect />
 			{ event ? <Event /> : <EventsList />}
-			
+			<AddEvent />
 			<Nav />
 		</div>
 	);
@@ -26,6 +27,6 @@ const Events = ({ event }) => {
 // == Export
 export default Events;
 
-Header.propTypes = {
-	app: PropTypes.string,
+Events.propTypes = {
+	event: PropTypes.string,
 };
