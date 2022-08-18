@@ -1,3 +1,41 @@
-.header, .welcome {
-  border: 1px solid black;
+.header_welcome {
+ justify-content: center;
+ margin:auto;
+  display: flex;
+  align-items:center;
+font-size: 10vw;
 }
+
+.header_welcome h1{ visibility: hidden; 
+  height:0px;
+  width:0px
+}
+
+  .header_welcome img{
+    width:50vw
+  }
+
+
+.auth, .start{ text-align: center;
+margin:10px}
+
+.start{
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+margin:auto;
+  width: 80%
+}
+
+.content_welcome{width: 80vw;
+  flex-direction: column;
+  margin:auto;
+text-align:center}
+
+.connection_button, {
+  display: flex;
+  justify-content: center;
+
+}
+
+
