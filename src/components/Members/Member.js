@@ -9,7 +9,7 @@ import { FaTrash } from '@react-icons/all-files/fa/FaTrash';
 const Member = () => {
 	return (
 		<div className='member'>
-      <h2>Nom de la famille</h2>
+      <h2 className='member__title2'>Nom de la famille</h2>
 
 			<form className='member__form'>
 
@@ -19,7 +19,7 @@ const Member = () => {
 				</div>
 
         <div className='member__bloc'>
-          <div className='member__item'>
+          <div className='member__item semi'>
             <label htmlFor='member-role'>Role*</label>
             <select name="role" id='member-role' required >
               <option value=""> Choix du role</option>
@@ -28,36 +28,45 @@ const Member = () => {
               <option value="Papa">Enfant</option>
             </select>
           </div>
-          <div className='member__item'>
+          <div className='member__item semi'>
             <label htmlFor='member-birthday'>Date de naissance*</label>
             <input id='member-birthday' type='date' value="" name='member-birthday' required />
           </div>
         </div>
-
-				
-
         
-        <h3>Morphologie</h3>
+        <h3 className='member__title3'>Morphologie</h3>
 
-        <label htmlFor='member-height'>Taille en cm</label>
-        <input type='number' id='member-height' value='' name='member-height'></input>
+        <div className='member__bloc'>
 
-        <label htmlFor='member-foot'>Pointure</label>
-        <input type='number' id='member-foot' value='' name='member-foot'></input>
+          <div className='member__item semi'>
+            <label htmlFor='member-height'>Taille en cm</label>
+            <input type='number' id='member-height' value='' name='member-height'></input>
+          </div>
 
-        <label htmlFor='member-top'>Taille haut</label>
-        <input id='member-top' value='' name='member-top' placeholder='M / 38 / 6ans'></input>
+          <div className='member__item semi'>
+            <label htmlFor='member-foot'>Pointure</label>
+            <input type='number' id='member-foot' value='' name='member-foot'></input>
+          </div>
 
-        <label htmlFor='member-bottom'>Taille bas</label>
-        <input id='member-bottom' value='' name='member-bottom' placeholder='M / 30 / 38 / 6ans'></input>
+          <div className='member__item semi'>
+            <label htmlFor='member-top'>Taille haut</label>
+            <input id='member-top' value='' name='member-top' placeholder='M / 38 / 6ans'></input>
+          </div>
 
-        <h3>Infos connexion*</h3>
+          <div className='member__item semi'>
+            <label htmlFor='member-bottom'>Taille bas</label>
+            <input id='member-bottom' value='' name='member-bottom' placeholder='M / 30 / 38 / 6ans'></input>
+          </div>
 
-        <input id='member-login' value='' name='member-login' placeholder='Login' required></input>
+        </div>
 
-        <input id='member-pwd' value='' name='member-pwd' placeholder='Mot de passe' required></input>
+        <h3 className='member__title3'>Infos connexion*</h3>
 
-        <input id='member-pwdConfirm' value='' name='member-pwdConfirm' placeholder='Confirmation mot de passe' required></input>
+        <input className='member__item' id='member-login' value='' name='member-login' placeholder='Login' required></input>
+
+        <input className='member__item' id='member-pwd' value='' name='member-pwd' placeholder='Mot de passe' required></input>
+
+        <input className='member__item' id='member-pwdConfirm' value='' name='member-pwdConfirm' placeholder='Confirmation mot de passe' required></input>
 
         <h4>*Champ obligatoire</h4>
 

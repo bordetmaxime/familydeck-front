@@ -80,8 +80,15 @@
 
   }
 
+  &__title2, &__title3 {
+    border-bottom: 1px solid lightgray;
+    width: 95%;
+    text-align: center;
+  }
+
   &__bloc {
     display: flex;
+    flex-wrap: wrap;
     width: 95%;
   }
 
@@ -92,5 +99,12 @@
     align-items: center;
     padding: 0 2rem;
   }
+
 }
+
+.semi {
+    width: 45%;
+    align-items: stretch;
+  }
+
 
