@@ -6,13 +6,13 @@ import Auth from './Auth';
 import './styles.scss';
 
 // == Composant
-function Welcome() {
+function Welcome({login}) {
   return (
     <div className="welcome">
       <Header />
       <Content />
-      <Start />
-      <Auth />
+      {login ? <Auth /> : <Start /> }
+      
     </div>
   );
 }

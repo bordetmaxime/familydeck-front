@@ -16,9 +16,9 @@ const Todolist= () => {
          
 <div className="card">
   <header className="header_todolist">
-<h2 className="title">Ecole</h2>
-<FaPen className="icon"/>
-<FaTrash className="icon"/>
+      <h2 className="title">Ecole</h2>
+      <FaPen className="icon"/>
+      <FaTrash className="icon"/>
   </header>
 
   <form action="/" method="post" className="form_card" >
@@ -26,7 +26,8 @@ const Todolist= () => {
  <div id="add_card_div">
        <input type="text" id="add_card" name="add_card" placeholder="Nom du nouvel élément"/>
        <IoMdAddCircle className="icon"/>
-   </div>
+  </div>
+  
    </form>
 
 <main className="main_card">

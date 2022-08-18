@@ -3,19 +3,21 @@ import './styles.scss';
 import { Link } from 'react-router-dom';
 
 // == Composant
-function Start() {
-  return (
-    <div className="start">
-          <button className="connection_button">Je me connecte</button>
+const Start = () => {
+	return (
+		<div className="start">
+			<Link to='/login'>
+				<button type='button' className="connection_button">Je me connecte</button>
+			</Link>
           
-      <Link to='/inscription'>
-      <button className="inscription_button">Je m'inscris</button>
-      </Link>
+			<Link to='/inscription'>
+				<button type='button' className="inscription_button">Je m'inscris</button>
+			</Link>
   
    
-    </div>
-  );
-}
+		</div>
+	);
+};
 
 // == Export
 export default Start;

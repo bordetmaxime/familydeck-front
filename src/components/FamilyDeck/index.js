@@ -10,16 +10,19 @@ import Inscription from '../Inscription';
 import Todolists from '../Todolists';
 import Todolist from '../Todolist';
 import Members from '../Members';
-import Member from '../Members/Member';
 
 
 // == Composant
 const FamilyDeck = () => {
+
+// State
+
 	return (
 		<div className="familyDeck">
 
 			<Routes>
 				<Route path="/" element={ <Welcome /> } />
+        <Route path="/login" element={ <Welcome login={'login'} /> } />
 				<Route path="/home" element={ <Home /> } />
         <Route path="/members" element={ <Members /> } />
         <Route path="/member" element={ <Members member={ 'new' } /> } />

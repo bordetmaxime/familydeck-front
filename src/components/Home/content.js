@@ -8,46 +8,47 @@ import { RiCalendarEventFill } from '@react-icons/all-files/ri/RiCalendarEventFi
 import { CgGirl } from '@react-icons/all-files/cg/CgGirl';
 import { GoSettings } from '@react-icons/all-files/go/GoSettings';
 import { ImCross } from '@react-icons/all-files/im/ImCross';
+import { Link } from 'react-router-dom';
 
 // == Composant
-const Content = () => {
+const Content = ({ childId, userId }) => {
 	return (
 		<div className="content">
 
-			<div className='content__button'>
+			<Link to='/members' className='content__button'>
 				<div className='content__icon'>
 					<FaUsersCog />
 				</div>
 				<h3>Ma famille</h3>
-			</div>
+			</Link>
 
-			<div className='content__button'>
+			<Link to='/todolists' className='content__button'>
 				<div className='content__icon'>
 					<GoChecklist />
 				</div>
 				<h3>ToDoLists</h3>
-			</div>
+			</Link>
 
-			<div className='content__button'>
+			<Link to='/events' className='content__button'>
 				<div className='content__icon'>
 					<RiCalendarEventFill />
 				</div>
 				<h3>Evènements</h3>
-			</div>
+			</Link>
 
-			<div className='content__button'>
+			<Link to={ `/member/${ childId }` } className='content__button'>
 				<div className='content__icon'>
 					<CgGirl />
 				</div>
 				<h3>Infos Enfant</h3>
-			</div>
+			</Link>
 
-			<div className='content__button'>
+			<Link to={ `/member/${ userId }` } className='content__button'>
 				<div className='content__icon'>
 					<GoSettings />
 				</div>
 				<h3>Paramètres</h3>
-			</div>
+			</Link>
 
 			<div className='content__button'>
 				<div className='content__icon'>
