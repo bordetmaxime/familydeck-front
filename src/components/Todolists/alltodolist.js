@@ -1,7 +1,7 @@
 // == Import
 import './styles.scss';
-import { BsFillPencilFill } from 'react-icons/bs';
-import { AiOutlineDelete } from 'react-icons/ai';
+import { FaPen } from '@react-icons/all-files/fa/FaPen';
+import { FaTrash } from '@react-icons/all-files/fa/FaTrash';
 
 
 // == Composant
@@ -11,8 +11,8 @@ const AllTodolists = () => {
  <div className="card_alltodolists">
   <header className="header_alltodolists">
 <h2 className="title">Loisirs</h2>
-<BsFillPencilFill className="icon"/>
-<AiOutlineDelete className="icon"/>
+<FaPen className="icon"/>
+<FaTrash className="icon"/>
   </header>
 
 <main className="main_alltodolists">
@@ -29,8 +29,8 @@ const AllTodolists = () => {
 <div className="card_alltodolists">
   <header className="header_alltodolists">
 <h2 className="title">Sandwich</h2>
-<BsFillPencilFill className="icon"/>
-<AiOutlineDelete className="icon"/>
+<FaPen className="icon"/>
+<FaTrash className="icon"/>
   </header>
 
 <main className="main_alltodolists">
@@ -50,8 +50,8 @@ const AllTodolists = () => {
 <div className="card_alltodolists">
   <header className="header_alltodolists">
 <h2 className="title">Ecole</h2>
-<BsFillPencilFill className="icon"/>
-<AiOutlineDelete className="icon"/>
+<FaPen className="icon"/>
+<FaTrash className="icon"/>
   </header>
 
 <main className="main_alltodolists">

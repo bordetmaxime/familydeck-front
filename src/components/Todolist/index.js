@@ -1,7 +1,7 @@
 // == Import
 import './styles.scss';
-import { BsFillPencilFill } from 'react-icons/bs';
-import { AiOutlineDelete } from 'react-icons/ai';
+import { FaPen } from '@react-icons/all-files/fa/FaPen';
+import { FaTrash } from '@react-icons/all-files/fa/FaTrash';
 import { IoMdAddCircle } from 'react-icons/io';
 import Header from '../Header';
 import Nav from '../Nav';
@@ -17,8 +17,8 @@ const Todolist= () => {
 <div className="card">
   <header className="header_todolist">
 <h2 className="title">Ecole</h2>
-<BsFillPencilFill className="icon"/>
-<AiOutlineDelete className="icon"/>
+<FaPen className="icon"/>
+<FaTrash className="icon"/>
   </header>
 
   <form action="/" method="post" className="form_card" >
