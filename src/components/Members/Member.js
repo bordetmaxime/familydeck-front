@@ -72,7 +72,7 @@ const Member = () => {
 
         <div className='member__buttons'>
           <FaPen />
-          <button type='submit'>Valider</button>
+          <button className='member__submit' type='submit'>Valider</button>
           <FaTrash />
         </div>
 

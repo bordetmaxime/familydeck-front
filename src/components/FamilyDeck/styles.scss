@@ -5,3 +5,11 @@
   align-items: flex-start;
   background: linear-gradient( rgba(255,255,255,0.9),rgba(255, 255, 255, 0.7)), center / cover no-repeat url('../../assets/background.jpg') ;
 }
+
+@media screen and (min-width: 1000px) {
+  .familyDeck {
+    position: relative;
+    max-width: 1000px;
+    margin: auto;
+  }
+}

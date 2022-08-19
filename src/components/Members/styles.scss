@@ -33,6 +33,9 @@
 .member {
   flex-grow: 1;
   overflow: auto;
+  display: flex;
+  flex-direction: column;
+  color: vars.$blue;
 
   &__form {
     height: 100%;
@@ -41,6 +44,7 @@
     align-items: center;
     justify-content: space-between;
     padding: 1rem 0;
+    flex-grow: 1;
   }
 
   &__item {
@@ -56,18 +60,22 @@
     & textarea {
       height: 10rem;
     }
+  }
 
+  &__title3 {
+    width: 95%;
   }
 
   &__title2, &__title3 {
     border-bottom: 1px solid vars.$lightgrey;
-    width: 95%;
     text-align: center;
+    padding: 0.5rem;
   }
 
   &__bloc {
     display: flex;
     flex-wrap: wrap;
+    justify-content: space-between;
     width: 95%;
   }
 
@@ -77,6 +85,22 @@
     justify-content: space-between;
     align-items: center;
     padding: 0 2rem;
+    color: vars.$blue;
+  }
+
+  & h4 {
+    color: red;
+  }
+
+  &__submit {
+    background-color:vars.$blue;
+    border-radius:10px; 
+    box-shadow: 0 0 0.5em silver, 0 0 5em silver , 0 0 0.5em silver;
+    border: none;
+    color : white;
+    padding: 10px 30px;
+    margin:10px;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
   }
 
 }
@@ -86,4 +110,32 @@
     align-items: stretch;
   }
 
+@media screen and (min-width: 1000px) {
+  .title-member {
+    font-size: 2rem;
+  }
 
+  .member {
+    width: 75%;
+    margin: auto;
+  
+    &__form {
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1rem 0;
+    }
+
+    &__title2 {
+      font-size: 2rem;
+    }
+
+    &__title3 {
+      font-size: 1.5rem;
+    }
+  }
+
+
+}

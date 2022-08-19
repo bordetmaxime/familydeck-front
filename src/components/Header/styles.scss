@@ -46,3 +46,17 @@
   font-size: 2rem;
   color: vars.$turquoise;
 }
+
+@media screen and (min-width: 1000px) {
+  .header img, .logout-button {
+    width: 10vw;
+  }
+
+  .header h1 {
+    font-size: 3rem;
+  }
+
+  .logout-button {
+    cursor: pointer;
+  }
+}

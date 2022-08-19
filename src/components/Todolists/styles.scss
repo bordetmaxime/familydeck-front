@@ -1,7 +1,7 @@
 @use '../../styles/_vars';
 
 .form_div{
-text-align: center;
+  text-align: center;
 }
 
 .todolist{
@@ -15,12 +15,10 @@ text-align: center;
   display: flex;
   align-items:center;
   justify-content: center;
-
-
 }
 
 #add_card_todo{
-  border-bottom: 1px solid  vars.$blue;
+  border-bottom: 1px solid vars.$blue;
   padding: 10px 0px;
   display: flex;
   justify-content: center;
@@ -37,26 +35,22 @@ text-align: center;
   display: flex;
   flex-direction: column;
   flex-grow:1;
+  overflow: auto;
 }
 
 .card_alltodolists{
   display: flex;
   justify-content: space-between;
   border-bottom:1px  solid vars.$blue;
-  height: 10vw;
   background-color: vars.$lightgrey;
-  
+  flex-direction: column;
   
 }
 .header_alltodolists{
-  width:100%;
   display: flex;
-padding:5px;
-  font-size:5vw;
+  padding:0.5rem;
   border:none;
   align-items: center;
-
-  
 }
 
 .header_alltodolists svg{
@@ -67,16 +61,58 @@ padding:5px;
 .title{
   margin:0px;
   width:100%;
-  font-size:5vw;
-margin-left: 10px;
-color: vars.$blue;
+  font-size:1.3rem;
+  margin-left: 10px;
+  color: vars.$blue;
 }
 
 .main_alltodolists{
   display: none;
 }
 
+@media screen and (min-width: 1000px) {
 
+  #add_card {
+    width: 50%;
+  }
+
+  #add_card_todo{
+    border-bottom: none;
+  }
+
+  .all_card{
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .card_alltodolists{
+    padding: 1rem;
+    background-color: transparent;
+    justify-content: flex-start;
+    border-bottom: none;
+    height: 35vh;
+    width: 30%;
+  }
+
+  .header_alltodolists{
+    background-color: vars.$lightgrey;
+  }
+
+  .main_alltodolists{
+    display: flex;
+    background-color: rgba(255,255,255,0.5);
+    flex-grow: 1;
+    padding: 1rem;
+    color: vars.$blue;
+    flex-direction: column;
+    overflow: auto;
+  }
+
+  .title{
+    font-size:2rem;
+  }
+}
 
 
 

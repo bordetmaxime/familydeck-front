@@ -57,7 +57,11 @@
     & textarea {
       height: 10rem;
     }
+  }
 
+  &__info {
+    color: red;
+    margin: 1rem;
   }
 
   &__buttons {
@@ -66,6 +70,7 @@
     justify-content: space-between;
     align-items: center;
     padding: 0 2rem;
+    color: vars.$blue;
   }
 }
 
@@ -93,3 +98,43 @@ border: none;
 padding : 8px 20px;
 border-radius: 10px;}
 
+
+// FORMAT DESKTOP
+
+@media screen and (min-width: 1000px) {
+  .eventsList {
+    margin-top: 2rem;
+
+    &__item {
+      justify-content: space-around;
+    
+      & h2 {
+        font-size: 2rem;
+      }
+  
+      & h3 {
+        font-size: 1.5rem;
+      }
+    }
+  }
+
+  .addEvent {
+  
+    &__button {
+      cursor: pointer;
+    }
+  }
+
+  .event {
+  
+    &__item {
+      width: 75%;
+    }
+  
+    &__buttons {
+      width: 75%;
+      justify-content: space-around;
+    }
+  }
+  
+}

@@ -9,8 +9,6 @@
   background-color: rgba(255, 255, 255, 0.5);
   border-bottom : 1px solid vars.$lightgrey;
   color: vars.$blue;
- 
-  
 }
 
 .eventsAlert span {
@@ -24,4 +22,16 @@
 .eventsAlert h2 {
   color:  vars.$blue;
   font-size: 1.3rem;
+}
+
+@media screen and (min-width: 1000px) {
+  .eventsAlert {
+    justify-content: space-evenly;
+    border-bottom : none;
+  }
+
+  .eventsAlert h2 {
+    color:  vars.$blue;
+    font-size: 2rem;
+  }
 }

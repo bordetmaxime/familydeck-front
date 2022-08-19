@@ -7,7 +7,6 @@ function Header() {
   return (
     <div className="header_welcome">
       <img src={familyDeckLogo} alt="logo family deck" />
-      <h1>Family Deck</h1>
     </div>
   );
 }

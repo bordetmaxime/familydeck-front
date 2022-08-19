@@ -16,4 +16,10 @@
   margin: 0;
 }
 
-
+@media screen and (min-width: 1000px) {
+  .child, .child select {
+    width: 70%;
+    margin: auto;
+    margin-top: 0.5rem;
+  }
+}

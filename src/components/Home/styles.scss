@@ -51,3 +51,12 @@
 
 }
 
+@media screen and (min-width: 1000px) {
+  .content {
+    border-top: none;
+
+    &__button {
+      cursor: pointer;
+    }
+  }
+}

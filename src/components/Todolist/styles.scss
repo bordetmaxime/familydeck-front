@@ -1,12 +1,14 @@
 @use '../../styles/_vars';
 
-.main_card{visibility: visible;
+.main_card{
 padding:20px;
-height:80vw;
-background-color: vars.$lightgrey;
+height:80%;
+background-color: vars.$lightGrayOpacity;
 border: 2px vars.$grey solid;
 border-radius: 30px;
-margin:30px}
+margin:30px;
+color: vars.$blue;
+}
 
 header{border-bottom: 1px solid vars.$grey;
   border-top: 1px solid vars.$grey;}
@@ -43,3 +45,25 @@ margin:5px;
   margin:10px
 }
 
+@media screen and (min-width: 1000px) {
+  .item_card{
+    padding: 0 15rem;
+
+    & li {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+
+  #add_card_div{
+    border-bottom: none;
+  }
+
+  .header_todolist{
+    background-color: vars.$lightGrayOpacity;
+    display: flex;
+    padding: 0 5rem;
+    align-items: center;
+  }
+}

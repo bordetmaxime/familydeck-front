@@ -1,8 +1,12 @@
-@use 'reset';
+@use '_reset';
 @use '_vars';
 
 body {
   font-family: 'Indie Flower', cursive;
+}
+
+input, textarea {
+  padding: 0.5rem;
 }
 
 input, select {
@@ -10,21 +14,14 @@ input, select {
   height: 2rem;
   margin: 0.5rem;
   border-radius: 0.3rem;
-  padding: 0.5rem;
+  padding: 0 0.5rem;
+}
+
+input, select, textarea {
+  font-family: 'Indie Flower', cursive;
+  font-size: 1rem;
 }
 
 label {
   padding-left: 1rem;
 }
-
-/* 
-  // or you can import your own font
-  @font-face {
-    font-family: 'Roboto';
-    src: url('../assets/fonts/Roboto-Regular.ttf');
-  }
-
-  body {
-    font-family: 'Roboto', sans-serif;
-  }
-*/
