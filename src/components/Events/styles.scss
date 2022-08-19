@@ -1,3 +1,5 @@
+@use '../../styles/_vars';
+
 // Composant Event dans le fichier index.js
 .events {
   display: flex;
@@ -9,13 +11,14 @@
 // Composant EventsList
 .eventsList {
   flex-grow: 1;
+  border-top: 1px vars.$blue solid;
 
   &__item {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 1rem;
-    border-bottom: 1px solid lightgray;
+    border-bottom: 1px solid  vars.$blue;
   
     & h2 {
       font-size: 1.3rem;
@@ -70,5 +73,18 @@
   &__button {
     font-size: 2rem;
     margin: 1rem;
+    color:  vars.$blue;
   }
 }
+
+.event__form input, select, textarea{
+  border : 1px solid  vars.$blue;
+
+}
+
+.event__form button { background-color: vars.$blue;
+color: white;
+border: none;
+padding : 8px 20px;
+border-radius: 10px;}
+

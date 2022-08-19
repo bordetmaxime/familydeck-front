@@ -6,21 +6,18 @@ import Auth from './Auth';
 import './styles.scss';
 
 // == Composant
-function Welcome() {
-let user = false
 
+function Welcome({login}) {
   return (
 
     
     <div className="welcome">
       <Header />
       <Content />
+
+      {login ? <Auth /> : <Start /> }
       
-      if (user) {
-        
-      }
-      <Start />
-      <Auth />
+
     </div>
   );
 }

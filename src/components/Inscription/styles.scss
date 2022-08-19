@@ -1,4 +1,6 @@
-form{width:80%;
+@use '../../styles/_vars';
+
+.form_inscription{width:80%;
   margin: auto;
 }
 
@@ -23,7 +25,7 @@ flex-direction: column;}
   height:2px;
   margin:auto;
   width:90%;
-  background-color: grey;
+  background-color: vars.$grey;
 }
 
 .input-margin{
@@ -36,8 +38,8 @@ input{margin:5px}
 .role_and_date input, select{height:3vh}
 
 h2{
-  font-size: 10vw;
-  color:grey;
+  font-size: 8vw;
+  color:vars.$grey;
   margin:10px
 }
 
@@ -62,6 +64,7 @@ h2{
 .inscription{
   width:100%;
 }
+
 
 
 

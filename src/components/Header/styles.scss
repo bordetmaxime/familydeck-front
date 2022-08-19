@@ -1,14 +1,18 @@
+@use '../../styles/_vars';
+
 .header {
   display: flex;
   align-items: center;
+  background: vars.$lightgrey;
+  background: linear-gradient(180deg, rgba(211,211,211,1) 0%, rgba(252,252,252,1) 100%);
 
   &__appLogo {
     display: flex;
     align-items: center;
     justify-content: center;
     font-size: 3rem;
-    border: 1px solid gray;
-    color: gray;
+    border: 1px solid ;
+    color: vars.$grey;
     border-radius: 50%;
     width: 70px;
     height: 70px;
@@ -27,6 +31,7 @@
 .header h1 {
   text-align: center;
   font-size: 1.5rem;
+  color:vars.$blue;
 }
 
 .header img {
