@@ -1,8 +1,20 @@
 @use 'reset';
-@use 'vars';
+@use '_vars';
 
 body {
   font-family: 'Indie Flower', cursive;
+}
+
+input, select {
+  border: 1px solid vars.$blue;
+  height: 2rem;
+  margin: 0.5rem;
+  border-radius: 0.3rem;
+  padding: 0.5rem;
+}
+
+label {
+  padding-left: 1rem;
 }
 
 /* 

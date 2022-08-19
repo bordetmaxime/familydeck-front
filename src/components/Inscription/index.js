@@ -15,24 +15,24 @@ const Inscription = () => {
 
     <form className="form_inscription" action="/" method="post" >
 
-    <div className="family_name_content" id="inscription_box">
+    <div className="family_name_content inscription_box">
     <label htmlFor="family_name">* Nom de la famille </label>
          <input type="text" id="family_name" name="user_family_name" required/>
     </div>
 
-    <div id="inscription_box">
+    <div className="inscription_box">
     <label htmlFor="name">Nom </label>
-         <input type="text" id="name" name="user_name" placeholder="Prénom"/>
+         <input type="text" id="name" name="user_name" placeholder="Nom"></input>
     </div>
 
-    <div id="inscription_box">
+    <div className="inscription_box">
     <label htmlFor="surname">* Prénom</label>
          <input type="text" id="surname" name="user_surname" placeholder="Prénom" required/>
     </div>
 
-<div id="display_box">
+<div className="display_box">
 
-    <div id="inscription_box" className="role_and_date">
+    <div className="inscription_box role_and_date">
     <label htmlFor="role-select">* Rôle </label>
     <select name="role" id="role-select" required>
 		<option value=""></option>
@@ -43,28 +43,28 @@ const Inscription = () => {
 	</select>
       </div>
 
-    <div id="inscription_box" className="role_and_date">
+    <div className="inscription_box role_and_date">
     <label htmlFor="date">Date de naissance</label>
         <input type="date" id="date" name="user_date" placeholder="Date de naissance"/>
     </div>
 
     </div>
 
-    <div id="inscription_box">
-    <label htmlFor="email" id="center_title">* email</label>
+    <div className="inscription_box">
+    <h3 className="center_title">* email</h3>
     <span className="span_line"></span>
         <input type="email" id="email" name="user_email" placeholder="email" className="input-margin" required/>
         <input type="email" id="validation_email" name="user_validation_email" placeholder="Confirmation email" required/>
     </div>
 
-    <div id="inscription_box" >
-    <label ftmlFor="password" id="center_title">* Password </label>
+    <div className="inscription_box" >
+    <h3 className="center_title">* Password </h3>
     <span className="span_line"></span>
-        <input type="password" id="password" name="user_password" placeholder="password" className="input-margin" required/>
+        <input type="password" id="password" name="user_password" placeholder="Password" className="input-margin" required/>
         <input type="password" id="validation_password" name="user_validation_password" placeholder="Confirmation password" required/>
     </div>
 
-    <p id="center_title" className="text">* Champs obligatoire</p>
+    <p className="center_title text">* Champs obligatoire</p>
 
     <div className="center_button">  
     <button	type="submit"	id="center_title"> Valider</button>

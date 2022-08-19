@@ -1,9 +1,12 @@
-
 @use '../../styles/_vars';
 
-
-.form_inscription{width:80%;
+.form_inscription {
+  width:80%;
   margin: auto;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
 }
 
 .title_principal{
@@ -11,15 +14,15 @@
   text-align:center
 }
 
-#inscription_box{display:flex;
+.inscription_box{display:flex;
   justify-content: center;
 flex-direction: column;}
 
-#center_title{
+.center_title{
   text-align: center;
 }
 
-#display_box{
+.display_box{
   display: flex;
   justify-content: space-around;
 }
@@ -30,16 +33,11 @@ flex-direction: column;}
   background-color: vars.$grey;
 }
 
-.input-margin{
-  margin-top: 5px;
-}
-
-input{margin:5px}
 
 .role_and_date{width:100%;}
 .role_and_date input, select{height:3vh}
 
-h2{
+.title_principal{
   font-size: 8vw;
   color:vars.$grey;
   margin:10px
@@ -53,7 +51,7 @@ h2{
 
 .center_button button{
   border:none;
-  background-color: rgba(128, 0, 128, 0.781);
+  background-color: vars.$blue;
   border-radius:10px;
   padding: 10px 30px;
   color: white
@@ -63,8 +61,11 @@ h2{
 .text{
   color: red
 }
-.inscription{
+.inscription {
   width:100%;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
 }
 
 

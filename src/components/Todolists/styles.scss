@@ -21,11 +21,17 @@ text-align: center;
 
 #add_card_todo{
   border-bottom: 1px solid  vars.$blue;
-  padding: 10px 0px
-
+  padding: 10px 0px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.icon{font-size: 5vw}
+.icon{
+  font-size: 1.5rem;
+  color: vars.$blue;
+  margin-left: 1rem;
+}
 
 .all_card{
   display: flex;
@@ -34,10 +40,11 @@ text-align: center;
 }
 
 .card_alltodolists{
+  display: flex;
+  justify-content: space-between;
   border-bottom:1px  solid vars.$blue;
-  height:100%;
-  height: 7vw;
- background-color: vars.$lightgrey;
+  height: 10vw;
+  background-color: vars.$lightgrey;
   
   
 }
@@ -47,6 +54,7 @@ text-align: center;
 padding:5px;
   font-size:5vw;
   border:none;
+  align-items: center;
 
   
 }
@@ -65,7 +73,7 @@ color: vars.$blue;
 }
 
 .main_alltodolists{
-  visibility: hidden;
+  display: none;
 }
 
 

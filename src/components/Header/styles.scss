@@ -4,7 +4,7 @@
   display: flex;
   align-items: center;
   background: vars.$lightgrey;
-  background: linear-gradient(180deg, rgba(211,211,211,1) 0%, rgba(252,252,252,1) 100%);
+  background: linear-gradient(180deg, rgba(211,211,211,0.5) 0%, rgba(255,255,255,0.5) 100%);
 
   &__appLogo {
     display: flex;
@@ -36,4 +36,13 @@
 
 .header img {
   width: 20vw;
+}
+
+.logout-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 20vw;
+  font-size: 2rem;
+  color: vars.$turquoise;
 }

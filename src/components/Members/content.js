@@ -11,7 +11,7 @@ const Content = () => {
 	return (
 		<div className="content">
 
-      <h2>Gestion de ma famille</h2>
+      <h2 className='title-member'>Gestion de ma famille</h2>
 
 			<div className='content__button'>
 				<div className='content__icon'>

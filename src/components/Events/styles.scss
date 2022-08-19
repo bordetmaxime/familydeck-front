@@ -23,6 +23,11 @@
     & h2 {
       font-size: 1.3rem;
       font-weight: bold;
+      color: vars.$turquoise;
+    }
+
+    & h3 {
+      color: vars.$blue;
     }
   }
 }

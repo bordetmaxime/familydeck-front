@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import './styles.scss';
 
 // == Import Icon
-import { RiCalendarEventFill } from '@react-icons/all-files/ri/RiCalendarEventFill';
+import { BiLogOutCircle } from '@react-icons/all-files/bi/BiLogOutCircle';
 
 // == Composant
 const Header = ({ app }) => {
@@ -14,7 +14,9 @@ const Header = ({ app }) => {
 			<div className='header__hello'>
 				<h1>Bonjour <span>Header</span></h1>
 			</div>
-			{(app === 'events' ? <div className='header__appLogo'><RiCalendarEventFill /></div> : <div></div> )}
+      <div className='logout-button'>
+        <BiLogOutCircle />
+      </div>
 
 		</div>
 	);

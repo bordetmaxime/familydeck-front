@@ -49,13 +49,13 @@ const Content = ({ childId, userId }) => {
 				</div>
 				<h3>Paramètres</h3>
 			</Link>
-
+{/* 
 			<div className='content__button'>
 				<div className='content__icon'>
 					<ImCross />
 				</div>
 				<h3>Déconnexion</h3>
-			</div>
+			</div> */}
 
 		</div>
 	);
