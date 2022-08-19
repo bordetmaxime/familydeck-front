@@ -15,6 +15,7 @@ function Welcome({login}) {
       <Header />
       <Content />
 
+
       {login ? <Auth /> : <Start /> }
       
 

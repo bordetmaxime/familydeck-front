@@ -40,7 +40,7 @@ padding : 15px;
 border-radius: 10px;
 box-shadow: 0 0 0.5em silver, 0 0 5em silver , 0 0 0.5em silver}
 
-.connection_button, {
+.connection_button {
   display: flex;
   justify-content: center;
 
@@ -48,10 +48,8 @@ box-shadow: 0 0 0.5em silver, 0 0 5em silver , 0 0 0.5em silver}
 
 .welcome{
   margin : auto ;
-  
-
-
   }
+
 .welcome button {background-color:vars.$blue;
 border-radius:10px; 
 box-shadow: 0 0 0.5em silver, 0 0 5em silver , 0 0 0.5em silver;
