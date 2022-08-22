@@ -43,7 +43,9 @@ text-align:center;
 border : 2px vars.$blue solid;
 padding : 15px;
 border-radius: 10px;
-box-shadow: 0 0 0.5em silver, 0 0 5em silver , 0 0 0.5em silver}
+box-shadow: 0 0 0.5em silver, 0 0 5em silver , 0 0 0.5em silver;
+background-color: vars.$lightGrayOpacity;
+}
 
 .connection_button {
   display: flex;
@@ -72,5 +74,19 @@ font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif}
 @media screen and (min-width: 1000px) {
   .header_welcome img {
     width: auto;
+  }
+
+  .more-information{
+    display: none;
+  }
+
+  .start{
+    flex-direction: row;
+    justify-content: center;
+  }
+
+  .auth {
+    width: 30%;
+    margin: 10px auto;
   }
 }

@@ -1,7 +1,7 @@
 @use '../../styles/_vars';
 
 .form_inscription {
-  width:80%;
+  width:95%;
   margin: auto;
   flex-grow: 1;
   display: flex;
@@ -38,13 +38,12 @@ flex-direction: column;}
 .role_and_date input, select{height:3vh}
 
 .title_principal{
-  font-size: 8vw;
+  font-size: 1.3rem;
   color:vars.$grey;
   margin:10px
 }
 
 .center_button{
-  margin:15px;
   text-align: center;
 
 }
@@ -69,6 +68,11 @@ flex-direction: column;}
 }
 
 
+@media screen and (min-width: 1000px) {
+  .form_inscription {
+    width:75%;
+  }
+}
 
 
 
