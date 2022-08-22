@@ -2,6 +2,7 @@
 import './styles.scss';
 import { FaUsersCog } from 'react-icons/fa';
 import Header from './Header';
+import PropTypes from 'prop-types';
 
 // == Composant
 const Inscription = ({ familyName, setFamilyName ,lastname ,setLastName ,firstname,setFirstname,roleId,setRoleId,dateBirth,setDateBirth,email ,setEmail,confirmEmail,setconfirmEmail,password,setPassword,confirmPassword,setConfirmPassword, inscriptionSubmit }) => {
@@ -26,7 +27,7 @@ const Inscription = ({ familyName, setFamilyName ,lastname ,setLastName ,firstna
 				break;
 
 			case 'roleId':
-        const role = Number(event.target.value);
+				const role = Number(event.target.value);
 				setRoleId(role);
 				break;
 
@@ -77,24 +78,24 @@ const Inscription = ({ familyName, setFamilyName ,lastname ,setLastName ,firstna
 
 				<div className="family_name_content inscription_box">
 					<label htmlFor="family_name">* Nom de la famille </label>
-					<input type="text" id="family_name" name="familyName" required onChange={ inputValue }/>
+					<input type="text" value={ familyName } id="family_name" name="familyName" required onChange={ inputValue }/>
 				</div>
 
 				<div className="inscription_box">
-					<label htmlFor="name">Nom </label>
-					<input type="text" id="name" name="lastname" placeholder="Nom" onChange={ inputValue }></input>
+					<label htmlFor="name">* Nom </label>
+					<input type="text" value={ lastname } id="name" name="lastname" placeholder="Nom" onChange={ inputValue }></input>
 				</div>
 
 				<div className="inscription_box">
 					<label htmlFor="surname">* Prénom</label>
-					<input type="text" id="surname" name="firstname" placeholder="Prénom" required onChange={ inputValue }/>
+					<input type="text" value={ firstname } id="surname" name="firstname" placeholder="Prénom" required onChange={ inputValue }/>
 				</div>
 
 				<div className="display_box">
 
 					<div className="inscription_box role_and_date">
 						<label htmlFor="role-select">* Rôle </label>
-						<select name="roleId" id="role-select" required onChange={ inputValue }>
+						<select name="roleId" value={ roleId } id="role-select" required onChange={ inputValue }>
 							<option value=""></option>
 							<option value="1">Père</option>
 							<option value="2">Mère</option>
@@ -104,7 +105,7 @@ const Inscription = ({ familyName, setFamilyName ,lastname ,setLastName ,firstna
 
 					<div className="inscription_box role_and_date">
 						<label htmlFor="date">* Date de naissance</label>
-						<input type="text" id="date" name="dateBirth" placeholder="25/12/1900" required onChange={ inputValue }/>
+						<input type="text" value={ dateBirth } id="date" name="dateBirth" placeholder="25/12/1900" required onChange={ inputValue }/>
 					</div>
 
 				</div>
@@ -112,15 +113,15 @@ const Inscription = ({ familyName, setFamilyName ,lastname ,setLastName ,firstna
 				<div className="inscription_box">
 					<h3 className="center_title">* email</h3>
 					<span className="span_line"></span>
-					<input type="email" id="email" name="email" placeholder="email" className="input-margin" required onChange={ inputValue }/>
-					<input type="email" id="validation_email" name="confirmEmail" placeholder="Confirmation email" required onChange={ inputValue }/>
+					<input type="email" value={ email } id="email" name="email" placeholder="email" className="input-margin" required onChange={ inputValue }/>
+					<input type="email" value={ confirmEmail } id="validation_email" name="confirmEmail" placeholder="Confirmation email" required onChange={ inputValue }/>
 				</div>
 
 				<div className="inscription_box" >
 					<h3 className="center_title">* Password </h3>
 					<span className="span_line"></span>
-					<input type="password" id="password" name="password" placeholder="Password" className="input-margin" required onChange={ inputValue }/>
-					<input type="password" id="validation_password" name="confirmPassword" placeholder="Confirmation password" required onChange={ inputValue }/>
+					<input type="password" value={ password } id="password" name="password" placeholder="Password" className="input-margin" required onChange={ inputValue }/>
+					<input type="password" value={ confirmPassword } id="validation_password" name="confirmPassword" placeholder="Confirmation password" required onChange={ inputValue }/>
 				</div>
 
 				<p className="center_title text">* Champs obligatoire</p>
@@ -136,3 +137,27 @@ const Inscription = ({ familyName, setFamilyName ,lastname ,setLastName ,firstna
 
 // == Export
 export default Inscription;
+
+Inscription.propTypes = {
+	familyName: PropTypes.string,
+	setFamilyName: PropTypes.func, 
+	lastname: PropTypes.string,
+	setLastName: PropTypes.func,
+	firstname: PropTypes.string,
+	setFirstname: PropTypes.func,  
+	roleId: PropTypes.number,
+	setRoleId: PropTypes.func,
+	dateBirth: PropTypes.string,
+	setDateBirth: PropTypes.func,
+	email: PropTypes.string, 
+	setEmail: PropTypes.func,
+	confirmEmail: PropTypes.string,
+	setconfirmEmail: PropTypes.func,
+	password: PropTypes.string,
+	setPassword: PropTypes.func,
+	confirmPassword: PropTypes.string,
+	setConfirmPassword: PropTypes.func,
+	inscriptionSubmit: PropTypes.func,
+};
+
+  
