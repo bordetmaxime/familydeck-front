@@ -71,6 +71,18 @@ font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif}
   color :  vars.$blue;
 }
 
+.message {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.message h2 {
+  color: green;
+  font-size: 1.3rem;
+  padding: 1rem;
+}
+
 @media screen and (min-width: 1000px) {
   .header_welcome img {
     width: auto;

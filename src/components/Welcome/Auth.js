@@ -39,7 +39,7 @@ export default Auth;
 Auth.propTypes = {
 	userName: PropTypes.string,
 	password: PropTypes.string.isRequired,
-  setUserName: PropTypes.func,
-  setPassword: PropTypes.func,
-  loginSubmit: PropTypes.func,
+	setUserName: PropTypes.func,
+	setPassword: PropTypes.func,
+	loginSubmit: PropTypes.func,
 };

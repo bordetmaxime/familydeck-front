@@ -145,7 +145,7 @@ Inscription.propTypes = {
 	setLastName: PropTypes.func,
 	firstname: PropTypes.string,
 	setFirstname: PropTypes.func,  
-	roleId: PropTypes.number,
+	roleId: PropTypes.string,
 	setRoleId: PropTypes.func,
 	dateBirth: PropTypes.string,
 	setDateBirth: PropTypes.func,

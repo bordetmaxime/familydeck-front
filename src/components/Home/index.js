@@ -12,15 +12,14 @@ import Content from './content';
 // == Composant
 const Home = ({ childId, firstname }) => {
 
-console.log('HOME====>', firstname);
 
 	return (
 		<div className="home">
 			<Header firstname={ firstname } />
-      <EventsAlert />
-      <ChildsSelect />
-      <Content childId={'3'} />
-      <Nav />
+			<EventsAlert />
+			<ChildsSelect />
+			<Content childId={ '3' } />
+			<Nav />
 		</div>
 	);
 };
