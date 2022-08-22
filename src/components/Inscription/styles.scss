@@ -1,5 +1,13 @@
 @use '../../styles/_vars';
 
+.header_inscription img {
+  width: 200px;
+}
+
+.header_inscription {
+  margin: 0 auto
+}
+
 .form_inscription {
   width:95%;
   margin: auto;

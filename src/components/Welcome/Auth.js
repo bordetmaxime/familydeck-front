@@ -1,6 +1,7 @@
 // == Import
 import './styles.scss';
 import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 // == Composant
 const Auth = ({ userName, setUserName, password, setPassword, loginSubmit }) => {
@@ -9,19 +10,20 @@ const Auth = ({ userName, setUserName, password, setPassword, loginSubmit }) => 
 	const inputValue = (event) => {
 
 		if (event.target.name === 'userName') {
-      setUserName(event.target.value);
+			setUserName(event.target.value);
 
 		} else {
-      setPassword(event.target.value);
+			setPassword(event.target.value);
 		}
 	}; 
+
 
 	return (
 		<form className="auth" onSubmit={ loginSubmit }>
 			<input type="text" id="login" name="userName" placeholder="Login" value={ userName } onChange={ inputValue } />
 			<input type="password" id="user_password" name="password" placeholder="Password" value={ password } onChange={ inputValue }/>
 
-				<button type='submit'>Je me connecte</button>
+			<button type='submit'>Je me connecte</button>
 
 			<Link to='/inscription'>
 				<p>Pas de compte ? <span>je m'inscris!</span></p>
@@ -33,3 +35,11 @@ const Auth = ({ userName, setUserName, password, setPassword, loginSubmit }) => 
 
 // == Export
 export default Auth;
+
+Auth.propTypes = {
+	userName: PropTypes.string,
+	password: PropTypes.string.isRequired,
+  setUserName: PropTypes.func,
+  setPassword: PropTypes.func,
+  loginSubmit: PropTypes.func,
+};

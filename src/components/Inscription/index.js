@@ -1,77 +1,136 @@
 // == Import
 import './styles.scss';
 import { FaUsersCog } from 'react-icons/fa';
-import Header from '../Header';
+import Header from './Header';
 
 // == Composant
-const Inscription = () => {
+const Inscription = ({ familyName, setFamilyName ,lastname ,setLastName ,firstname,setFirstname,roleId,setRoleId,dateBirth,setDateBirth,email ,setEmail,confirmEmail,setconfirmEmail,password,setPassword,confirmPassword,setConfirmPassword, inscriptionSubmit }) => {
+
+	// Fonction d'enregistrement des valeurs des inputs
+	const inputValue = (event) => {
+
+		console.log(event.target.name);
+
+		switch (event.target.name) {
+
+			case 'familyName':
+				setFamilyName(event.target.value);
+				break;
+      
+			case 'lastname':
+				setLastName(event.target.value);
+				break;
+      
+			case 'firstname':
+				setFirstname(event.target.value);
+				break;
+
+			case 'roleId':
+        const role = Number(event.target.value);
+				setRoleId(role);
+				break;
+
+			case 'dateBirth':
+				setDateBirth(event.target.value);
+				break;
+
+			case 'email':
+				setEmail(event.target.value);
+				break;
+
+			case 'confirmEmail':
+				setconfirmEmail(event.target.value);
+				break;
+      
+			case 'password':
+				setPassword(event.target.value);
+				break;
+
+			case 'confirmPassword':
+				setConfirmPassword(event.target.value);
+				break;
+      
+			default:
+				console.log('Error nputValue du formulaire d\'enregistrement');
+		}
+
+
+		// if (event.target.name === 'familyName') {
+		// 	setFamilyName(event.target.value);
+    
+
+		// } else {
+		// 	setPassword(event.target.value);
+		// }
+	};  
+
+
 	return (
 
-	<div className="inscription">
+		<div className="inscription">
 
-   	<Header />
+			<Header />
 
-     <h2 className="title_principal">Inscription</h2> 
+			<h2 className="title_principal">Inscription</h2> 
 
-    <form className="form_inscription" action="/" method="post" >
+			<form className="form_inscription" onSubmit={ inscriptionSubmit } >
 
-    <div className="family_name_content inscription_box">
-    <label htmlFor="family_name">* Nom de la famille </label>
-         <input type="text" id="family_name" name="user_family_name" required/>
-    </div>
+				<div className="family_name_content inscription_box">
+					<label htmlFor="family_name">* Nom de la famille </label>
+					<input type="text" id="family_name" name="familyName" required onChange={ inputValue }/>
+				</div>
 
-    <div className="inscription_box">
-    <label htmlFor="name">Nom </label>
-         <input type="text" id="name" name="user_name" placeholder="Nom"></input>
-    </div>
+				<div className="inscription_box">
+					<label htmlFor="name">Nom </label>
+					<input type="text" id="name" name="lastname" placeholder="Nom" onChange={ inputValue }></input>
+				</div>
 
-    <div className="inscription_box">
-    <label htmlFor="surname">* Prénom</label>
-         <input type="text" id="surname" name="user_surname" placeholder="Prénom" required/>
-    </div>
+				<div className="inscription_box">
+					<label htmlFor="surname">* Prénom</label>
+					<input type="text" id="surname" name="firstname" placeholder="Prénom" required onChange={ inputValue }/>
+				</div>
 
-<div className="display_box">
+				<div className="display_box">
 
-    <div className="inscription_box role_and_date">
-    <label htmlFor="role-select">* Rôle </label>
-    <select name="role" id="role-select" required>
-		<option value=""></option>
-		<option value="père">Père</option>
-		<option value="mère">Mère</option>
-        <option value="fils">Fils</option>
-        <option value="fille">Fille</option>
-	</select>
-      </div>
+					<div className="inscription_box role_and_date">
+						<label htmlFor="role-select">* Rôle </label>
+						<select name="roleId" id="role-select" required onChange={ inputValue }>
+							<option value=""></option>
+							<option value="1">Père</option>
+							<option value="2">Mère</option>
+							<option value="3">Enfant</option>
+						</select>
+					</div>
 
-    <div className="inscription_box role_and_date">
-    <label htmlFor="date">Date de naissance</label>
-        <input type="date" id="date" name="user_date" placeholder="Date de naissance"/>
-    </div>
+					<div className="inscription_box role_and_date">
+						<label htmlFor="date">* Date de naissance</label>
+						<input type="text" id="date" name="dateBirth" placeholder="25/12/1900" required onChange={ inputValue }/>
+					</div>
 
-    </div>
+				</div>
 
-    <div className="inscription_box">
-    <h3 className="center_title">* email</h3>
-    <span className="span_line"></span>
-        <input type="email" id="email" name="user_email" placeholder="email" className="input-margin" required/>
-        <input type="email" id="validation_email" name="user_validation_email" placeholder="Confirmation email" required/>
-    </div>
+				<div className="inscription_box">
+					<h3 className="center_title">* email</h3>
+					<span className="span_line"></span>
+					<input type="email" id="email" name="email" placeholder="email" className="input-margin" required onChange={ inputValue }/>
+					<input type="email" id="validation_email" name="confirmEmail" placeholder="Confirmation email" required onChange={ inputValue }/>
+				</div>
 
-    <div className="inscription_box" >
-    <h3 className="center_title">* Password </h3>
-    <span className="span_line"></span>
-        <input type="password" id="password" name="user_password" placeholder="Password" className="input-margin" required/>
-        <input type="password" id="validation_password" name="user_validation_password" placeholder="Confirmation password" required/>
-    </div>
+				<div className="inscription_box" >
+					<h3 className="center_title">* Password </h3>
+					<span className="span_line"></span>
+					<input type="password" id="password" name="password" placeholder="Password" className="input-margin" required onChange={ inputValue }/>
+					<input type="password" id="validation_password" name="confirmPassword" placeholder="Confirmation password" required onChange={ inputValue }/>
+				</div>
 
-    <p className="center_title text">* Champs obligatoire</p>
+				<p className="center_title text">* Champs obligatoire</p>
 
-    <div className="center_button">  
-    <button	type="submit"	id="center_title"> Valider</button>
-     </div>
+				<div className="center_button">  
+					<button	type="submit"	id="center_title"> Valider</button>
+				</div>
 
-  </form>
-  </div>
+			</form>
+		</div>
 	);
 };
 

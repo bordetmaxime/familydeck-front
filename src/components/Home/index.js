@@ -1,9 +1,12 @@
 // == Import
+import './styles.scss';
+import PropTypes from 'prop-types';
+
+// == Import composants
 import ChildsSelect from '../ChildsSelect';
 import EventsAlert from '../EventsAlert';
 import Header from '../Header';
 import Nav from '../Nav';
-import './styles.scss';
 import Content from './content';
 
 // == Composant
@@ -24,3 +27,8 @@ console.log('HOME====>', firstname);
 
 // == Export
 export default Home;
+
+Home.propTypes = {
+	childId: PropTypes.string,
+	firstname: PropTypes.string.isRequired,
+};

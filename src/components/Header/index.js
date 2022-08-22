@@ -9,16 +9,16 @@ import { BiLogOutCircle } from '@react-icons/all-files/bi/BiLogOutCircle';
 // == Composant
 const Header = ({ app, firstname }) => {
 
-  console.log('HEADER====>',firstname);
+
 	return (
 		<div className="header">
 			<img src={ familyDeckLogo } alt="logo family deck" />
 			<div className='header__hello'>
 				<h1>Bonjour <span>{firstname}</span></h1>
 			</div>
-      <div className='logout-button'>
-        <BiLogOutCircle />
-      </div>
+			<div className='logout-button'>
+				<BiLogOutCircle />
+			</div>
 
 		</div>
 	);
@@ -29,4 +29,5 @@ export default Header;
 
 Header.propTypes = {
 	app: PropTypes.string,
+	firstname: PropTypes.string.isRequired,
 };
