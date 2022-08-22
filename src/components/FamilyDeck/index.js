@@ -1,5 +1,6 @@
 // == Import
 import { Route, Routes } from 'react-router';
+import { useNavigate } from 'react-router-dom';
 import './styles.scss';
 
 // == Import composant
@@ -18,9 +19,12 @@ import { useEffect, useState } from 'react';
 const FamilyDeck = () => {
 
 	// State
-	const [ userName, setUserName ] = useState('homer@free.fr');
-	const [ password, setPassword ] = useState('donut');
+  const navigate = useNavigate();
+	const [ userName, setUserName ] = useState('');
+  const [ firstname, setFirstname ] = useState('');
+	const [ password, setPassword ] = useState('');
   const [ token, setToken ] = useState('');
+  const [ loggedIn, setLoggedIn ] = useState(false);
 
 	// TEST CONNEXION
 
@@ -61,25 +65,44 @@ const FamilyDeck = () => {
 			userName,
 			password,
 		}).then(response => {
-			// setCategories(response.data);
-			console.log(response);
+			console.log(response.data.member.firstname);
+      setToken(response.data.token.token);
+      setFirstname(response.data.member.firstname);
+      setLoggedIn(true);
+      navigate('/home');
 		})
 		// Cas d'erreur
 			.catch(console.error);
 
 	};
 
+  const loginSubmit = (event) => {
+    event.preventDefault();
+    login();
+    console.log("bien joué!");
+  };
+
 	useEffect(() => {
-		login();
-	}, []);
+		// login();
+    console.log(userName);
+    console.log(password);
+    console.log(firstname);
+
+    console.log(token);
+    // if ( loggedIn ) {
+    //   navigate('/home');
+    // }
+	}, [token]);
 
 	return (
 		<div className="familyDeck">
 
 			<Routes>
 				<Route path="/" element={ <Welcome /> } />
-				<Route path="/login" element={ <Welcome login={ 'login' } /> } />
-				<Route path="/home" element={ <Home /> } />
+
+				<Route path="/login" element={ <Welcome login={ 'login' } userName={ userName} setUserName={ setUserName } password={password} setPassword={ setPassword } loginSubmit={ loginSubmit } /> } />
+				
+        <Route path="/home" element={ <Home firstname={ firstname } /> } />
 				<Route path="/members" element={ <Members /> } />
 				<Route path="/member" element={ <Members member={ 'new' } /> } />
 				<Route path="/member/:id" element={ <Members member={ 'memberId' }/> } />

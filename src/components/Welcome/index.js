@@ -4,24 +4,27 @@ import Header from './Header';
 import Start from './Start';
 import Auth from './Auth';
 import './styles.scss';
+import { useEffect } from 'react';
 
 // == Composant
 
-function Welcome({login}) {
-  return (
+const Welcome = ({ login, userName, setUserName, password, setPassword, loginSubmit }) => {
+
+
+	return (
 
     
-    <div className="welcome">
-      <Header />
-      <Content />
+		<div className="welcome">
+			<Header userName={ userName } />
+			<Content />
 
 
-      {login ? <Auth /> : <Start /> }
+			{login ? <Auth userName={ userName} setUserName={ setUserName } password={password} setPassword={ setPassword } loginSubmit={ loginSubmit } /> : <Start /> }
       
 
-    </div>
-  );
-}
+		</div>
+	);
+};
 
 // == Export
 export default Welcome;

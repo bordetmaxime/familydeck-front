@@ -7,10 +7,13 @@ import './styles.scss';
 import Content from './content';
 
 // == Composant
-const Home = ({ childId }) => {
+const Home = ({ childId, firstname }) => {
+
+console.log('HOME====>', firstname);
+
 	return (
 		<div className="home">
-			<Header />
+			<Header firstname={ firstname } />
       <EventsAlert />
       <ChildsSelect />
       <Content childId={'3'} />

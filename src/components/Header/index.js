@@ -7,12 +7,14 @@ import './styles.scss';
 import { BiLogOutCircle } from '@react-icons/all-files/bi/BiLogOutCircle';
 
 // == Composant
-const Header = ({ app }) => {
+const Header = ({ app, firstname }) => {
+
+  console.log('HEADER====>',firstname);
 	return (
 		<div className="header">
 			<img src={ familyDeckLogo } alt="logo family deck" />
 			<div className='header__hello'>
-				<h1>Bonjour <span>Header</span></h1>
+				<h1>Bonjour <span>{firstname}</span></h1>
 			</div>
       <div className='logout-button'>
         <BiLogOutCircle />
