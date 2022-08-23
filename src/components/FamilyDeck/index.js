@@ -13,13 +13,18 @@ import Inscription from '../Inscription';
 import Todolists from '../Todolists';
 import Todolist from '../Todolist';
 import Members from '../Members';
+import NotFound from '../NotFound';
+import NotAutorized from '../NotFound/NotAutorized';
 
 
 // == Composant
 const FamilyDeck = () => {
 
-	// State USER
+	// Hook React
 	const navigate = useNavigate();
+
+	// State USER
+
 	const [ familyName, setFamilyName ] = useState('');
 	const [ userName, setUserName ] = useState('');
 	const [ lastname, setLastName ] = useState('');
@@ -99,53 +104,70 @@ const FamilyDeck = () => {
 
 	return (
 		<div className="familyDeck">
+      {/* Routes autorisées si le user est connecté (loggedIn === true) */}
+			{
+				loggedIn && 
+          <Routes>
+          	<Route path="/home" element={ <Home firstname={ firstname } /> } />
+          	<Route path="/members" element={ <Members /> } />
+          	<Route path="/member" element={ <Members member={ 'new' } /> } />
+          	<Route path="/member/:id" element={ <Members member={ 'memberId' }/> } />
+          	<Route path="/events" element={ <Events /> } />
+          	<Route path="/event/:id" element={ <Events event={ 'event' } /> } />
+          	<Route path="/todolists" element={ <Todolists /> } />
+          	<Route path="/todolist/5" element={ <Todolist /> } />
+          	<Route path="*" element={ <NotFound /> } />
+          </Routes>
+			}
+      {/* Routes autorisées si le user n'est pas connecté (loggedIn === false) */}
+			{
+				!loggedIn && 
+          <Routes>
+          	<Route path="/" element={ <Welcome /> } />
+          	<Route path="/login" element={ 
+          		<Welcome 
+          			login={ 'login' }
+          			userName={ userName }
+          			setUserName={ setUserName }
+          			password={ password }
+          			setPassword={ setPassword }
+          			loginSubmit={ loginSubmit }
+          			createMsg={ createMsg }
+          		/> } />
+          	<Route path="/inscription" element={
+          		<Inscription 
+          			familyName={ familyName } 
+          			setFamilyName={ setFamilyName } 
+          			lastname={ lastname } 
+          			setLastName={ setLastName } 
+          			firstname={ firstname } 
+          			setFirstname={ setFirstname }  
+          			roleId={ roleId } 
+          			setRoleId= { setRoleId }
+          			dateBirth={ dateBirth } 
+          			setDateBirth={ setDateBirth }
+          			email={ email } 
+          			setEmail={ setEmail }
+          			confirmEmail={ confirmEmail } 
+          			setconfirmEmail={ setconfirmEmail }
+          			password={ password } 
+          			setPassword={ setPassword }
+          			confirmPassword={ confirmPassword } 
+          			setConfirmPassword={ setConfirmPassword }
+          			inscriptionSubmit={ inscriptionSubmit }
+          		/> } />
+          	<Route path="/home" element={ <NotAutorized /> } />
+          	<Route path="/members" element={ <NotAutorized /> } />
+          	<Route path="/member" element={ <NotAutorized /> } />
+          	<Route path="/member/:id" element={ <NotAutorized /> } />
+          	<Route path="/events" element={ <NotAutorized /> } />
+          	<Route path="/event/:id" element={ <NotAutorized /> } />
+          	<Route path="/todolists" element={ <NotAutorized /> } />
+          	<Route path="/todolist/5" element={ <NotAutorized /> } />        
+          	<Route path="*" element={ <NotFound /> } />
+          </Routes>
 
-			<Routes>
-				<Route path="/" element={ <Welcome /> } />
-
-				<Route path="/login" element={ 
-					<Welcome 
-						login={ 'login' } 
-						userName={ userName } 
-						setUserName={ setUserName } 
-						password={ password } 
-						setPassword={ setPassword } 
-						loginSubmit={ loginSubmit } 
-						createMsg={ createMsg }
-					/> } />
-				
-				<Route path="/home" element={ <Home firstname={ firstname } /> } />
-				<Route path="/members" element={ <Members /> } />
-				<Route path="/member" element={ <Members member={ 'new' } /> } />
-				<Route path="/member/:id" element={ <Members member={ 'memberId' }/> } />
-				<Route path="/events" element={ <Events /> } />
-				<Route path="/event/:id" element={ <Events event={ 'event' } /> } />
-				<Route path="/inscription" element={
-					<Inscription 
-						familyName={ familyName } 
-						setFamilyName={ setFamilyName } 
-						lastname={ lastname } 
-						setLastName={ setLastName } 
-						firstname={ firstname } 
-						setFirstname={ setFirstname }  
-						roleId={ roleId } 
-						setRoleId= { setRoleId }
-						dateBirth={ dateBirth } 
-						setDateBirth={ setDateBirth }
-						email={ email } 
-						setEmail={ setEmail }
-						confirmEmail={ confirmEmail } 
-						setconfirmEmail={ setconfirmEmail }
-						password={ password } 
-						setPassword={ setPassword }
-						confirmPassword={ confirmPassword } 
-						setConfirmPassword={ setConfirmPassword }
-						inscriptionSubmit={ inscriptionSubmit }
-					/> } />
-				<Route path="/todolists" element={ <Todolists /> } />
-				<Route path="/todolist/5" element={ <Todolist /> } />
-
-			</Routes>	
+			}
 
 		</div>
 	);
