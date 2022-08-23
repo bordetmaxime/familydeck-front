@@ -2,7 +2,7 @@
 import familyDeckLogo from '../../assets/logo.png';
 import './styles.scss';
 
-// == Composant
+// == Composant Header de la page d'accueil
 const Header = () => {
 	return (
 		<div className="header_welcome">

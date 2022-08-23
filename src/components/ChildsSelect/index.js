@@ -1,7 +1,7 @@
 // == Import
 import './styles.scss';
 
-// == Composant
+// == Composant de selection de l'enfant
 const ChildsSelect = () => {
 	return (
 		<div className="child">

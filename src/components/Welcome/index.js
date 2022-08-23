@@ -9,13 +9,12 @@ import Start from './Start';
 import Auth from './Auth';
 import Message from './Message';
 
-// == Composant
+// == Composant structure de la page Welcome
 
 const Welcome = ({ login, userName, setUserName, password, setPassword, loginSubmit, createMsg }) => {
 
 
 	return (
-
     
 		<div className="welcome">
 			<Header userName={ userName } />
@@ -23,7 +22,6 @@ const Welcome = ({ login, userName, setUserName, password, setPassword, loginSub
 			{ createMsg ? <Message createMsg={ createMsg } /> : ''}
 
 			{login ? <Auth userName={ userName } setUserName={ setUserName } password={ password } setPassword={ setPassword } loginSubmit={ loginSubmit } createMsg={ createMsg } /> : <Start /> }
-      
 
 		</div>
 	);

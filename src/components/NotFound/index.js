@@ -1,7 +1,7 @@
 // == Import
 import './styles.scss';
 
-// == Composant
+// == Composant page 404
 const NotFound = () => <div className="not-found">404</div>;
 
 // == Export

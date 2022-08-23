@@ -11,7 +11,7 @@ import Header from '../Header';
 import Nav from '../Nav';
 import AddEvent from './AddEvent';
 
-// == Composant
+// == Composant Evenements
 const Events = ({ event }) => {
 	return (
 		<div className="events">

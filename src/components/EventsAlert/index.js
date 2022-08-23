@@ -1,7 +1,7 @@
 // == Import
 import './styles.scss';
 
-// == Composant
+// == Composant d'alerte du prochain evenement de la page home
 const EventsAlert = () => {
 	return (
 		<div className="eventsAlert">

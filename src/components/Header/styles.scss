@@ -47,6 +47,7 @@
   color: vars.$turquoise;
 }
 
+// BreakPoint pour la mise en forme de la version desktop
 @media screen and (min-width: 1000px) {
   .header img, .logout-button {
     width: 10vw;

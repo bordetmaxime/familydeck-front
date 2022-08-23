@@ -2,7 +2,7 @@
 import { Link } from 'react-router-dom';
 import './styles.scss';
 
-// == Composant
+// == Composant listing des evenements
 const EventsList = () => {
 	return (
 		<div className="eventsList">

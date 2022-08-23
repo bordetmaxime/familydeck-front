@@ -1,5 +1,6 @@
 @use '../../styles/_vars';
 
+// Composant home
 .home {
   height: 100vh;
   display: flex;
@@ -7,6 +8,7 @@
   width:100%
 }
 
+// Composant content
 .content {
 
   display: flex;
@@ -51,6 +53,7 @@
 
 }
 
+// BreakPoint pour la mise en forme de la version desktop
 @media screen and (min-width: 1000px) {
   .content {
     border-top: none;

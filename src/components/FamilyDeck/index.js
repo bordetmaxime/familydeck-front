@@ -17,7 +17,7 @@ import NotFound from '../NotFound';
 import NotAutorized from '../NotFound/NotAutorized';
 
 
-// == Composant
+// == Composant principal de l'app
 const FamilyDeck = () => {
 
 	// Hook React
@@ -48,7 +48,7 @@ const FamilyDeck = () => {
 	};
 
 	const register = async () => {
-		await axios.post('http://family-deck-back.herokuapp.com/api/user/register', {
+		await axios.post('https://family-deck-back.herokuapp.com/api/user/register', {
 			familyName,
 			lastname,
 			firstname,
@@ -78,48 +78,60 @@ const FamilyDeck = () => {
 	};
 
 	const login = async () => {
-		await axios.post('http://family-deck-back.herokuapp.com/api/user/auth', {
+		await axios.post('https://family-deck-back.herokuapp.com/api/user/auth', {
 			userName,
 			password,
+
 		}).then(response => {
-			console.log(response.data.member.firstname);
+
 			setToken(response.data.token.token);
 			setFirstname(response.data.member.firstname);
 			setLoggedIn(true);
+			setPassword('');
 			navigate('/home');
 		})
 		// Cas d'erreur
 			.catch(console.error);
 	};
 
+	// Déconnexion du user
+
+	const logout = () => {
+		setToken('');
+		setUserName('');
+		setLoggedIn(false);
+		navigate('/login');
+	};
+
 	// USE EFFECT
 
-	useEffect(() => {
-		console.log(userName);
-		console.log(password);
-		console.log(firstname);
-		console.log(token);
-	}, [ token ]);
+	// useEffect(() => {
+	// 	console.log(userName);
+	// 	console.log(password);
+	// 	console.log(firstname);
+	// 	console.log(token);
+	// }, [ token ]);
   
 
 	return (
 		<div className="familyDeck">
-      {/* Routes autorisées si le user est connecté (loggedIn === true) */}
+			{/* Routes autorisées si le user est connecté (loggedIn === true) */}
 			{
 				loggedIn && 
           <Routes>
-          	<Route path="/home" element={ <Home firstname={ firstname } /> } />
-          	<Route path="/members" element={ <Members /> } />
-          	<Route path="/member" element={ <Members member={ 'new' } /> } />
-          	<Route path="/member/:id" element={ <Members member={ 'memberId' }/> } />
-          	<Route path="/events" element={ <Events /> } />
-          	<Route path="/event/:id" element={ <Events event={ 'event' } /> } />
-          	<Route path="/todolists" element={ <Todolists /> } />
-          	<Route path="/todolist/5" element={ <Todolist /> } />
+          	<Route path="/home" element={ <Home firstname={ firstname } logout={ logout } /> } />
+          	<Route path="/members" element={ <Members firstname={ firstname } /> } />
+          	<Route path="/member" element={ <Members member={ 'new' } firstname={ firstname } /> } />
+            <Route path="/member/:id/modify" element={ <Members member={ 'modify' } firstname={ firstname } /> } />
+          	<Route path="/member/:id" element={ <Members member={ 'memberId' } firstname={ firstname } /> } />
+          	<Route path="/events" element={ <Events firstname={ firstname } /> } />
+          	<Route path="/event/:id" element={ <Events event={ 'event' } firstname={ firstname } /> } />
+          	<Route path="/todolists" element={ <Todolists firstname={ firstname } /> } />
+          	<Route path="/todolist/5" element={ <Todolist firstname={ firstname } /> } />
           	<Route path="*" element={ <NotFound /> } />
           </Routes>
 			}
-      {/* Routes autorisées si le user n'est pas connecté (loggedIn === false) */}
+			{/* Routes autorisées si le user n'est pas connecté (loggedIn === false) */}
 			{
 				!loggedIn && 
           <Routes>

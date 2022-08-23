@@ -6,6 +6,7 @@
   background: linear-gradient( rgba(255,255,255,0.9),rgba(255, 255, 255, 0.7)), center / cover no-repeat url('../../assets/background.jpg') ;
 }
 
+// BreakPoint pour la mise en forme de la version desktop
 @media screen and (min-width: 1000px) {
   .familyDeck {
     max-width: 1000px;

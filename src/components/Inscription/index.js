@@ -1,16 +1,16 @@
 // == Import
 import './styles.scss';
-import { FaUsersCog } from 'react-icons/fa';
-import Header from './Header';
 import PropTypes from 'prop-types';
 
-// == Composant
+// == Import composants
+import Header from './Header';
+
+// == Composant structure de la page Inscription
 const Inscription = ({ familyName, setFamilyName ,lastname ,setLastName ,firstname,setFirstname,roleId,setRoleId,dateBirth,setDateBirth,email ,setEmail,confirmEmail,setconfirmEmail,password,setPassword,confirmPassword,setConfirmPassword, inscriptionSubmit }) => {
 
 	// Fonction d'enregistrement des valeurs des inputs
 	const inputValue = (event) => {
 
-		console.log(event.target.name);
 
 		switch (event.target.name) {
 
@@ -26,11 +26,11 @@ const Inscription = ({ familyName, setFamilyName ,lastname ,setLastName ,firstna
 				setFirstname(event.target.value);
 				break;
 
-			case 'roleId':
+			case 'roleId':{
 				const role = Number(event.target.value);
 				setRoleId(role);
 				break;
-
+			}
 			case 'dateBirth':
 				setDateBirth(event.target.value);
 				break;
@@ -54,15 +54,6 @@ const Inscription = ({ familyName, setFamilyName ,lastname ,setLastName ,firstna
 			default:
 				console.log('Error nputValue du formulaire d\'enregistrement');
 		}
-
-
-		// if (event.target.name === 'familyName') {
-		// 	setFamilyName(event.target.value);
-    
-
-		// } else {
-		// 	setPassword(event.target.value);
-		// }
 	};  
 
 

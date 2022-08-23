@@ -2,7 +2,7 @@
 import PropTypes from 'prop-types';
 import './styles.scss';
 
-// == Composant
+// == Composant de message de réussite de création de compte
 const Message = ({ createMsg }) => {
 	return (
 		<div className="message">

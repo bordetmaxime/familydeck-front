@@ -2,7 +2,7 @@
 import './styles.scss';
 import { Link } from 'react-router-dom';
 
-// == Composant
+// == Composant du visuel de bouton de depart de la page welcome
 const Start = () => {
 	return (
 		<div className="start">

@@ -1,11 +1,13 @@
 // == Import
 import './styles.scss';
+
+// == Import icones
 import { FaPen } from '@react-icons/all-files/fa/FaPen';
 import { FaTrash } from '@react-icons/all-files/fa/FaTrash';
 import { Link } from 'react-router-dom';
 
 
-// == Composant
+// == Composant visuel de toutes les todolists
 const AllTodolists = () => {
 	return (
 		<div className="all_card">

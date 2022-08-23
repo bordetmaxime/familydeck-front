@@ -9,13 +9,13 @@ import Header from '../Header';
 import Nav from '../Nav';
 import Content from './content';
 
-// == Composant
-const Home = ({ childId, firstname }) => {
+// == Composant structure de la page Home
+const Home = ({ childId, firstname, logout }) => {
 
 
 	return (
 		<div className="home">
-			<Header firstname={ firstname } />
+			<Header firstname={ firstname } logout={ logout } />
 			<EventsAlert />
 			<ChildsSelect />
 			<Content childId={ '3' } />
@@ -30,4 +30,5 @@ export default Home;
 Home.propTypes = {
 	childId: PropTypes.string,
 	firstname: PropTypes.string.isRequired,
+	logout: PropTypes.func,
 };

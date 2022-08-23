@@ -16,6 +16,8 @@
   margin: 0;
 }
 
+// BreakPoint pour la mise en forme de la version desktop
+
 @media screen and (min-width: 1000px) {
   .child, .child select {
     width: 70%;

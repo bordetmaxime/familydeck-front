@@ -6,8 +6,8 @@ import './styles.scss';
 // == Import Icon
 import { BiLogOutCircle } from '@react-icons/all-files/bi/BiLogOutCircle';
 
-// == Composant
-const Header = ({ app, firstname }) => {
+// == Composant Header de l'app
+const Header = ({ firstname, logout }) => {
 
 
 	return (
@@ -16,7 +16,7 @@ const Header = ({ app, firstname }) => {
 			<div className='header__hello'>
 				<h1>Bonjour <span>{firstname}</span></h1>
 			</div>
-			<div className='logout-button'>
+			<div className='logout-button' onClick={ logout } role="button" tabIndex={ 0 } >
 				<BiLogOutCircle />
 			</div>
 
@@ -30,4 +30,5 @@ export default Header;
 Header.propTypes = {
 	app: PropTypes.string,
 	firstname: PropTypes.string.isRequired,
+	logout: PropTypes.func,
 };

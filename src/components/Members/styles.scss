@@ -1,5 +1,6 @@
 @use '../../styles/_vars';
 
+// composant members
 .members {
     height: 100vh;
     width: 100%;
@@ -37,7 +38,7 @@
   flex-direction: column;
   color: vars.$blue;
 
-  &__form {
+  &__form, &__infos {
     height: 100%;
     display: flex;
     flex-direction: column;
@@ -64,6 +65,11 @@
 
   &__title3 {
     width: 95%;
+    font-size: 1.2rem;
+  }
+
+  &__title2 {
+    font-size: 1.3rem;
   }
 
   &__title2, &__title3 {
@@ -88,7 +94,7 @@
     color: vars.$blue;
   }
 
-  & h4 {
+  &__alerte {
     color: red;
   }
 
@@ -109,6 +115,21 @@
     width: 45%;
     align-items: stretch;
   }
+
+// class de la fiche d'information du membre
+
+.member__title4{
+  padding-left: 1rem;
+  color: vars.$blue;
+  font-weight: bold;
+}
+
+.member p {
+  height: 2rem;
+  margin: 0.5rem;
+}
+
+// Breakpoint pour un affichage desktop
 
 @media screen and (min-width: 1000px) {
   .title-member {

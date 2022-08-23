@@ -1,17 +1,18 @@
 // == Import
 import './styles.scss';
 
-// == Import des icons de la page home
+// == Import des icons
 import { GrUserFemale } from '@react-icons/all-files/gr/GrUserFemale';
 import { GrUser } from '@react-icons/all-files/gr/GrUser';
 import { CgBoy } from '@react-icons/all-files/cg/CgBoy';
 
-// == Composant
+// == Composant du contenu de la page Membres par defaut
 const Content = () => {
+  
 	return (
 		<div className="content">
 
-      <h2 className='title-member'>Gestion de ma famille</h2>
+			<h2 className='title-member'>Gestion de ma famille</h2>
 
 			<div className='content__button'>
 				<div className='content__icon'>

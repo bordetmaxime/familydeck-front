@@ -5,7 +5,7 @@ import './styles.scss';
 import { FaPen } from '@react-icons/all-files/fa/FaPen';
 import { FaTrash } from '@react-icons/all-files/fa/FaTrash';
 
-// == Composant
+// == Composant pour la vue des informations d'un evenement
 const Event = () => {
 	return (
 		<div className="event">
@@ -13,7 +13,7 @@ const Event = () => {
 			<form className='event__form'>
 				<input id='event-date' type='date' value="" name='event-date' required />
 
-        <div className='event__item'>
+				<div className='event__item'>
 					<label htmlFor='event-title'>* Titre</label>
 					<input id='event-title' name='event-title' value="" placeholder='Rendez vous maitresse' required ></input>
 				</div>
@@ -42,14 +42,14 @@ const Event = () => {
 					<textarea id='event-infos' name='event-info' value="" placeholder='Préparer des sandwichs, voir avec la maman du petit Bernard...'></textarea>
 				</div>
 
-        <p className="event__info">* Champs obligatoire</p>
+				<p className="event__info">* Champs obligatoire</p>
 
-        <div className='event__buttons'>
+				<div className='event__buttons'>
 
-          <FaPen />
-          <button type='submit'>Valider</button>
-          <FaTrash />
-        </div>
+					<FaPen />
+					<button type='submit'>Valider</button>
+					<FaTrash />
+				</div>
 
 			</form>
      

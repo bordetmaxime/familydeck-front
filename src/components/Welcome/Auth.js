@@ -3,7 +3,7 @@ import './styles.scss';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
-// == Composant
+// == Composant d'authentification
 const Auth = ({ userName, setUserName, password, setPassword, loginSubmit }) => {
 
 	// Fonction d'enregistrement des valeurs des inputs
