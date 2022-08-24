@@ -4,54 +4,54 @@ import './styles.scss';
 // == Imports icones
 import { FaPen } from '@react-icons/all-files/fa/FaPen';
 import { FaTrash } from '@react-icons/all-files/fa/FaTrash';
+import { Link } from 'react-router-dom';
 
 // == Composant pour la vue des informations d'un evenement
 const Event = () => {
 	return (
 		<div className="event">
 
-			<form className='event__form'>
-				<input id='event-date' type='date' value="" name='event-date' required />
-
+			<div className='event__infos'>
 				<div className='event__item'>
-					<label htmlFor='event-title'>* Titre</label>
-					<input id='event-title' name='event-title' value="" placeholder='Rendez vous maitresse' required ></input>
+					<h4 className='event__title4'>Date</h4>
+					<p id='event-date' className='event__data'>Date de l'evenement</p>
 				</div>
 
 				<div className='event__item'>
-					<label htmlFor='event-cat'>* Catégorie de l'évènment</label>
-					<input id='event-cat' name='event-cat' value="" placeholder='Sport, école, medecin...' required ></input>
+					<h4 className='event__title4'>Titre</h4>
+					<p id='event-title' className='event__data'>Titre de l'evenement</p>
 				</div>
 
 				<div className='event__item'>
-					<label htmlFor='event-place'>Lieux</label>
-					<input id='event-place' name='event-place' value="" placeholder='Rendez vous 4ème sous-sol...'></input>
+					<h4 className='event__title4'>Catégorie de l'évènment</h4>
+					<p id='event-cat' className='event__data'>Catégorie de l'évènment</p>
 				</div>
 
 				<div className='event__item'>
-					<label htmlFor='event-parent'>* Parent(s) concerné(s)</label>
-					<select name="childs" id="event-parent" required >
-						<option value=""> Choisis le/les parent(s)</option>
-						<option value="Maman">Maman</option>
-						<option value="Papa">Papa</option>
-					</select>
+					<h4 className='event__title4'>Lieux</h4>
+					<p id='event-place' className='event__data'>Lieux de l'évènement</p>
 				</div>
 
 				<div className='event__item'>
-					<label htmlFor='event-infos'>Information(s) complémentaire(s)</label>
-					<textarea id='event-infos' name='event-info' value="" placeholder='Préparer des sandwichs, voir avec la maman du petit Bernard...'></textarea>
+					<h4 className='event__title4'>Parent(s) concerné(s)</h4>
+					<p id='event-parent' className='event__data'>Role du parent concerné</p>
 				</div>
 
-				<p className="event__info">* Champs obligatoire</p>
+				<div className='event__item'>
+					<h4 className='event__title4'>Information(s) complémentaire(s)</h4>
+					<p id='event-infos' className='event__data'>Informations complémentaire de l'évènment</p>
+				</div>
 
 				<div className='event__buttons'>
 
-					<FaPen />
-					<button type='submit'>Valider</button>
+					<Link to='/event/:id/modify'>
+						<FaPen />
+					</Link>
+
 					<FaTrash />
 				</div>
 
-			</form>
+			</div>
      
 		</div>
 	);

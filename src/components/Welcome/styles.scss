@@ -78,10 +78,17 @@
   align-items: center;
 }
 
-.message h2 {
-  color: green;
+.message {
   font-size: 1.3rem;
   padding: 1rem;
+
+  &__succes {
+    color: green;
+  }
+
+  &__error {
+    color: red;
+  }
 }
 
 // BreakPoint pour la mise en forme de la version desktop

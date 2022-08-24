@@ -12,10 +12,10 @@ import Nav from '../Nav';
 
 
 // == Composant
-const Todolists= ({ firstname }) => {
+const Todolists= ({ firstname, logout }) => {
 	return (
 		<div className="todolist">
-			<Header firstname={ firstname } />
+			<Header firstname={ firstname } logout={ logout } />
   
 
 			<div className="form_div">
@@ -41,4 +41,5 @@ export default Todolists;
 
 Todolists.propTypes = {
 	firstname: PropTypes.string.isRequired,
+  logout: PropTypes.func.isRequired,
 };

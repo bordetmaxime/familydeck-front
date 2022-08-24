@@ -11,7 +11,7 @@ import Message from './Message';
 
 // == Composant structure de la page Welcome
 
-const Welcome = ({ login, userName, setUserName, password, setPassword, loginSubmit, createMsg }) => {
+const Welcome = ({ login, userName, setUserName, password, setPassword, loginSubmit, inscriptSucces, errLogin }) => {
 
 
 	return (
@@ -19,9 +19,10 @@ const Welcome = ({ login, userName, setUserName, password, setPassword, loginSub
 		<div className="welcome">
 			<Header userName={ userName } />
 			<Content />
-			{ createMsg ? <Message createMsg={ createMsg } /> : ''}
+			{ inscriptSucces ? <Message inscriptSucces={ inscriptSucces } /> : errLogin ? <Message errLogin={ errLogin } /> : ''}
+  
 
-			{login ? <Auth userName={ userName } setUserName={ setUserName } password={ password } setPassword={ setPassword } loginSubmit={ loginSubmit } createMsg={ createMsg } /> : <Start /> }
+			{login ? <Auth userName={ userName } setUserName={ setUserName } password={ password } setPassword={ setPassword } loginSubmit={ loginSubmit } inscriptSucces={ inscriptSucces } /> : <Start /> }
 
 		</div>
 	);
@@ -37,4 +38,6 @@ Welcome.propTypes = {
 	setUserName: PropTypes.func,
 	setPassword: PropTypes.func,
 	loginSubmit: PropTypes.func,
+	inscriptSucces: PropTypes.string,
+	errLogin: PropTypes.string,
 };

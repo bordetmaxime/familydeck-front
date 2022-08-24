@@ -3,10 +3,14 @@ import PropTypes from 'prop-types';
 import './styles.scss';
 
 // == Composant de message de réussite de création de compte
-const Message = ({ createMsg }) => {
+const Message = ({ inscriptSucces, errLogin, errInscr }) => {
 	return (
 		<div className="message">
-			<h2>{createMsg}</h2>
+			{
+				errLogin ? <h2 className='message__error'>{errLogin}</h2> :
+        errInscr ? <h2 className='message__error'>{errInscr}</h2> :
+					<h2 className='message__succes'>{inscriptSucces}</h2>
+			}
 		</div>
 	);
 };
@@ -15,5 +19,7 @@ const Message = ({ createMsg }) => {
 export default Message;
 
 Message.propTypes = {
-	createMsg: PropTypes.string,
+	inscriptSucces: PropTypes.string,
+  errLogin: PropTypes.string,
+  errInscr: PropTypes.string,
 };

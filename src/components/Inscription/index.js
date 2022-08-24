@@ -4,9 +4,10 @@ import PropTypes from 'prop-types';
 
 // == Import composants
 import Header from './Header';
+import Message from '../Welcome/Message';
 
 // == Composant structure de la page Inscription
-const Inscription = ({ familyName, setFamilyName ,lastname ,setLastName ,firstname,setFirstname,roleId,setRoleId,dateBirth,setDateBirth,email ,setEmail,confirmEmail,setconfirmEmail,password,setPassword,confirmPassword,setConfirmPassword, inscriptionSubmit }) => {
+const Inscription = ({ familyName, setFamilyName, lastname, setLastName, firstname, setFirstname, roleId, setRoleId, dateBirth, setDateBirth, email , setEmail, confirmEmail, setconfirmEmail, password, setPassword, confirmPassword, setConfirmPassword, inscriptionSubmit, errInscr }) => {
 
 	// Fonction d'enregistrement des valeurs des inputs
 	const inputValue = (event) => {
@@ -65,6 +66,8 @@ const Inscription = ({ familyName, setFamilyName ,lastname ,setLastName ,firstna
 
 			<h2 className="title_principal">Inscription</h2> 
 
+      { errInscr ? <Message errInscr={ errInscr } /> : '' }
+
 			<form className="form_inscription" onSubmit={ inscriptionSubmit } >
 
 				<div className="family_name_content inscription_box">
@@ -74,7 +77,7 @@ const Inscription = ({ familyName, setFamilyName ,lastname ,setLastName ,firstna
 
 				<div className="inscription_box">
 					<label htmlFor="name">* Nom </label>
-					<input type="text" value={ lastname } id="name" name="lastname" placeholder="Nom" onChange={ inputValue }></input>
+					<input type="text" value={ lastname } id="name" name="lastname" placeholder="Nom" required onChange={ inputValue }></input>
 				</div>
 
 				<div className="inscription_box">
