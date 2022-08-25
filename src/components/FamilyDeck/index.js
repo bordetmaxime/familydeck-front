@@ -23,7 +23,7 @@ const FamilyDeck = () => {
 	// Hook React
 	const navigate = useNavigate();
 
-	// State USER
+	// State USER Inscription
 
 	const [ familyName, setFamilyName ] = useState('');
 	const [ userName, setUserName ] = useState('');
@@ -43,6 +43,12 @@ const FamilyDeck = () => {
 	const [ errLogin, setErrLogin ] = useState('');
 	const [ errInscr, setErrInscr ] = useState('');
 
+	// State Member
+	const [ infosMember, setInfosMember ] = useState([]);
+
+	// State family
+	const [ infosFamily, setInfosFamily ] = useState([]);
+  
 
 	// Enregistrement d'un utilisateur 
 
@@ -71,11 +77,11 @@ const FamilyDeck = () => {
 
 		})
 		// Cas d'erreur
-    .catch(error => {
-      console.error(error);
-      console.log(error.response.data.msg);
-      setErrInscr(error.response.data.msg);
-    });
+			.catch(error => {
+				console.error(error);
+				console.log(error.response.data.msg);
+				setErrInscr(error.response.data.msg);
+			});
 	};
 
 	// Connexion d'un utilisateur
@@ -96,6 +102,9 @@ const FamilyDeck = () => {
 			setFirstname(response.data.member.firstname);
 			setLoggedIn(true);
 			setPassword('');
+			setErrLogin('');
+			setErrInscr('');
+			setInscriptSucces('');
 			navigate('/home');
 		})
 		// Cas d'erreur
@@ -138,7 +147,7 @@ const FamilyDeck = () => {
           	<Route path="/member/:id" element={ <Members member={ 'memberId' } firstname={ firstname } logout={ logout } /> } />
           	<Route path="/events" element={ <Events firstname={ firstname } logout={ logout } /> } />
           	<Route path="/event/:id" element={ <Events event={ 'eventId' } firstname={ firstname } logout={ logout } /> } />
-            <Route path="/event/:id/modify" element={ <Events form={ 'form' } firstname={ firstname } logout={ logout } /> } />
+          	<Route path="/event/:id/modify" element={ <Events form={ 'form' } firstname={ firstname } logout={ logout } /> } />
           	<Route path="/todolists" element={ <Todolists firstname={ firstname } logout={ logout } /> } />
           	<Route path="/todolist/5" element={ <Todolist firstname={ firstname } logout={ logout } /> } />
           	<Route path="*" element={ <NotFound /> } />
@@ -158,7 +167,7 @@ const FamilyDeck = () => {
           			setPassword={ setPassword }
           			loginSubmit={ loginSubmit }
           			inscriptSucces={ inscriptSucces }
-                errLogin={ errLogin }
+          			errLogin={ errLogin }
           		/> } />
           	<Route path="/inscription" element={
           		<Inscription 
@@ -181,7 +190,7 @@ const FamilyDeck = () => {
           			confirmPassword={ confirmPassword } 
           			setConfirmPassword={ setConfirmPassword }
           			inscriptionSubmit={ inscriptionSubmit }
-                errInscr={ errInscr }
+          			errInscr={ errInscr }
           		/> } />
           	<Route path="/home" element={ <NotAutorized /> } />
           	<Route path="/members" element={ <NotAutorized /> } />

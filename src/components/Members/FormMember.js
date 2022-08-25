@@ -71,7 +71,6 @@ const FormMember = () => {
 				<h4 className='member__alerte'>*Champ obligatoire</h4>
 
 				<div className='member__buttons'>
-					<FaPen />
 					<button className='member__submit' type='submit'>Valider</button>
 					<FaTrash />
 				</div>

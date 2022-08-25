@@ -46,7 +46,7 @@ const EventForm = () => {
 
 				<div className='event__buttons'>
 
-					<FaPen />
+
 					<button type='submit'>Valider</button>
 					<FaTrash />
 				</div>
