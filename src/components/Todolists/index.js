@@ -1,6 +1,5 @@
 // == Import
 import './styles.scss';
-import PropTypes from 'prop-types';
 
 // == Import icones
 import { IoMdAddCircle } from 'react-icons/io';
@@ -12,10 +11,10 @@ import Nav from '../Nav';
 
 
 // == Composant
-const Todolists= ({ firstname, logout }) => {
+const Todolists= () => {
 	return (
 		<div className="todolist">
-			<Header firstname={ firstname } logout={ logout } />
+			<Header />
   
 
 			<div className="form_div">
@@ -39,7 +38,3 @@ const Todolists= ({ firstname, logout }) => {
 // == Export
 export default Todolists;
 
-Todolists.propTypes = {
-	firstname: PropTypes.string.isRequired,
-  logout: PropTypes.func.isRequired,
-};

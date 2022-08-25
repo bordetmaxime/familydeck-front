@@ -10,12 +10,11 @@ import Nav from '../Nav';
 import Content from './content';
 
 // == Composant structure de la page Home
-const Home = ({ childId, firstname, logout }) => {
-
+const Home = ({ childId }) => {
 
 	return (
 		<div className="home">
-			<Header firstname={ firstname } logout={ logout } />
+			<Header />
 			<EventsAlert />
 			<ChildsSelect />
 			<Content childId={ '3' } />

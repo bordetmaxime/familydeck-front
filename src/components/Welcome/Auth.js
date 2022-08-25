@@ -1,22 +1,33 @@
 // == Import
 import './styles.scss';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
 import PropTypes from 'prop-types';
+import { setUserName, setPassword, loginUser } from '../../actions/user';
+
 
 // == Composant d'authentification
-const Auth = ({ userName, setUserName, password, setPassword, loginSubmit }) => {
+const Auth = () => {
+
+	const dispatch = useDispatch();
+
+	const { userName, password, loggedIn } = useSelector(state => state.user);
 
 	// Fonction d'enregistrement des valeurs des inputs
 	const inputValue = (event) => {
 
 		if (event.target.name === 'userName') {
-			setUserName(event.target.value);
+			dispatch(setUserName(event.target.value));
 
 		} else {
-			setPassword(event.target.value);
+			dispatch(setPassword(event.target.value));
 		}
 	}; 
 
+	const loginSubmit = (event) => {
+		event.preventDefault();
+		dispatch(loginUser());
+	};
 
 	return (
 		<form className="auth" onSubmit={ loginSubmit }>
@@ -36,10 +47,8 @@ const Auth = ({ userName, setUserName, password, setPassword, loginSubmit }) => 
 // == Export
 export default Auth;
 
-Auth.propTypes = {
-	userName: PropTypes.string,
-	password: PropTypes.string.isRequired,
-	setUserName: PropTypes.func,
-	setPassword: PropTypes.func,
-	loginSubmit: PropTypes.func,
-};
+// Auth.propTypes = {
+// 	setUserName: PropTypes.func,
+// 	setPassword: PropTypes.func,
+// 	loginSubmit: PropTypes.func,
+// };

@@ -1,6 +1,7 @@
 // == Import
 import './styles.scss';
 import PropTypes from 'prop-types';
+import { useDispatch, useSelector } from 'react-redux';
 
 // == Import composants
 import Content from './content';
@@ -11,18 +12,18 @@ import Message from './Message';
 
 // == Composant structure de la page Welcome
 
-const Welcome = ({ login, userName, setUserName, password, setPassword, loginSubmit, inscriptSucces, errLogin }) => {
+const Welcome = ({ login, inscriptSucces }) => {
 
+  const { errLogin } = useSelector(state => state.user);
 
 	return (
     
 		<div className="welcome">
-			<Header userName={ userName } />
+			<Header />
 			<Content />
 			{ inscriptSucces ? <Message inscriptSucces={ inscriptSucces } /> : errLogin ? <Message errLogin={ errLogin } /> : ''}
-  
 
-			{login ? <Auth userName={ userName } setUserName={ setUserName } password={ password } setPassword={ setPassword } loginSubmit={ loginSubmit } inscriptSucces={ inscriptSucces } /> : <Start /> }
+			{login ? <Auth inscriptSucces={ inscriptSucces } /> : <Start /> }
 
 		</div>
 	);

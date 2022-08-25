@@ -13,11 +13,11 @@ import AddEvent from './AddEvent';
 import EventForm from './EventForm';
 
 // == Composant Evenements
-const Events = ({ event, firstname, logout, form }) => {
+const Events = ({ event, form }) => {
 
 	return (
 		<div className="events">
-			<Header firstname={ firstname } logout={ logout } />
+			<Header />
 			<ChildsSelect />
 			{ event ? <Event /> : form ? <EventForm /> : <EventsList />}
 			{ event || form ? '' : <AddEvent /> }
@@ -30,6 +30,6 @@ const Events = ({ event, firstname, logout, form }) => {
 export default Events;
 
 Events.propTypes = {
-	logout: PropTypes.func.isRequired,
-	firstname: PropTypes.string.isRequired,
+	// logout: PropTypes.func.isRequired,
+	// firstname: PropTypes.string.isRequired,
 };

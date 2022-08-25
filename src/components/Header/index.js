@@ -2,13 +2,25 @@
 import familyDeckLogo from '../../assets/favicon.ico';
 import PropTypes from 'prop-types';
 import './styles.scss';
+import { useDispatch, useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
+import { setUserName, setToken, setLoggedIn } from '../../actions/user';
 
 // == Import Icon
 import { BiLogOutCircle } from '@react-icons/all-files/bi/BiLogOutCircle';
 
 // == Composant Header de l'app
-const Header = ({ firstname, logout }) => {
+const Header = () => {
 
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const { firstname } = useSelector(state => state.user);
+
+  const logout = () => {
+		dispatch(setToken(''));
+		dispatch(setUserName(''));
+		dispatch(setLoggedIn(false));
+	};
 
 	return (
 		<div className="header">

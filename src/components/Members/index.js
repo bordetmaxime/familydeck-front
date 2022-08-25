@@ -12,11 +12,11 @@ import Member from './Member';
 import FormMember from './FormMember';
 
 // == Composant structure de la page Membres
-const Members = ({ member, firstname, logout }) => {
+const Members = ({ member }) => {
 
 	return (
 		<div className="members">
-			<Header firstname={ firstname } logout={ logout } />
+			<Header />
 			{member === 'new' ? <Member /> : member === 'memberId' ? <Member id={ 1 } /> : member === 'modify' ? <FormMember /> : <Content />}
 			{member ? '' : <AddMember />}
 			<Nav />
@@ -29,6 +29,6 @@ export default Members;
 
 Members.propTypes = {
 	member: PropTypes.string,
-	firstname: PropTypes.string.isRequired,
-	logout: PropTypes.func.isRequired,
+	// firstname: PropTypes.string.isRequired,
+	// logout: PropTypes.func.isRequired,
 };
