@@ -1,17 +1,24 @@
 export const SET_INSCRIPTION = 'SET_INSCRIPTION';
 export const SUBMIT_INSCR = 'SUBMIT_INSCR';
 export const SET_ERR_INSCR = 'SET_ERR_INSCR';
+export const SET_INPUT_INSCR = 'SET_INPUT_INSCR';
 
-export const setInscription = ({ }) => ({
+export const setInscription = ( msg ) => ({
 	type: SET_INSCRIPTION,
-	token: token.token,
-	firstname: member.firstname,
+	msg,
 });
 
 export const submitInscr = () => ({
-  type: SUBMIT_INSCR,
+	type: SUBMIT_INSCR,
 });
 
-export const setErrInscr = () => ({
-  type: SET_ERR_INSCR,
+export const setErrInscr = ( msg ) => ({
+	type: SET_ERR_INSCR,
+	msg,
+});
+
+export const InputInscr = ( name, value ) => ({
+	type: SET_INPUT_INSCR,
+	name,
+	value,
 });

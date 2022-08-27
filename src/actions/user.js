@@ -6,7 +6,7 @@ export const SET_PASSWORD = 'SET_PASSWORD';
 export const SET_TOKEN = 'SET_TOKEN';
 export const SET_LOGGED_IN = 'SET_LOGGED_IN';
 
-export const setlogin = ({ token, member, msg }) => ({
+export const setlogin = ({ token, member }) => ({
 	type: SET_LOGIN,
 	token: token.token,
 	firstname: member.firstname,

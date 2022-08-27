@@ -15,9 +15,7 @@ export const initialState = {
 	loggedIn: false,
 	route: '/',
 	// State Messages
-	inscriptSucces: '',
 	errLogin: '',
-	errInscr: '',
 };
 
 const reducer = (state = initialState, action = {}) => {
@@ -31,10 +29,11 @@ const reducer = (state = initialState, action = {}) => {
 				token: action.token,
 				password: '',
 				loggedIn: true,
-        inscriptSucces: '',
-        errLogin: '',
-        errInscr: '',
-        route: '/home',
+				// Remise à zero des msg pour ne pas en avoir lors de la déconnexion qui nous renvoie sur la page login
+				inscriptSucces: '',
+				errLogin: '',
+				errInscr: '',
+				route: '/home',
 			};
     
 		case SET_ERR_LOGIN:
@@ -42,30 +41,24 @@ const reducer = (state = initialState, action = {}) => {
 				...state,
 				errLogin: action.msg,
 			};
-// changement du state avec les valeurs du champ login
+			// changement du state avec les valeurs du champ login
 		case SET_USERNAME:
 			return {
 				...state,
 				userName: action.payload,
 			};
-// changement du state avec les valeurs du champ password
+			// changement du state avec les valeurs du champ password
 		case SET_PASSWORD:
 			return {
 				...state,
 				password: action.payload,
 			};
 
-		// case SET_TOKEN:
-		// 	return {
-		// 		...state,
-		// 		token: action.payload,
-		// 	};
-
 		case SET_LOGGED_IN:
 			return {
 				...state,
 				loggedIn: action.payload,
-        route: '/login',
+				route: '/login',
 			};
     
 		default:

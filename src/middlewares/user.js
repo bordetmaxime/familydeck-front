@@ -15,8 +15,8 @@ const userMiddleware = (store) => (next) => async (action) => {
 					password,
 				});
 				store.dispatch(setlogin(data));
-      
 				break;
+        
 			} catch (error) {
 				console.error(error);
 				console.log(error.response.data.msg);

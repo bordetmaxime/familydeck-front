@@ -1,15 +1,20 @@
-import { SET_INSCRIPTION } from '../actions/inscription';
+import { SET_ERR_INSCR, SET_INPUT_INSCR, SET_INSCRIPTION } from '../actions/inscription';
 
 export const initialState = {
-  familyName: '',
-  lastname: '',
-  firstname: '',
-  roleId: '',
-  dateBirth: '',
-  email: '',
-  confirmEmail: '',
-  password: '',
-  confirmPassword: '',
+	familyName: '',
+	lastname: '',
+	firstname: '',
+	roleId: '',
+	dateBirth: '',
+	email: '',
+	confirmEmail: '',
+	password: '',
+	confirmPassword: '',
+	redirection: '',
+	// state messages
+	inscriptMsgSucces: '',
+	inscriptionMsgErr: '',
+	
 };
 
 const reducer = (state = initialState, action = {}) => {
@@ -19,8 +24,20 @@ const reducer = (state = initialState, action = {}) => {
 		case SET_INSCRIPTION:
 			return {
 				...state,
-				
-        route: '/login',
+				inscriptMsgSucces: action.msg,
+				redirection: '/login',
+			};
+
+		case SET_INPUT_INSCR:
+			return {
+				...state,
+				[ action.name ]: action.value,
+			};
+
+		case SET_ERR_INSCR:
+			return {
+				...state,
+				inscriptionMsgErr: action.msg,
 			};
     
 		default:

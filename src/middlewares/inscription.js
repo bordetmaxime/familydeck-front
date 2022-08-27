@@ -22,12 +22,12 @@ const inscriptionMiddleware = (store) => (next) => async (action) => {
 					confirmPassword,
       
 				});
-				store.dispatch(setInscription(data));
+				store.dispatch(setInscription(data.msg));
+				console.log(data.msg);
       
 				break;
 			} catch (error) {
 				console.error(error);
-				console.log(error.response.data.msg);
 				setErrInscr(error.response.data.msg);
 				break;
 			}

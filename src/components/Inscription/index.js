@@ -5,57 +5,30 @@ import PropTypes from 'prop-types';
 // == Import composants
 import Header from './Header';
 import Message from '../Welcome/Message';
+import { useDispatch, useSelector } from 'react-redux';
+import { InputInscr, submitInscr } from '../../actions/inscription';
 
 // == Composant structure de la page Inscription
-const Inscription = ({ familyName, setFamilyName, lastname, setLastName, firstname, setFirstname, roleId, setRoleId, dateBirth, setDateBirth, email , setEmail, confirmEmail, setconfirmEmail, password, setPassword, confirmPassword, setConfirmPassword, inscriptionSubmit, errInscr }) => {
+const Inscription = () => {
+
+    const { familyName, lastname, firstname, roleId, dateBirth, email, confirmEmail, password, confirmPassword, inscriptionMsgErr } = useSelector(state => state.inscription);
+
+    const dispatch = useDispatch();
 
 	// Fonction d'enregistrement des valeurs des inputs
 	const inputValue = (event) => {
 
+    const name = event.target.name;
+    const value = event.target.value;
 
-		switch (event.target.name) {
+    dispatch(InputInscr(name, value));
 
-			case 'familyName':
-				setFamilyName(event.target.value);
-				break;
-      
-			case 'lastname':
-				setLastName(event.target.value);
-				break;
-      
-			case 'firstname':
-				setFirstname(event.target.value);
-				break;
-
-			case 'roleId':{
-				const role = Number(event.target.value);
-				setRoleId(role);
-				break;
-			}
-			case 'dateBirth':
-				setDateBirth(event.target.value);
-				break;
-
-			case 'email':
-				setEmail(event.target.value);
-				break;
-
-			case 'confirmEmail':
-				setconfirmEmail(event.target.value);
-				break;
-      
-			case 'password':
-				setPassword(event.target.value);
-				break;
-
-			case 'confirmPassword':
-				setConfirmPassword(event.target.value);
-				break;
-      
-			default:
-				console.log('Error nputValue du formulaire d\'enregistrement');
-		}
 	};  
+
+  const inscriptionSubmit = (event) => {
+		event.preventDefault();
+		dispatch(submitInscr());
+	};
 
 
 	return (
@@ -66,7 +39,7 @@ const Inscription = ({ familyName, setFamilyName, lastname, setLastName, firstna
 
 			<h2 className="title_principal">Inscription</h2> 
 
-      { errInscr ? <Message errInscr={ errInscr } /> : '' }
+      { inscriptionMsgErr ? <Message /> : '' }
 
 			<form className="form_inscription" onSubmit={ inscriptionSubmit } >
 
@@ -132,26 +105,26 @@ const Inscription = ({ familyName, setFamilyName, lastname, setLastName, firstna
 // == Export
 export default Inscription;
 
-Inscription.propTypes = {
-	familyName: PropTypes.string,
-	setFamilyName: PropTypes.func, 
-	lastname: PropTypes.string,
-	setLastName: PropTypes.func,
-	firstname: PropTypes.string,
-	setFirstname: PropTypes.func,  
-	roleId: PropTypes.string,
-	setRoleId: PropTypes.func,
-	dateBirth: PropTypes.string,
-	setDateBirth: PropTypes.func,
-	email: PropTypes.string, 
-	setEmail: PropTypes.func,
-	confirmEmail: PropTypes.string,
-	setconfirmEmail: PropTypes.func,
-	password: PropTypes.string,
-	setPassword: PropTypes.func,
-	confirmPassword: PropTypes.string,
-	setConfirmPassword: PropTypes.func,
-	inscriptionSubmit: PropTypes.func,
-};
+// Inscription.propTypes = {
+// 	familyName: PropTypes.string,
+// 	setFamilyName: PropTypes.func, 
+// 	lastname: PropTypes.string,
+// 	setLastName: PropTypes.func,
+// 	firstname: PropTypes.string,
+// 	setFirstname: PropTypes.func,  
+// 	roleId: PropTypes.string,
+// 	setRoleId: PropTypes.func,
+// 	dateBirth: PropTypes.string,
+// 	setDateBirth: PropTypes.func,
+// 	email: PropTypes.string, 
+// 	setEmail: PropTypes.func,
+// 	confirmEmail: PropTypes.string,
+// 	setconfirmEmail: PropTypes.func,
+// 	password: PropTypes.string,
+// 	setPassword: PropTypes.func,
+// 	confirmPassword: PropTypes.string,
+// 	setConfirmPassword: PropTypes.func,
+// 	inscriptionSubmit: PropTypes.func,
+// };
 
   
