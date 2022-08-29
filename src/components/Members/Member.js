@@ -5,9 +5,14 @@ import './styles.scss';
 import { FaPen } from '@react-icons/all-files/fa/FaPen';
 import { FaTrash } from '@react-icons/all-files/fa/FaTrash';
 import { Link } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 
 // == Composant
-const Member = () => {
+const Member = ({ index }) => {
+
+  const member = useSelector(state => state.member[index]);
+  console.log('MEMBER====>', member);
+
 	return (
 		<div className='member'>
 			<h2 className='member__title2'>Nom de la famille</h2>

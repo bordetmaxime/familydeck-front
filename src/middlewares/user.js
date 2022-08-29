@@ -15,6 +15,7 @@ const userMiddleware = (store) => (next) => async (action) => {
 					password,
 				});
 				store.dispatch(setlogin(data));
+        console.log("DATA USER===> ",data);
 				break;
         
 			} catch (error) {

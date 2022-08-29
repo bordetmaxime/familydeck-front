@@ -10,15 +10,22 @@ import Content from './content';
 import AddMember from './AddMember';
 import Member from './Member';
 import FormMember from './FormMember';
+import { useSelector } from 'react-redux';
+import { useParams } from 'react-router-dom';
 
 // == Composant structure de la page Membres
 const Members = ({ member }) => {
 
+  const memberIndex = useParams();
+  const index = Object.keys(memberIndex).length;
+  console.log('USEPARAMS===>', Object.keys(memberIndex).length);
+  console.log('USEPARAMS===>', memberIndex);
+
 	return (
 		<div className="members">
 			<Header />
-			{member === 'new' ? <Member /> : member === 'memberId' ? <Member id={ 1 } /> : member === 'modify' ? <FormMember /> : <Content />}
-			{member ? '' : <AddMember />}
+			{member === 'new' ? <Member /> : index > 0 ? <Member index={ memberIndex.index } /> : member === 'modify' ? <FormMember /> : <Content />}
+			<AddMember />
 			<Nav />
 		</div>
 	);

@@ -15,6 +15,8 @@ import Todolist from '../Todolist';
 import Members from '../Members';
 import NotFound from '../NotFound';
 import NotAutorized from '../NotFound/NotAutorized';
+import AddMember from '../Members/AddMember';
+import FormMember from '../Members/FormMember';
 
 
 // == Composant principal de l'app
@@ -27,13 +29,14 @@ const FamilyDeck = () => {
 	const loggedIn = useSelector((state) => state.user.loggedIn);
 	const { route } = useSelector(state => state.user);
 	const { redirection } = useSelector(state => state.inscription);
+  const { redirectMember } = useSelector(state => state.member);
   
 
 	// USE EFFECT gerant les redirection apres inscription et login
 	useEffect( () => {
-		redirection ? navigate(redirection) : navigate(route);
+		redirection ? navigate(redirection) : redirectMember ? navigate(redirectMember) : navigate(route);
 		
-	},[ route, redirection ]);
+	},[ route, redirection, redirectMember ]);
   
 
 	return (
@@ -46,7 +49,8 @@ const FamilyDeck = () => {
           	<Route path="/members" element={ <Members /> } />
           	<Route path="/member" element={ <Members member={ 'new' } /> } />
           	<Route path="/member/:id/modify" element={ <Members member={ 'modify' } /> } />
-          	<Route path="/member/:id" element={ <Members member={ 'memberId' } /> } />
+          	<Route path="/member/:index" element={ <Members /> } />
+            <Route path="/FormMember" element={ <FormMember /> } />
           	<Route path="/events" element={ <Events /> } />
           	<Route path="/event/:id" element={ <Events event={ 'eventId' } /> } />
           	<Route path="/event/:id/modify" element={ <Events form={ 'form' } /> } />

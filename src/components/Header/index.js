@@ -14,7 +14,7 @@ const Header = () => {
 
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const { firstname } = useSelector(state => state.user);
+  const { firstname } = useSelector(state => state.user.member);
 
   const logout = () => {
 		dispatch(setToken(''));
@@ -39,8 +39,6 @@ const Header = () => {
 // == Export
 export default Header;
 
-Header.propTypes = {
-	app: PropTypes.string,
-	firstname: PropTypes.string.isRequired,
-	logout: PropTypes.func,
-};
+// Header.propTypes = {
+// 	app: PropTypes.string,
+// };

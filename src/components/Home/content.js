@@ -1,5 +1,7 @@
 // == Import
 import './styles.scss';
+import { useDispatch } from 'react-redux';
+import { getMembers } from '../../actions/family';
 
 // == Import des icons de la page home
 import { FaUsersCog } from '@react-icons/all-files/fa/FaUsersCog';
@@ -9,12 +11,20 @@ import { CgGirl } from '@react-icons/all-files/cg/CgGirl';
 import { GoSettings } from '@react-icons/all-files/go/GoSettings';
 import { Link } from 'react-router-dom';
 
+
 // == Composant contenant les fonctionnalitées de la page Home
 const Content = ({ childId, userId }) => {
+
+  const dispatch = useDispatch();
+
+  const handleSubmit = () => {
+    dispatch(getMembers());
+  }
+
 	return (
 		<div className="content">
 
-			<Link to='/members' className='content__button'>
+			<Link to='/members' className='content__button' onClick={ handleSubmit }>
 				<div className='content__icon'>
 					<FaUsersCog />
 				</div>

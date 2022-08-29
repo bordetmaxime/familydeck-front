@@ -70,6 +70,6 @@ const Todolist= ({ firstname }) => {
 // == Export
 export default Todolist;
 
-Todolist.propTypes = {
-	firstname: PropTypes.string.isRequired,
-};
+// Todolist.propTypes = {
+// 	firstname: PropTypes.string.isRequired,
+// };

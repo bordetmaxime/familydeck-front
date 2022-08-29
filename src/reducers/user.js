@@ -12,6 +12,8 @@ export const initialState = {
 	password: '',
 	confirmPassword: '',
 	token: '',
+  member: {},
+  family: {},
 	loggedIn: false,
 	route: '/',
 	// State Messages
@@ -25,10 +27,12 @@ const reducer = (state = initialState, action = {}) => {
 		case SET_LOGIN:
 			return {
 				...state,
-				firstname: action.firstname,
+				// firstname: action.firstname,
 				token: action.token,
 				password: '',
 				loggedIn: true,
+        member: action.member,
+        family: action.family,
 				// Remise à zero des msg pour ne pas en avoir lors de la déconnexion qui nous renvoie sur la page login
 				inscriptSucces: '',
 				errLogin: '',
