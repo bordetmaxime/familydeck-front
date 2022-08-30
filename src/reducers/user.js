@@ -1,4 +1,4 @@
-import { SET_ERR_LOGIN, SET_LOGGED_IN, SET_LOGIN, SET_PASSWORD, SET_TOKEN, SET_USERNAME } from '../actions/user';
+import { SET_ERR_LOGIN, SET_LOGGED_IN, SET_LOGGED_OUT, SET_LOGIN, SET_PASSWORD, SET_TOKEN, SET_USERNAME } from '../actions/user';
 
 export const initialState = {
 	familyName: '',
@@ -12,10 +12,10 @@ export const initialState = {
 	password: '',
 	confirmPassword: '',
 	token: '',
-  member: {},
-  family: {},
+	member: {},
+	family: {},
 	loggedIn: false,
-	route: '/',
+	route: '',
 	// State Messages
 	errLogin: '',
 };
@@ -30,9 +30,8 @@ const reducer = (state = initialState, action = {}) => {
 				// firstname: action.firstname,
 				token: action.token,
 				password: '',
-				loggedIn: true,
-        member: action.member,
-        family: action.family,
+				member: action.member,
+				family: action.family,
 				// Remise à zero des msg pour ne pas en avoir lors de la déconnexion qui nous renvoie sur la page login
 				inscriptSucces: '',
 				errLogin: '',
@@ -62,7 +61,15 @@ const reducer = (state = initialState, action = {}) => {
 			return {
 				...state,
 				loggedIn: action.payload,
-				route: '/login',
+				route: '',
+			};
+
+		case SET_LOGGED_OUT:
+			return {
+				...state,
+				loggedIn: action.payload,
+				token: '',
+				userName: '',
 			};
     
 		default:

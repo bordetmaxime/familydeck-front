@@ -1,4 +1,4 @@
-import { SET_ERR_INSCR, SET_INPUT_INSCR, SET_INSCRIPTION } from '../actions/inscription';
+import { SET_ERR_INSCR, SET_INPUT_INSCR, SET_INSCRIPTION, DEL_REDIRECTION } from '../actions/inscription';
 
 export const initialState = {
 	familyName: '',
@@ -38,6 +38,12 @@ const reducer = (state = initialState, action = {}) => {
 			return {
 				...state,
 				inscriptionMsgErr: action.msg,
+			};
+
+		case DEL_REDIRECTION:
+			return {
+				...state,
+				redirection: '',
 			};
     
 		default:

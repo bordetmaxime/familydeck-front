@@ -6,29 +6,39 @@ import PropTypes from 'prop-types';
 import Header from './Header';
 import Message from '../Welcome/Message';
 import { useDispatch, useSelector } from 'react-redux';
-import { InputInscr, submitInscr } from '../../actions/inscription';
+import { delRedirection, inputInscr, submitInscr } from '../../actions/inscription';
+import { useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 // == Composant structure de la page Inscription
 const Inscription = () => {
 
-    const { familyName, lastname, firstname, roleId, dateBirth, email, confirmEmail, password, confirmPassword, inscriptionMsgErr } = useSelector(state => state.inscription);
+	const { familyName, lastname, firstname, roleId, dateBirth, email, confirmEmail, password, confirmPassword, inscriptionMsgErr, redirection } = useSelector(state => state.inscription);
 
-    const dispatch = useDispatch();
+	const dispatch = useDispatch();
+	const navigate = useNavigate();
 
 	// Fonction d'enregistrement des valeurs des inputs
 	const inputValue = (event) => {
 
-    const name = event.target.name;
-    const value = event.target.value;
+		const name = event.target.name;
+		const value = event.target.value;
 
-    dispatch(InputInscr(name, value));
+		dispatch(inputInscr(name, value));
 
 	};  
 
-  const inscriptionSubmit = (event) => {
+	const inscriptionSubmit = (event) => {
 		event.preventDefault();
 		dispatch(submitInscr());
 	};
+
+	useEffect(() => {
+		if(redirection){
+			dispatch(delRedirection());
+			navigate('/login');
+		}
+	}, [ redirection ]);
 
 
 	return (
@@ -39,7 +49,7 @@ const Inscription = () => {
 
 			<h2 className="title_principal">Inscription</h2> 
 
-      { inscriptionMsgErr ? <Message /> : '' }
+			{ inscriptionMsgErr ? <Message /> : '' }
 
 			<form className="form_inscription" onSubmit={ inscriptionSubmit } >
 

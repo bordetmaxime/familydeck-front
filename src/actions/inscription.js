@@ -2,6 +2,7 @@ export const SET_INSCRIPTION = 'SET_INSCRIPTION';
 export const SUBMIT_INSCR = 'SUBMIT_INSCR';
 export const SET_ERR_INSCR = 'SET_ERR_INSCR';
 export const SET_INPUT_INSCR = 'SET_INPUT_INSCR';
+export const DEL_REDIRECTION = 'DEL_REDIRECTION';
 
 export const setInscription = ( msg ) => ({
 	type: SET_INSCRIPTION,
@@ -17,8 +18,12 @@ export const setErrInscr = ( msg ) => ({
 	msg,
 });
 
-export const InputInscr = ( name, value ) => ({
+export const inputInscr = ( name, value ) => ({
 	type: SET_INPUT_INSCR,
 	name,
 	value,
 });
+
+export const delRedirection = () => ({
+  type: DEL_REDIRECTION,
+})

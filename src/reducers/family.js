@@ -2,6 +2,8 @@ import { SET_MEMBERS } from '../actions/family';
 
 export const initialState = {
 	members: [ '' ],
+  familyName: '',
+  familyId: '',
 };
 
 const reducer = (state = initialState, action = {}) => {
@@ -11,7 +13,9 @@ const reducer = (state = initialState, action = {}) => {
 		case SET_MEMBERS:
 			return {
 				...state,
-				members: action.members,
+				familyName: action.familyName,
+        familyId: action.familyId,
+        members: action.members,
 			};
     
 		default:

@@ -3,15 +3,27 @@ import './styles.scss';
 import { Link, useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import PropTypes from 'prop-types';
-import { setUserName, setPassword, loginUser } from '../../actions/user';
+import { setUserName, setPassword, loginUser, setLoggedIn } from '../../actions/user';
+import { useEffect } from 'react';
 
 
 // == Composant d'authentification
 const Auth = () => {
 
 	const dispatch = useDispatch();
+	const navigate = useNavigate();
 
-	const { userName, password, loggedIn } = useSelector(state => state.user);
+	const userName = useSelector(state => state.user.userName);
+	const password = useSelector(state => state.user.password);
+	const loggedIn = useSelector(state => state.user.loggedIn);
+  const { route } = useSelector(state => state.user);
+
+	useEffect(() => {
+		if(route){
+      dispatch(setLoggedIn(true));
+			navigate('/home');
+		}
+	}, [route]);
 
 	// Fonction d'enregistrement des valeurs des inputs
 	const inputValue = (event) => {

@@ -5,16 +5,24 @@ import './styles.scss';
 import { FaPen } from '@react-icons/all-files/fa/FaPen';
 import { FaTrash } from '@react-icons/all-files/fa/FaTrash';
 import { useDispatch, useSelector } from 'react-redux';
-import { InputMember, submitAddMember} from '../../actions/member';
+import { delRedirectInfo, InputMember, patchMember, submitAddMember } from '../../actions/member';
+import { useEffect } from 'react';
+import {useNavigate} from 'react-router-dom';
 
 // == Composant formulaire d'un membre pour ajout ou modification
 const FormMember = () => {
-
+	const navigate = useNavigate()
 	const { familyName, familyId } = useSelector(state => state.user.family);
-	const { lastname, username, roleId, datebirth, password, confirmPassword, topsize, bottomsize, shoesize, size, school, hobbies } = useSelector(state => state.member);
+	const { firstname, username, roleId, datebirth, password, confirmPassword, topsize, bottomsize, shoesize, size, school, hobbies, memberId, redirectMember } = useSelector(state => state.member);
 
 	const dispatch = useDispatch();
 
+  useEffect(() => {
+    if(redirectMember) {
+			dispatch(delRedirectInfo());
+			navigate('/members');
+		}
+  }, [redirectMember]);
 
 	// Fonction d'enregistrement des valeurs des inputs
 	const inputValue = (event) => {
@@ -26,11 +34,11 @@ const FormMember = () => {
 
 	};  
 
-	console.log(username);
+	console.log('MEMBERID dans FormMember===>',memberId);
 
 	const inscriptionSubmit = (event) => {
 		event.preventDefault();
-		dispatch(submitAddMember());
+		memberId ? dispatch(patchMember()) : dispatch(submitAddMember());
 	};
 
 	return (
@@ -43,7 +51,7 @@ const FormMember = () => {
 
 				<div className='member__item'>
 					<label htmlFor='member-firstName'>Prénom*</label>
-					<input id='member-firstName' name='lastname' value={ lastname } placeholder='Prénom' required onChange={ inputValue }></input>
+					<input id='member-firstName' name='firstname' value={ firstname } placeholder='Prénom' required onChange={ inputValue }></input>
 				</div>
 
 				<div className='member__bloc'>
@@ -58,7 +66,7 @@ const FormMember = () => {
 					</div>
 					<div className='member__item semi'>
 						<label htmlFor='member-birthday'>Date de naissance*</label>
-						<input id='member-birthday' value={datebirth} name='datebirth' required onChange={ inputValue } />
+						<input id='member-birthday' value={ datebirth } name='datebirth' required onChange={ inputValue } />
 					</div>
 				</div>
         
@@ -91,11 +99,12 @@ const FormMember = () => {
 				<h3 className='member__title3'>Infos connexion*</h3>
 
 				<input className='member__item' id='member-login' value={ username } name='username' placeholder='Login' required onChange={ inputValue }></input>
-
-				<input className='member__item' id='member-pwd' value={ password } name='password' placeholder='Mot de passe' type='password' required onChange={ inputValue }></input>
-
-				<input className='member__item' id='member-pwdConfirm' value={ confirmPassword } name='confirmPassword' placeholder='Confirmation mot de passe' type='password' required onChange={ inputValue }></input>
-
+				{ memberId ? '' :
+					<input className='member__item' id='member-pwd' value={ password } name='password' placeholder='Mot de passe' type='password' required onChange={ inputValue }></input>
+				}
+				{ memberId ? '' : 
+					<input className='member__item' id='member-pwdConfirm' value={ confirmPassword } name='confirmPassword' placeholder='Confirmation mot de passe' type='password' required onChange={ inputValue }></input>
+				}
 				<h4 className='member__alerte'>*Champ obligatoire</h4>
 
 				<div className='member__buttons'>

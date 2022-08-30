@@ -2,7 +2,7 @@
 import { Route, Routes } from 'react-router';
 import { useNavigate } from 'react-router-dom';
 import { useEffect } from 'react';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import './styles.scss';
 
 // == Import composant
@@ -17,6 +17,7 @@ import NotFound from '../NotFound';
 import NotAutorized from '../NotFound/NotAutorized';
 import AddMember from '../Members/AddMember';
 import FormMember from '../Members/FormMember';
+import { delRedirectInfo } from '../../actions/member';
 
 
 // == Composant principal de l'app
@@ -24,19 +25,24 @@ const FamilyDeck = () => {
 
 	// Hook React
 	const navigate = useNavigate();
+	const dispatch = useDispatch();
 
 	// State USER Inscription
 	const loggedIn = useSelector((state) => state.user.loggedIn);
-	const { route } = useSelector(state => state.user);
+
+	// State member
+	const { memberId } = useSelector((state) => state.member);
+
+	// State de redirection
 	const { redirection } = useSelector(state => state.inscription);
-  const { redirectMember } = useSelector(state => state.member);
-  
+	const { redirectMember } = useSelector(state => state.member);
 
 	// USE EFFECT gerant les redirection apres inscription et login
-	useEffect( () => {
-		redirection ? navigate(redirection) : redirectMember ? navigate(redirectMember) : navigate(route);
-		
-	},[ route, redirection, redirectMember ]);
+	// useEffect( () => {
+	// 	console.log('USEEFFECT REDIRECTION', redirection);
+	// 	redirectMember ? navigate(redirectMember) : 
+	// 		navigate('/');
+	// },[ redirectMember ]);
   
 
 	return (
@@ -47,10 +53,9 @@ const FamilyDeck = () => {
           <Routes>
           	<Route path="/home" element={ <Home /> } />
           	<Route path="/members" element={ <Members /> } />
-          	<Route path="/member" element={ <Members member={ 'new' } /> } />
-          	<Route path="/member/:id/modify" element={ <Members member={ 'modify' } /> } />
-          	<Route path="/member/:index" element={ <Members /> } />
-            <Route path="/FormMember" element={ <FormMember /> } />
+          	<Route path="/member/:id" element={ <Members /> } />
+          	<Route path="/member/:id/modify" element={ <Members /> } />
+          	<Route path="/FormMember" element={ <FormMember /> } />
           	<Route path="/events" element={ <Events /> } />
           	<Route path="/event/:id" element={ <Events event={ 'eventId' } /> } />
           	<Route path="/event/:id/modify" element={ <Events form={ 'form' } /> } />

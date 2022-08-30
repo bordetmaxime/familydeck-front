@@ -11,21 +11,24 @@ import AddMember from './AddMember';
 import Member from './Member';
 import FormMember from './FormMember';
 import { useSelector } from 'react-redux';
-import { useParams } from 'react-router-dom';
+import { useLocation, useParams } from 'react-router-dom';
 
 // == Composant structure de la page Membres
 const Members = ({ member }) => {
 
-  const memberIndex = useParams();
-  const index = Object.keys(memberIndex).length;
-  console.log('USEPARAMS===>', Object.keys(memberIndex).length);
-  console.log('USEPARAMS===>', memberIndex);
+  const memberId = useParams();
+  const id = Object.keys(memberId).length;
+  // console.log('USEPARAMS===>', Object.keys(memberId).length);
+  // console.log('USEPARAMS===>', memberId);
+  const path = useLocation();
+  const location = path.pathname;
+  // console.log(location);
 
 	return (
 		<div className="members">
 			<Header />
-			{member === 'new' ? <Member /> : index > 0 ? <Member index={ memberIndex.index } /> : member === 'modify' ? <FormMember /> : <Content />}
-			<AddMember />
+			{ location === '/member/:id/modify' ? <FormMember /> : id > 0 ? <Member id={ memberId.id } /> : <Content />}
+			{id === 0 ? <AddMember /> : '' }
 			<Nav />
 		</div>
 	);

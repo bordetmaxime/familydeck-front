@@ -4,18 +4,19 @@ export const SET_ERR_LOGIN = 'SET_ERR_LOGIN';
 export const SET_USERNAME = 'SET_USERNAME';
 export const SET_PASSWORD = 'SET_PASSWORD';
 export const SET_TOKEN = 'SET_TOKEN';
+export const SET_LOGGED_OUT = 'SET_LOGGED_OUT';
 export const SET_LOGGED_IN = 'SET_LOGGED_IN';
 
 export const setlogin = ({ token, member, family }) => ({
 	type: SET_LOGIN,
 	token: token.token,
-  member,
-  family,
+	member,
+	family,
 });
 
 export const setErrLogin = (msg) => ({
-  type: SET_ERR_LOGIN,
-  msg,
+	type: SET_ERR_LOGIN,
+	msg,
 });
 
 export const loginUser = () => ({
@@ -32,13 +33,13 @@ export const setPassword = (value) => ({
 	payload: value,
 });
 
-export const setToken = (value) => ({
-	type: SET_TOKEN,
+export const setLoggedIn = (value) => ({
+	type: SET_LOGGED_IN,
 	payload: value,
 });
 
-export const setLoggedIn = (value) => ({
-	type: SET_LOGGED_IN,
+export const setLoggedOut = (value) => ({
+	type: SET_LOGGED_OUT,
 	payload: value,
 });
 

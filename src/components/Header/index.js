@@ -1,10 +1,9 @@
 // == Import
 import familyDeckLogo from '../../assets/favicon.ico';
-import PropTypes from 'prop-types';
 import './styles.scss';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import { setUserName, setToken, setLoggedIn } from '../../actions/user';
+import { setLoggedOut } from '../../actions/user';
 
 // == Import Icon
 import { BiLogOutCircle } from '@react-icons/all-files/bi/BiLogOutCircle';
@@ -12,15 +11,16 @@ import { BiLogOutCircle } from '@react-icons/all-files/bi/BiLogOutCircle';
 // == Composant Header de l'app
 const Header = () => {
 
-  const dispatch = useDispatch();
-  const navigate = useNavigate();
-  const { firstname } = useSelector(state => state.user.member);
+	const dispatch = useDispatch();
+	const navigate = useNavigate();
+	const { firstname } = useSelector(state => state.user.member);
 
-  const logout = () => {
-		dispatch(setToken(''));
-		dispatch(setUserName(''));
-		dispatch(setLoggedIn(false));
+	// fonction de déconnexion: modifie les infos du state et redirige vers la page de login
+	const logout = () => {
+		dispatch(setLoggedOut(false));
+		navigate('/login');
 	};
+
 
 	return (
 		<div className="header">
@@ -39,6 +39,3 @@ const Header = () => {
 // == Export
 export default Header;
 
-// Header.propTypes = {
-// 	app: PropTypes.string,
-// };
