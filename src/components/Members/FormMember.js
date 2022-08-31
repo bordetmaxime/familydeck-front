@@ -2,8 +2,6 @@
 import './styles.scss';
 
 // == Imports icones
-import { FaPen } from '@react-icons/all-files/fa/FaPen';
-import { FaTrash } from '@react-icons/all-files/fa/FaTrash';
 import { useDispatch, useSelector } from 'react-redux';
 import { delRedirectInfo, InputMember, patchMember, submitAddMember } from '../../actions/member';
 import { useEffect } from 'react';
@@ -119,7 +117,6 @@ const FormMember = () => {
 
 				<div className='member__buttons'>
 					<button className='member__submit' type='submit'>Valider</button>
-					<FaTrash />
 				</div>
 
 			</form>

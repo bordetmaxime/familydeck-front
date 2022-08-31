@@ -1,6 +1,6 @@
 // == Import
 import './styles.scss';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { getMembers } from '../../actions/family';
 
 // == Import des icons de la page home
@@ -9,22 +9,30 @@ import { GoChecklist } from '@react-icons/all-files/go/GoChecklist';
 import { RiCalendarEventFill } from '@react-icons/all-files/ri/RiCalendarEventFill';
 import { CgGirl } from '@react-icons/all-files/cg/CgGirl';
 import { GoSettings } from '@react-icons/all-files/go/GoSettings';
-import { Link } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import { getLists } from '../../actions/todolist';
+import { getMember } from '../../actions/member';
 
 
 // == Composant contenant les fonctionnalitées de la page Home
-const Content = ({ childId, userId }) => {
+const Content = ({ userId }) => {
 
-  const dispatch = useDispatch();
+	const dispatch = useDispatch();
 
-  const handleMembers = () => {
-    dispatch(getMembers());
-  };
+	const childId = useSelector(state => state.family.childSelectedValue);
 
-  const handleTodolists = () => {
-    dispatch(getLists());
-  };
+	const handleMembers = () => {
+		dispatch(getMembers());
+	};
+
+	const handleChild = () => {
+		dispatch(getMember(childId));
+		console.log('dans useEffect childId', childId);
+	};
+
+	const handleTodolists = () => {
+		dispatch(getLists());
+	};
 
 	return (
 		<div className="content">
@@ -50,7 +58,7 @@ const Content = ({ childId, userId }) => {
 				<h3>Evènements</h3>
 			</Link>
 
-			<Link to={ `/member/${ childId }` } className='content__button'>
+			<Link to={ `/member/${ childId }` } className='content__button' onClick={ handleChild }>
 				<div className='content__icon'>
 					<CgGirl />
 				</div>
