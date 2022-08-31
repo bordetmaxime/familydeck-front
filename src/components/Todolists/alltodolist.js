@@ -19,7 +19,7 @@ const AllTodolists = () => {
 		<div className="all_card">
 
 			{ lists.map(list => (
-				<Link to='/todolist/5' key={ list.todolist_id } className="card_alltodolists">
+				<Link to={ `/todolist/${ list.todolist_id }` } key={ list.todolist_id } className="card_alltodolists">
 					<header className="header_alltodolists">
 						<h2 className="title">{ list.todolist_title }</h2>
 						<FaPen className="icon"/>

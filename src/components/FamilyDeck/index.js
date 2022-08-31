@@ -1,8 +1,6 @@
 // == Import
 import { Route, Routes } from 'react-router';
-import { useNavigate } from 'react-router-dom';
-import { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import './styles.scss';
 
 // == Import composant
@@ -15,23 +13,17 @@ import Todolist from '../Todolist';
 import Members from '../Members';
 import NotFound from '../NotFound';
 import NotAutorized from '../NotFound/NotAutorized';
-import AddMember from '../Members/AddMember';
-import FormMember from '../Members/FormMember';
-import { delRedirectInfo } from '../../actions/member';
+
 
 
 // == Composant principal de l'app
 const FamilyDeck = () => {
 
 	// Hook React
-	const navigate = useNavigate();
-	const dispatch = useDispatch();
+
 
 	// State USER Inscription
 	const loggedIn = useSelector((state) => state.user.loggedIn);
-
-	// State member
-	const { memberId } = useSelector((state) => state.member);
   
 
 	return (

@@ -34,7 +34,7 @@ const FormMember = () => {
 
 	};  
 
-	console.log('MEMBERID dans FormMember===>',memberId);
+	// console.log('MEMBERID dans FormMember===>',memberId);
 
 	const inscriptionSubmit = (event) => {
 		event.preventDefault();

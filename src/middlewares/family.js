@@ -17,7 +17,7 @@ const familyMiddleware = (store) => (next) => async (action) => {
           },
 				});
 				store.dispatch(setMembers(data));
-        console.log('data FAMILY middleware ===>',data);
+        // console.log('data FAMILY middleware ===>',data);
 				break;
         
 			} catch (error) {

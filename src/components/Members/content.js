@@ -13,12 +13,12 @@ import { getMember } from '../../actions/member';
 const Content = () => {
 
 	const { members, familyName } = useSelector(state => state.family);
-	console.log('members dans members index', members);
+	// console.log('members dans members index', members);
 
 	const dispatch = useDispatch();
 
 	const handleClick = (event) => {
-		console.log('event====>', event.target.id);
+		// console.log('event====>', event.target.id);
 		dispatch(getMember(event.target.id));
 	};
 

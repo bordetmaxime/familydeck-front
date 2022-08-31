@@ -8,11 +8,15 @@ export const SET_MODIFY = 'SET_MODIFY';
 export const PATCH_MEMBER = 'PATCH_MEMBER';
 export const DEL_REDIRECT_INFO = 'DEL_REDIRECT_INFO';
 export const DEL_STATE_MEMBER = 'DEL_STATE_MEMBER';
+export const DELETE_MEMBER = 'DELETE_MEMBER';
+export const DELETE_MSG = 'DELETE_MSG';
+export const RESET_DELETE_MSG = 'RESET_DELETE_MSG';
+export const SET_OPEN = 'SET_OPEN';
 
 
 export const setMember = ( msg ) => ({
 	type: SET_MEMBER,
-  msg,
+	msg,
 });
 
 export const InputMember = ( name, value ) => ({
@@ -26,29 +30,45 @@ export const submitAddMember = () => ({
 });
 
 export const getMember = (memberId) => ({
- type: GET_MEMBER,
- payload: memberId,
+	type: GET_MEMBER,
+	payload: memberId,
 });
 
 export const savMember = ({ birth, bottom_size, hobbies, member_email, member_firstname, member_id, member_lastname, member_username, school, shoes_size, size, top_size, label, roleid }) => ({
-  type: SAV_MEMBER,
-  birth, bottom_size, hobbies, member_email, member_firstname, member_id, member_lastname, member_username, school, shoes_size, size, top_size, label, roleid,
+	type: SAV_MEMBER,
+	birth, bottom_size, hobbies, member_email, member_firstname, member_id, member_lastname, member_username, school, shoes_size, size, top_size, label, roleid,
 });
 
 export const patchMember = () => ({
-  type: PATCH_MEMBER,
+	type: PATCH_MEMBER,
 });
 
 export const setMemberModify = (msg) => ({
-  type: SET_MEMBER_MODIFY,
-  msg,
+	type: SET_MEMBER_MODIFY,
+	msg,
 });
 
 export const delRedirectInfo = () => ({
-  type: DEL_REDIRECT_INFO,
+	type: DEL_REDIRECT_INFO,
 });
 
 export const delStateMember = () => ({
-  type: DEL_STATE_MEMBER,
+	type: DEL_STATE_MEMBER,
 });
 
+export const deleteMember = () => ({
+	type: DELETE_MEMBER,
+});
+
+export const deleteMsg = (msg) => ({
+	type: DELETE_MSG,
+  msg,
+});
+
+export const resetDeleteMsg = () => ({
+  type: RESET_DELETE_MSG,
+})
+
+export const setOpen = () => ({
+  type: SET_OPEN,
+})

@@ -1,17 +1,41 @@
 // == Imports
 import './styles.scss';
+import Popup from 'reactjs-popup';
 
 // == Imports icones
 import { FaPen } from '@react-icons/all-files/fa/FaPen';
 import { FaTrash } from '@react-icons/all-files/fa/FaTrash';
-import { Link } from 'react-router-dom';
-import { useSelector } from 'react-redux';
+import { Link, useNavigate } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import { deleteMember, resetDeleteMsg, setOpen } from '../../actions/member';
+import { useEffect } from 'react';
 
 // == Composant
 const Member = () => {
 
 	const member = useSelector(state => state.member);
+	const deleteMsg = useSelector(state => state.member.deleteMsg);
+	const open = useSelector(state => state.member.open);
 	const { familyName } = useSelector(state => state.family);
+
+	const dispatch = useDispatch();
+	const navigate = useNavigate();
+
+	const handleDelete = () => {
+		dispatch(deleteMember());
+	};
+
+	const openPopup = () => {
+		dispatch(setOpen());
+	};
+
+	useEffect(() => {
+		if(deleteMsg) {
+			dispatch(resetDeleteMsg());
+			dispatch(setOpen());
+			navigate('/members');
+		}
+	});
 
 
 	return (
@@ -59,7 +83,7 @@ const Member = () => {
 						<p id='member-bottom'>{ member.bottomsize }</p>
 					</div>
 
-          <div className='member__item semi'>
+					<div className='member__item semi'>
 						<h4 className='member__title4'>Ecole:</h4>
 						<p id='member-top'>{ member.school }</p>
 					</div>
@@ -79,12 +103,21 @@ const Member = () => {
 				<p id='member-password'></p>
 
 				<p id='member-confirmPassword'></p>
+				
 
 				<div className='member__buttons'>
 					<Link to={ '/member/modify' }>
 						<FaPen />
 					</Link>
-					<FaTrash />
+					<FaTrash onClick={ openPopup } />
+					<Popup open={ open } >
+						<div className='deletePopUp'>
+							<h4 className='member__title4'>Confirmez la suppression</h4>
+							<button className='member__submit' type='submit' onClick={ openPopup }>Annuler</button>
+							<button className='member__submit' type='submit' onClick={ handleDelete }>Valider</button>
+						</div>
+					</Popup>
+					
 				</div>
 			</div>
 		</div>
