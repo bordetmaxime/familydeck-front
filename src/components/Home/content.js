@@ -10,6 +10,7 @@ import { RiCalendarEventFill } from '@react-icons/all-files/ri/RiCalendarEventFi
 import { CgGirl } from '@react-icons/all-files/cg/CgGirl';
 import { GoSettings } from '@react-icons/all-files/go/GoSettings';
 import { Link } from 'react-router-dom';
+import { getLists } from '../../actions/todolist';
 
 
 // == Composant contenant les fonctionnalitées de la page Home
@@ -17,21 +18,25 @@ const Content = ({ childId, userId }) => {
 
   const dispatch = useDispatch();
 
-  const handleSubmit = () => {
+  const handleMembers = () => {
     dispatch(getMembers());
-  }
+  };
+
+  const handleTodolists = () => {
+    dispatch(getLists());
+  };
 
 	return (
 		<div className="content">
 
-			<Link to='/members' className='content__button' onClick={ handleSubmit }>
+			<Link to='/members' className='content__button' onClick={ handleMembers }>
 				<div className='content__icon'>
 					<FaUsersCog />
 				</div>
 				<h3>Ma famille</h3>
 			</Link>
 
-			<Link to='/todolists' className='content__button'>
+			<Link to='/todolists' className='content__button' onClick={ handleTodolists }>
 				<div className='content__icon'>
 					<GoChecklist />
 				</div>

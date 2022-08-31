@@ -18,17 +18,18 @@ const Members = ({ member }) => {
 
   const memberId = useParams();
   const id = Object.keys(memberId).length;
-  // console.log('USEPARAMS===>', Object.keys(memberId).length);
-  // console.log('USEPARAMS===>', memberId);
+  console.log('USEPARAMS===>', Object.keys(memberId).length);
+  console.log('USEPARAMS===>', memberId.id);
   const path = useLocation();
   const location = path.pathname;
-  // console.log(location);
+  console.log(location);
+  console.log(`/member/${memberId.id}/modify`);
 
 	return (
 		<div className="members">
 			<Header />
-			{ location === '/member/:id/modify' ? <FormMember /> : id > 0 ? <Member id={ memberId.id } /> : <Content />}
-			{id === 0 ? <AddMember /> : '' }
+			{ location === '/formMember' ? <FormMember /> : location === '/members' ? <Content /> : id > 0 ? <Member id={ memberId.id } /> : location === '/member/modify' ? <FormMember /> : '' }
+			{(id != 0 || (location === '/formMember')) || (location === '/member/modify') ? '' : <AddMember /> }
 			<Nav />
 		</div>
 	);

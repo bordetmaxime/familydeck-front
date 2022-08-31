@@ -7,22 +7,22 @@ import { FaTrash } from '@react-icons/all-files/fa/FaTrash';
 import { useDispatch, useSelector } from 'react-redux';
 import { delRedirectInfo, InputMember, patchMember, submitAddMember } from '../../actions/member';
 import { useEffect } from 'react';
-import {useNavigate} from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 // == Composant formulaire d'un membre pour ajout ou modification
 const FormMember = () => {
-	const navigate = useNavigate()
+	const navigate = useNavigate();
 	const { familyName, familyId } = useSelector(state => state.user.family);
 	const { firstname, username, roleId, datebirth, password, confirmPassword, topsize, bottomsize, shoesize, size, school, hobbies, memberId, redirectMember } = useSelector(state => state.member);
 
 	const dispatch = useDispatch();
 
-  useEffect(() => {
-    if(redirectMember) {
+	useEffect(() => {
+		if(redirectMember) {
 			dispatch(delRedirectInfo());
 			navigate('/members');
 		}
-  }, [redirectMember]);
+	}, [ redirectMember ]);
 
 	// Fonction d'enregistrement des valeurs des inputs
 	const inputValue = (event) => {
@@ -92,6 +92,16 @@ const FormMember = () => {
 					<div className='member__item semi'>
 						<label htmlFor='member-bottom'>Taille bas</label>
 						<input id='member-bottom' value={ bottomsize } name='bottomsize' placeholder='M / 30 / 38 / 6ans' onChange={ inputValue }></input>
+					</div>
+
+          <div className='member__item semi'>
+						<label htmlFor='member-school'>Ecole</label>
+						<input id='member-school' value={ school } name='school' placeholder='Ecole Dampierre' onChange={ inputValue }></input>
+					</div>
+
+          <div className='member__item semi'>
+						<label htmlFor='member-hobbies'>Hobbies</label>
+						<input id='member-Hobbies' value={ hobbies } name='hobbies' placeholder='Hockey, peinture, danse...' onChange={ inputValue }></input>
 					</div>
 
 				</div>

@@ -18,7 +18,7 @@ const AddMember = () => {
 
 	return (
 		<div className="addMember">
-			<Link to='/FormMember' onClick={ restStateMember }>
+			<Link to='/formMember' onClick={ restStateMember }>
 				<MdAddCircle className='addMember__button' />
 			</Link>
 		</div>

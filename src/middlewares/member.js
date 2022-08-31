@@ -11,14 +11,14 @@ const memberMiddleware = (store) => (next) => async (action) => {
 			const { firstname, roleId, datebirth, username, password, confirmPassword, size, topsize, bottomsize, shoesize, school, hobbies } = store.getState().member;
 			const { familyId } = store.getState().user.family;
 			const { token } = store.getState().user;
+      console.log('tupe of ROLEID===>',typeof(roleId));
 
 			try {
-				const { data } = await axios.post('https://family-deck-back.herokuapp.com/api/member', {
-					familyId,
+				const { data } = await axios.post(`https://family-deck-back.herokuapp.com/api/family/${familyId}/members`, {
 					firstname,
+          username,
 					roleId,
 					datebirth,
-					username,
 					password,
 					confirmPassword,
 					topsize,

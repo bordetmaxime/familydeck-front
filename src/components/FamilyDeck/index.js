@@ -32,17 +32,6 @@ const FamilyDeck = () => {
 
 	// State member
 	const { memberId } = useSelector((state) => state.member);
-
-	// State de redirection
-	const { redirection } = useSelector(state => state.inscription);
-	const { redirectMember } = useSelector(state => state.member);
-
-	// USE EFFECT gerant les redirection apres inscription et login
-	// useEffect( () => {
-	// 	console.log('USEEFFECT REDIRECTION', redirection);
-	// 	redirectMember ? navigate(redirectMember) : 
-	// 		navigate('/');
-	// },[ redirectMember ]);
   
 
 	return (
@@ -54,8 +43,8 @@ const FamilyDeck = () => {
           	<Route path="/home" element={ <Home /> } />
           	<Route path="/members" element={ <Members /> } />
           	<Route path="/member/:id" element={ <Members /> } />
-          	<Route path="/member/:id/modify" element={ <Members /> } />
-          	<Route path="/FormMember" element={ <FormMember /> } />
+          	<Route path="/member/modify" element={ <Members /> } />
+          	<Route path="/formMember" element={ <Members /> } />
           	<Route path="/events" element={ <Events /> } />
           	<Route path="/event/:id" element={ <Events event={ 'eventId' } /> } />
           	<Route path="/event/:id/modify" element={ <Events form={ 'form' } /> } />

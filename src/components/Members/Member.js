@@ -5,31 +5,13 @@ import './styles.scss';
 import { FaPen } from '@react-icons/all-files/fa/FaPen';
 import { FaTrash } from '@react-icons/all-files/fa/FaTrash';
 import { Link } from 'react-router-dom';
-import { useDispatch, useSelector } from 'react-redux';
-import { useEffect } from 'react';
-import { getMember } from '../../actions/member';
+import { useSelector } from 'react-redux';
 
 // == Composant
-const Member = ({ id }) => {
+const Member = () => {
 
-	// const { members } = useSelector(state => state.family);
-  // const family = useSelector(state => state.family);
-	const memberId = Number(id);
-	// console.log('MEMBERS====>', members);
-	// console.log('FAMILY===>',family);
-
-
-	// const memberSelected = members.find((member) => member.member_id === memberId );
-
-	// console.log(memberSelected);
-
-  const member = useSelector(state => state.member);
-  const { familyName } = useSelector(state => state.family);
-  const dispatch = useDispatch();
-
-  // const modifyMember = () => {
-  //   dispatch(setModify());
-  // }
+	const member = useSelector(state => state.member);
+	const { familyName } = useSelector(state => state.family);
 
 
 	return (
@@ -77,6 +59,17 @@ const Member = ({ id }) => {
 						<p id='member-bottom'>{ member.bottomsize }</p>
 					</div>
 
+          <div className='member__item semi'>
+						<h4 className='member__title4'>Ecole:</h4>
+						<p id='member-top'>{ member.school }</p>
+					</div>
+
+					<div className='member__item semi'>
+						<h4 className='member__title4'>Hobbies:</h4>
+						<p id='member-bottom'>{ member.hobbies }</p>
+					</div>
+          
+
 				</div>
 
 				<h3 className='member__title3'>Infos connexion*</h3>
@@ -88,7 +81,7 @@ const Member = ({ id }) => {
 				<p id='member-confirmPassword'></p>
 
 				<div className='member__buttons'>
-					<Link to='/member/:id/modify'>
+					<Link to={ '/member/modify' }>
 						<FaPen />
 					</Link>
 					<FaTrash />

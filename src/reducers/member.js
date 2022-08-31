@@ -20,7 +20,6 @@ export const initialState = {
 	recupMember: false,
 	// state de reidrection
 	redirectMember: '',
-	// redirectMemberInfos: '',
 };
 
 const reducer = (state = initialState, action = {}) => {
