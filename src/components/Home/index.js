@@ -20,7 +20,7 @@ const Home = ({ childId }) => {
   const members = useSelector(state => state.family.members);
   const { familyId } = useSelector(state => state.user.family);
 
-  console.log('DANS HOME ===>',members);
+  // console.log('DANS HOME ===>',members);
 
   useEffect(() => {
     if(familyId) {

@@ -14,7 +14,7 @@ const ChildsSelect = () => {
   const childName = useSelector(state => state.family.childSelectedName);
 
 	const dispatch = useDispatch();
-	console.log(members);
+	// console.log(members);
   
 	const inputValue = (event) => {
 		const value = event.target.value;
@@ -23,7 +23,7 @@ const ChildsSelect = () => {
 		dispatch(childSelected(value, name));
 	};  
 
-  console.log('CHILDID',childId);
+  // console.log('CHILDID',childId);
 
 	useEffect(() => {
 		if( members) {

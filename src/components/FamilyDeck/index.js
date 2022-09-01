@@ -41,7 +41,7 @@ const FamilyDeck = () => {
           	<Route path="/event/:id" element={ <Events event={ 'eventId' } /> } />
           	<Route path="/event/:id/modify" element={ <Events form={ 'form' } /> } />
           	<Route path="/todolists" element={ <Todolists /> } />
-          	<Route path="/todolist/5" element={ <Todolist /> } />
+          	<Route path="/todolist/:id" element={ <Todolist /> } />
           	<Route path="*" element={ <NotFound /> } />
           </Routes>
 			}

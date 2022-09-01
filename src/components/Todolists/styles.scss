@@ -23,12 +23,21 @@
   display: flex;
   justify-content: center;
   align-items: center;
+
+  & button {
+    border: none;
+    background: none;
+  }
 }
 
 .icon{
   font-size: 1.5rem;
   color: vars.$blue;
   margin-left: 1rem;
+}
+
+.left {
+  margin-left: 4rem;
 }
 
 .all_card{
@@ -38,18 +47,12 @@
   overflow: auto;
 }
 
-.card_alltodolists{
-  display: flex;
-  justify-content: space-between;
-  border-bottom:1px  solid vars.$blue;
-  background-color: vars.$lightgrey;
-  flex-direction: column;
-  
-}
 .header_alltodolists{
   display: flex;
   padding:0.5rem;
-  border:none;
+  justify-content: space-between;
+  border-bottom:1px  solid vars.$blue;
+  background-color: vars.$lightgrey;
   align-items: center;
 }
 
@@ -64,6 +67,10 @@
   font-size:1.3rem;
   margin-left: 10px;
   color: vars.$blue;
+}
+
+.link_alltodolists {
+  flex-grow: 1;
 }
 
 .main_alltodolists{

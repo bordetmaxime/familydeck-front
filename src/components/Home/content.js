@@ -27,7 +27,7 @@ const Content = ({ userId }) => {
 
 	const handleChild = () => {
 		dispatch(getMember(childId));
-		console.log('dans useEffect childId', childId);
+		// console.log('dans useEffect childId', childId);
 	};
 
 	const handleTodolists = () => {
