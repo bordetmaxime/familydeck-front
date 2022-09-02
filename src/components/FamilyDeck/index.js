@@ -13,15 +13,11 @@ import Todolist from '../Todolist';
 import Members from '../Members';
 import NotFound from '../NotFound';
 import NotAutorized from '../NotFound/NotAutorized';
-import { useEffect } from 'react';
 
 
 
 // == Composant principal de l'app
 const FamilyDeck = () => {
-
-	// Hook React
-
 
 	// State USER Inscription
 	const loggedIn = useSelector((state) => state.user.loggedIn);

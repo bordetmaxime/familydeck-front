@@ -1,7 +1,14 @@
 // == Import
 import './styles.scss';
+import { Link } from 'react-router-dom';
+
+// == Import hooks
 import { useDispatch, useSelector } from 'react-redux';
+
+// == Import actions
 import { getMembers } from '../../actions/family';
+import { getLists } from '../../actions/todolist';
+import { getMember } from '../../actions/member';
 
 // == Import des icons de la page home
 import { FaUsersCog } from '@react-icons/all-files/fa/FaUsersCog';
@@ -9,13 +16,10 @@ import { GoChecklist } from '@react-icons/all-files/go/GoChecklist';
 import { RiCalendarEventFill } from '@react-icons/all-files/ri/RiCalendarEventFill';
 import { CgGirl } from '@react-icons/all-files/cg/CgGirl';
 import { GoSettings } from '@react-icons/all-files/go/GoSettings';
-import { Link, useParams } from 'react-router-dom';
-import { getLists } from '../../actions/todolist';
-import { getMember } from '../../actions/member';
 
 
 // == Composant contenant les fonctionnalitées de la page Home
-const Content = ({ userId }) => {
+const Content = () => {
 
 	const dispatch = useDispatch();
 
@@ -65,12 +69,12 @@ const Content = ({ userId }) => {
 				<h3>Infos Enfant</h3>
 			</Link>
 
-			<Link to={ `/member/${ userId }` } className='content__button'>
+			{/* <Link to={ `/member/${ userId }` } className='content__button'>
 				<div className='content__icon'>
 					<GoSettings />
 				</div>
 				<h3>Paramètres</h3>
-			</Link>
+			</Link> */}
 
 		</div>
 	);

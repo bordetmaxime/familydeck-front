@@ -1,8 +1,12 @@
 // == Import
 import familyDeckLogo from '../../assets/favicon.ico';
 import './styles.scss';
+
+// == Import hooks
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
+
+// == Import actions
 import { setLoggedOut } from '../../actions/user';
 
 // == Import Icon

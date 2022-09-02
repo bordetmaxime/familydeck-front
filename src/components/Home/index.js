@@ -8,32 +8,35 @@ import EventsAlert from '../EventsAlert';
 import Header from '../Header';
 import Nav from '../Nav';
 import Content from './content';
+
+// == Import hooks
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+
+// == Import actions
 import { getMembers } from '../../actions/family';
 
 
 // == Composant structure de la page Home
-const Home = ({ childId }) => {
+const Home = () => {
 
-  const dispatch = useDispatch();
-  const members = useSelector(state => state.family.members);
-  const { familyId } = useSelector(state => state.user.family);
+	const dispatch = useDispatch();
+	const { familyId } = useSelector(state => state.user.family);
 
-  // console.log('DANS HOME ===>',members);
+	// console.log('DANS HOME ===>',members);
 
-  useEffect(() => {
-    if(familyId) {
-      dispatch(getMembers());
-    }
-  },[ familyId ]);
+	useEffect(() => {
+		if(familyId) {
+			dispatch(getMembers());
+		}
+	},[ familyId ]);
   
 	return (
 		<div className="home">
 			<Header />
 			<EventsAlert />
 			<ChildsSelect />
-			<Content childId={ '3' } />
+			<Content />
 			<Nav />
 		</div>
 	);

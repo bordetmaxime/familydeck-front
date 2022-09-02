@@ -12,8 +12,8 @@ const Message = () => {
 		<div className="message">
 			{
 				errLogin ? <h2 className='message__error'>{errLogin}</h2> :
-					inscriptionMsgErr ? <h2 className='message__error'>{inscriptionMsgErr}</h2> :
-						<h2 className='message__succes'>{inscriptMsgSucces}</h2>
+					inscriptMsgSucces ? <h2 className='message__succes'>{inscriptMsgSucces}</h2> :
+						<h2 className='message__error'>{inscriptionMsgErr}</h2>
 			}
 		</div>
 	);

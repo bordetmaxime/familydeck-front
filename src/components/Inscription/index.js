@@ -1,19 +1,32 @@
 // == Import
 import './styles.scss';
-import PropTypes from 'prop-types';
 
 // == Import composants
 import Header from './Header';
 import Message from '../Welcome/Message';
+
+// == Import hooks
 import { useDispatch, useSelector } from 'react-redux';
-import { delRedirection, inputInscr, submitInscr } from '../../actions/inscription';
 import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+
+// == Import actions
+import { delRedirection, inputInscr, submitInscr } from '../../actions/inscription';
 
 // == Composant structure de la page Inscription
 const Inscription = () => {
 
-	const { familyName, lastname, firstname, roleId, dateBirth, email, confirmEmail, password, confirmPassword, inscriptionMsgErr, redirection } = useSelector(state => state.inscription);
+	const familyName = useSelector(state => state.inscription.familyName);
+	const lastname = useSelector(state => state.inscription.lastname);
+	const firstname = useSelector(state => state.inscription.firstname);
+	const roleId = useSelector(state => state.inscription.roleId);
+	const dateBirth = useSelector(state => state.inscription.dateBirth);
+	const email = useSelector(state => state.inscription.email);
+	const confirmEmail = useSelector(state => state.inscription.confirmEmail);
+	const password = useSelector(state => state.inscription.password);
+	const confirmPassword = useSelector(state => state.inscription.confirmPassword);
+	const inscriptionMsgErr = useSelector(state => state.inscription.inscriptionMsgErr);
+	const redirection = useSelector(state => state.inscription.redirection);
 
 	const dispatch = useDispatch();
 	const navigate = useNavigate();
@@ -114,27 +127,5 @@ const Inscription = () => {
 
 // == Export
 export default Inscription;
-
-// Inscription.propTypes = {
-// 	familyName: PropTypes.string,
-// 	setFamilyName: PropTypes.func, 
-// 	lastname: PropTypes.string,
-// 	setLastName: PropTypes.func,
-// 	firstname: PropTypes.string,
-// 	setFirstname: PropTypes.func,  
-// 	roleId: PropTypes.string,
-// 	setRoleId: PropTypes.func,
-// 	dateBirth: PropTypes.string,
-// 	setDateBirth: PropTypes.func,
-// 	email: PropTypes.string, 
-// 	setEmail: PropTypes.func,
-// 	confirmEmail: PropTypes.string,
-// 	setconfirmEmail: PropTypes.func,
-// 	password: PropTypes.string,
-// 	setPassword: PropTypes.func,
-// 	confirmPassword: PropTypes.string,
-// 	setConfirmPassword: PropTypes.func,
-// 	inscriptionSubmit: PropTypes.func,
-// };
 
   

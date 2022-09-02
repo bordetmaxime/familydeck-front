@@ -28,7 +28,8 @@ const inscriptionMiddleware = (store) => (next) => async (action) => {
 				break;
 			} catch (error) {
 				console.error(error);
-				setErrInscr(error.response.data.msg);
+        console.log(error.response.data.msg);
+				store.dispatch(setErrInscr(error.response.data.msg));
 				break;
 			}
 		}

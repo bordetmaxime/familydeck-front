@@ -5,10 +5,13 @@ import './styles.scss';
 import { FaPen } from '@react-icons/all-files/fa/FaPen';
 import { FaTrash } from '@react-icons/all-files/fa/FaTrash';
 import { Link } from 'react-router-dom';
+
+// == Import des hooks
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
-import { inputOnChange, resetItems } from '../../actions/todolist';
-import Popup from 'reactjs-popup';
+
+// == Import des actions
+import { inputModifListName, patchListModif, resetItems, setOpenModalList } from '../../actions/todolist';
 
 
 // == Composant visuel de toutes les todolists
@@ -17,24 +20,27 @@ const AllTodolists = () => {
 	const dispatch = useDispatch();
 
 	const lists = useSelector(state => state.todolist.lists);
-  const inputValue = useSelector(state => state.todolist.inputValue);
+	const inputModifValue = useSelector(state => state.todolist.inputValue);
+	const openModalList = useSelector(state => state.todolist.openModalList);
+	const targetId = useSelector(state => state.todolist.targetId);
 
-	console.log(lists);
-
-  const openPopupList = () => {
-		dispatch(setOpen());
+	// appel l'action d'afficher l'input de modification du nom de la liste ainsi que les corbeilles pour la suppression des items
+	const openModal = (event) => {
+		dispatch(setOpenModalList(event.target.id, event.target.getAttribute('name')));
 	};
 
-  const handleOnChange = (event) => {
-		dispatch(inputOnChange(event.target.value));
+	// appel l'action l'enregistre dans le state la valeur de l'input de modification de nom de list
+	const handleOnChange = (event) => {
+		dispatch(inputModifListName(event.target.value));
 	};
 
-  const handleSubmit = (event) => {
+	// appel l'action d'enregistrement des modifications du nom de la liste en base API
+	const SubmitModify = (event) => {
 		event.preventDefault();
-		dispatch(postNewList());
+		dispatch(patchListModif());
 	};
 
-
+	// appel l'action de remise à zero du tableau d'item
 	useEffect(() => {
 		dispatch(resetItems());
 	},[]);
@@ -43,89 +49,25 @@ const AllTodolists = () => {
 		<div className="all_card">
 
 			{ lists.map(list => (
-				<>
+				<div key={ list.todolist_id }>
 					<header className="header_alltodolists">
-						<Link to={ `/todolist/${ list.todolist_id }` } key={ list.todolist_id } className="link_alltodolists">
-							<h2 className="title">{ list.todolist_title }</h2>
-						</Link>
-						<FaPen className="icon left" onClick={ openPopupList }/>
-						<FaTrash className="icon"/>
+						{ 
+							openModalList && (list.todolist_id === Number(targetId)) ? 
+								<form className='form_modify_todolist' onSubmit={ SubmitModify }>
+									<input type="text" name="modify_list" value={ inputModifValue } placeholder={ list.todolist_title } onChange={ handleOnChange }/>
+									<button className='member__submit' type='submit'>Valider</button>
+								</form> :
+								<>
+									<Link to={ `/todolist/${ list.todolist_id }` } className="link_alltodolists">
+										<h2 className="title">{ list.todolist_title }</h2>
+									</Link>
+									<FaPen id={ list.todolist_id } name={ list.todolist_title } className="icon left" onClick={ openModal }/>
+									<FaTrash className="icon"/>
+								</>
+						}
 					</header>
-
-					<Popup open={ openModalList } >
-						<form className='modifyPopUp' onSubmit={ handleSubmit }>
-            <input type="text" name="modify_list" value={ inputValue } placeholder="Nouvelle liste" onChange={ handleOnChange }/>
-							<button className='member__submit' type='submit'>Valider</button>
-						</form>
-					</Popup>
-				</>
+				</div>
 			))}
-
-			{/* <Link to='/todolist/5' className="card_alltodolists">
-				<header className="header_alltodolists">
-					<h2 className="title">Loisirs</h2>
-					<FaPen className="icon"/>
-					<FaTrash className="icon"/>
-				</header>
-
-				<main className="main_alltodolists">
-					<ul>
-						<li>Trotinette</li>
-						<li>Skate</li>
-					</ul>
-				</main>
-			</Link>
-
-			<Link to='/todolist/5' className="card_alltodolists">
-				<header className="header_alltodolists">
-					<h2 className="title">Sandwich</h2>
-					<FaPen className="icon"/>
-					<FaTrash className="icon"/>
-				</header>
-
-				<main className="main_alltodolists">
-					<ul>
-						<li>sandwich</li>
-						<li>tomate</li>
-						<li>ognon</li>
-						<li>sandwich</li>
-						<li>tomate</li>
-						<li>ognon</li>
-						<li>sandwich</li>
-						<li>tomate</li>
-						<li>ognon</li>
-						<li>sandwich</li>
-						<li>tomate</li>
-						<li>ognon</li>
-						<li>sandwich</li>
-						<li>tomate</li>
-						<li>ognon</li>
-						<li>sandwich</li>
-						<li>tomate</li>
-						<li>ognon</li>
-						<li>sandwich</li>
-						<li>tomate</li>
-						<li>ognon</li>
-					</ul>
-				</main>
-			</Link>
-
-			<Link to='/todolist/5' className="card_alltodolists">
-				<header className="header_alltodolists">
-					<h2 className="title">Ecole</h2>
-					<FaPen className="icon"/>
-					<FaTrash className="icon"/>
-				</header>
-
-				<main className="main_alltodolists">
-					<ul>
-						<li>Cahier</li>
-						<li>Crayon</li>
-						<li>Gomme</li>
-						<li>Stylo</li>
-					</ul>
-				</main>
-			</Link> */}
 
 		</div>
 

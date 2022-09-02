@@ -30,10 +30,15 @@
   }
 }
 
-.icon{
+.icon {
   font-size: 1.5rem;
   color: vars.$blue;
   margin-left: 1rem;
+
+  &-item {
+    height: 2rem;
+    margin: 0.5rem;
+  }
 }
 
 .left {
@@ -75,6 +80,17 @@
 
 .main_alltodolists{
   display: none;
+}
+
+.form_modify_todolist {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  align-items: center;
+}
+
+.checked {
+  text-decoration: line-through;
 }
 
 // BreakPoint pour la mise en forme de la version desktop
