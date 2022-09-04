@@ -1,4 +1,4 @@
-import { RESET_ITEMS, SET_ITEMS, SET_LISTS, SET_NEW_LIST, SET_NEW_ITEM, INPUT_ADD_ITEM, INPUT_ADD_LIST, SET_OPEN_MODAL_LIST, SET_LIST_MODIF, INPUT_MODIF_LISTNAME, SET_OPEN_POPUP_ITEM, DELETE_ITEM_MSG } from '../actions/todolist';
+import { RESET_ITEMS, SET_ITEMS, SET_LISTS, SET_NEW_LIST, SET_NEW_ITEM, INPUT_ADD_ITEM, INPUT_ADD_LIST, SET_OPEN_MODAL_LIST, SET_LIST_MODIF, INPUT_MODIF_LISTNAME, SET_OPEN_POPUP_ITEM, DELETE_ITEM_MSG, SET_OPEN_POPUP_LIST, DELETE_LIST_MSG } from '../actions/todolist';
 
 export const initialState = {
 	lists: [],
@@ -15,6 +15,8 @@ export const initialState = {
 	modifListMsg: '',
 	itemId: '',
 	open: false,
+	deleteItemMsg: '',
+	deleteListMsg: '',
 };
 
 const reducer = (state = initialState, action = {}) => {
@@ -100,6 +102,21 @@ const reducer = (state = initialState, action = {}) => {
 				...state,
 				deleteItemMsg: action.msg,
 				itemId: '',
+				open: !state.open,
+			};
+
+		case SET_OPEN_POPUP_LIST:
+			return {
+				...state,
+				open: !state.open,
+				targetId: action.listId,
+			};
+      
+		case DELETE_LIST_MSG:
+			return {
+				...state,
+				deleteListMsg: action.msg,
+				targetId: '',
 				open: !state.open,
 			};
 

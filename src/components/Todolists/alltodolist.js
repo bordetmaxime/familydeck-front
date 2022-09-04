@@ -11,7 +11,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
 
 // == Import des actions
-import { inputModifListName, patchListModif, resetItems, setOpenModalList } from '../../actions/todolist';
+import { deleteList, inputModifListName, patchListModif, resetItems, setOpenModalList, setOpenPopupList } from '../../actions/todolist';
+import Popup from 'reactjs-popup';
 
 
 // == Composant visuel de toutes les todolists
@@ -23,6 +24,7 @@ const AllTodolists = () => {
 	const inputModifValue = useSelector(state => state.todolist.inputValue);
 	const openModalList = useSelector(state => state.todolist.openModalList);
 	const targetId = useSelector(state => state.todolist.targetId);
+  const open = useSelector(state => state.todolist.open);
 
 	// appel l'action d'afficher l'input de modification du nom de la liste ainsi que les corbeilles pour la suppression des items
 	const openModal = (event) => {
@@ -40,6 +42,17 @@ const AllTodolists = () => {
 		dispatch(patchListModif());
 	};
 
+	// appel l'action d'affichage de la popup de suppression avec l'envoi de l'id de l'item visé
+	const openPopup = (event) => {
+		// console.log(event.target.parentNode.parentNode.id);
+		dispatch(setOpenPopupList(event.target.parentNode.parentNode.id));
+	};
+
+	// appel l'action de suppression de l'item en base api
+	const handleDeleteList = () => {
+		dispatch(deleteList());
+	};
+
 	// appel l'action de remise à zero du tableau d'item
 	useEffect(() => {
 		dispatch(resetItems());
@@ -49,7 +62,7 @@ const AllTodolists = () => {
 		<div className="all_card">
 
 			{ lists.map(list => (
-				<div key={ list.todolist_id }>
+				<div key={ list.todolist_id } id={list.todolist_id}>
 					<header className="header_alltodolists">
 						{ 
 							openModalList && (list.todolist_id === Number(targetId)) ? 
@@ -62,10 +75,18 @@ const AllTodolists = () => {
 										<h2 className="title">{ list.todolist_title }</h2>
 									</Link>
 									<FaPen id={ list.todolist_id } name={ list.todolist_title } className="icon left" onClick={ openModal }/>
-									<FaTrash className="icon"/>
+									<FaTrash className="icon" onClick={ openPopup } />
 								</>
 						}
 					</header>
+
+					<Popup open={ open } >
+						<div className='deletePopUp'>
+							<h4 className='member__title4'>Confirmez la suppression</h4>
+							<button className='member__submit' type='submit' onClick={ openPopup }>Annuler</button>
+							<button className='member__submit' type='submit' onClick={ handleDeleteList }>Valider</button>
+						</div>
+					</Popup>
 				</div>
 			))}
 

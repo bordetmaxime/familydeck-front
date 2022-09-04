@@ -103,8 +103,8 @@ const Todolist= () => {
 							</form> :
 							<>
 								<h2 className="title">{ list.todolist_title }</h2>
-								<FaPen id={ list.todolist_id } name={ list.todolist_title } className="icon left" onClick={ openModal }/>
-								<FaTrash className="icon"/>
+								<FaPen id={ list.todolist_id } name={ list.todolist_title } className="header_icon left" onClick={ openModal }/>
+								{/* <FaTrash className="header_icon"/> */}
 							</>
 					}
 				</header>

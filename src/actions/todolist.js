@@ -18,6 +18,9 @@ export const INPUT_MODIF_DEADLINE = 'INPUT_MODIF_DEADLINE';
 export const SET_OPEN_POPUP_ITEM = 'SET_OPEN_POPUP_ITEM';
 export const DELETE_ITEM = 'DELETE_ITEM';
 export const DELETE_ITEM_MSG = 'DELETE_ITEM_MSG';
+export const SET_OPEN_POPUP_LIST = 'SET_OPEN_POPUP_LIST';
+export const DELETE_LIST = 'DELETE_LIST';
+export const DELETE_LIST_MSG = 'DELETE_LIST_MSG';
 
 
 export const setLists = (data) => ({
@@ -109,7 +112,21 @@ export const deleteItem = () => ({
 	type: DELETE_ITEM,
 });
 
-export const deleteItemsMsg = (msg) => ({
+export const deleteItemMsg = (msg) => ({
 	type: DELETE_ITEM_MSG,
+	msg,
+});
+
+export const setOpenPopupList = (listId) => ({
+	type: SET_OPEN_POPUP_LIST,
+	listId,
+});
+
+export const deleteList = () => ({
+	type: DELETE_LIST,
+});
+
+export const deleteListMsg = (msg) => ({
+	type: DELETE_LIST_MSG,
 	msg,
 });

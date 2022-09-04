@@ -13,9 +13,9 @@ const memberMiddleware = (store) => (next) => async (action) => {
 			const { token } = store.getState().user;
 
 			try {
-				const { data } = await axios.post(`https://family-deck-back.herokuapp.com/api/family/${familyId}/members`, {
+				const { data } = await axios.post(`https://family-deck-back.herokuapp.com/api/family/${ familyId }/members`, {
 					firstname,
-          username,
+					username,
 					roleId,
 					datebirth,
 					password,
@@ -32,7 +32,7 @@ const memberMiddleware = (store) => (next) => async (action) => {
 					},
 				});
 				store.dispatch(setMember(data.msg));
-        store.dispatch(getMembers());
+				store.dispatch(getMembers());
 				// console.log("MEMBER MIDDLEWARE====>", data);
       
 				break;
@@ -43,21 +43,21 @@ const memberMiddleware = (store) => (next) => async (action) => {
 			}
 		}
 
-    case GET_MEMBER: {
-      const memberId = action.payload;
+		case GET_MEMBER: {
+			const memberId = action.payload;
 			const { token } = store.getState().user;
-      const { familyId } = store.getState().family;
-      // console.log('MEMBERID dans middleware',memberId);
-      // console.log('FAMILYID====>', familyId);
+			const { familyId } = store.getState().family;
+			// console.log('MEMBERID dans middleware',memberId);
+			// console.log('FAMILYID====>', familyId);
 
 			try {
-				const { data } = await axios.get(`https://family-deck-back.herokuapp.com/api/family/${familyId}/member/${memberId}`,{
+				const { data } = await axios.get(`https://family-deck-back.herokuapp.com/api/family/${ familyId }/member/${ memberId }`,{
 					headers: {
 						Authorization: `Bearer ${ token }`,
 					},
 				});
 				// console.log("MEMBER MIDDLEWARE====>", data);
-        store.dispatch(savMember(data));
+				store.dispatch(savMember(data));
       
 				break;
 			} catch (error) {
@@ -67,15 +67,15 @@ const memberMiddleware = (store) => (next) => async (action) => {
 			}
 		}
 
-    case PATCH_MEMBER: {
-      const { firstname, email, datebirth, size, topsize, bottomsize, shoesize, school, hobbies, memberId } = store.getState().member;
+		case PATCH_MEMBER: {
+			const { firstname, email, datebirth, size, topsize, bottomsize, shoesize, school, hobbies, memberId } = store.getState().member;
 			const { familyId } = store.getState().user.family;
 			const { token } = store.getState().user;
 
 			try {
-				const { data } = await axios.patch(`https://family-deck-back.herokuapp.com/api/member/${memberId}`, {
+				const { data } = await axios.patch(`https://family-deck-back.herokuapp.com/api/member/${ memberId }`, {
 					firstname,
-          email,
+					email,
 					datebirth,
 					topsize,
 					bottomsize,
@@ -89,7 +89,7 @@ const memberMiddleware = (store) => (next) => async (action) => {
 					},
 				});
 				store.dispatch(setMember(data.msg));
-        store.dispatch(getMembers());
+				store.dispatch(getMembers());
 				// console.log("MEMBER MIDDLEWARE====>", data);
       
 				break;
@@ -100,23 +100,23 @@ const memberMiddleware = (store) => (next) => async (action) => {
 			}
 		}
 
-    case DELETE_MEMBER:{
+		case DELETE_MEMBER:{
 
-      const memberId = store.getState().member.memberId;
+			const memberId = store.getState().member.memberId;
 			const { token } = store.getState().user;
-      const { familyId } = store.getState().family;
-      // console.log('MEMBERID dans middleware',memberId);
-      // console.log('FAMILYID====>', familyId);
+			const { familyId } = store.getState().family;
+			// console.log('MEMBERID dans middleware',memberId);
+			// console.log('FAMILYID====>', familyId);
 
 			try {
-				const { data } = await axios.delete(`https://family-deck-back.herokuapp.com/api/family/${familyId}/member/${memberId}`,{
+				const { data } = await axios.delete(`https://family-deck-back.herokuapp.com/api/family/${ familyId }/member/${ memberId }`,{
 					headers: {
 						Authorization: `Bearer ${ token }`,
 					},
 				});
 				// console.log("MEMBER DELETE MIDDLEWARE====>", data);
-        store.dispatch(deleteMsg(data.msg));
-        store.dispatch(getMembers());
+				store.dispatch(deleteMsg(data.msg));
+				store.dispatch(getMembers());
       
 				break;
 			} catch (error) {

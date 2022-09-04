@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { CHECKBOX, deleteItemsMsg, DELETE_ITEM, getItems, getLists, GET_ITEMS, GET_LISTS, PATCH_LIST_MODIF, POST_NEW_ITEM, POST_NEW_LIST, setItems, setListModif, setLists, setNewItem, setNewList } from '../actions/todolist';
+import { CHECKBOX, deleteItemMsg, DELETE_ITEM, DELETE_LIST, getItems, getLists, GET_ITEMS, GET_LISTS, PATCH_LIST_MODIF, POST_NEW_ITEM, POST_NEW_LIST, setItems, setListModif, setLists, setNewItem, setNewList } from '../actions/todolist';
 
 
 const todolistMiddleware = (store) => (next) => async (action) => { 
@@ -175,8 +175,31 @@ const todolistMiddleware = (store) => (next) => async (action) => {
 						Authorization: `Bearer ${ token }`,
 					},
 				});
-				store.dispatch(deleteItemsMsg(data.msg));
+				store.dispatch(deleteItemMsg(data.msg));
 				store.dispatch(getItems(listId));
+				// console.log('data CREATE NEW ITEM ===>',data);
+				break;
+        
+			} catch (error) {
+				console.error(error);
+				console.log(error.response.data.msg);
+				// store.dispatch(setErrLogin(error.response.data.msg));
+				break;
+			}
+		}
+
+    case DELETE_LIST: {
+			const { token } = store.getState().user;
+			const listId = store.getState().todolist.targetId;
+
+			try {
+				const { data } = await axios.delete(`https://family-deck-back.herokuapp.com/api/todolist/${ listId }`, {
+					headers: {
+						Authorization: `Bearer ${ token }`,
+					},
+				});
+				store.dispatch(deleteItemMsg(data.msg));
+				store.dispatch(getLists());
 				// console.log('data CREATE NEW ITEM ===>',data);
 				break;
         
