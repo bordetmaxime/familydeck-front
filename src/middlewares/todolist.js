@@ -1,4 +1,4 @@
-import axios from 'axios';
+import axiosConfig from './axiosConfig';
 import { CHECKBOX, deleteItemMsg, DELETE_ITEM, DELETE_LIST, getItems, getLists, GET_ITEMS, GET_LISTS, PATCH_LIST_MODIF, POST_NEW_ITEM, POST_NEW_LIST, setItems, setListModif, setLists, setNewItem, setNewList } from '../actions/todolist';
 
 
@@ -11,7 +11,7 @@ const todolistMiddleware = (store) => (next) => async (action) => {
 			const { familyId } = store.getState().user.family;
 
 			try {
-				const { data } = await axios.get(`https://family-deck-back.herokuapp.com/api/todolist/family/${ familyId }`, {
+				const { data } = await axiosConfig.get(`/api/todolist/family/${ familyId }`, {
 					headers: {
 						Authorization: `Bearer ${ token }`,
 					},
@@ -33,7 +33,7 @@ const todolistMiddleware = (store) => (next) => async (action) => {
 			const listId = action.listId;
 
 			try {
-				const { data } = await axios.get(`https://family-deck-back.herokuapp.com/api/todolist/${ listId }/items`, {
+				const { data } = await axiosConfig.get(`/api/todolist/${ listId }/items`, {
 					headers: {
 						Authorization: `Bearer ${ token }`,
 					},
@@ -57,7 +57,7 @@ const todolistMiddleware = (store) => (next) => async (action) => {
 			const { familyId } = store.getState().user.family;
 
 			try {
-				const { data } = await axios.post('https://family-deck-back.herokuapp.com/api/todolist/',{
+				const { data } = await axiosConfig.post('/api/todolist/',{
 					familyId,
 					memberId,
 					title,
@@ -87,7 +87,7 @@ const todolistMiddleware = (store) => (next) => async (action) => {
 			const listId = action.listId;
 
 			try {
-				const { data } = await axios.post(`https://family-deck-back.herokuapp.com/api/todolist/${ listId }/items`,{
+				const { data } = await axiosConfig.post(`/api/todolist/${ listId }/items`,{
 					title,
 					color: '',
 					deadline,
@@ -115,7 +115,7 @@ const todolistMiddleware = (store) => (next) => async (action) => {
 			const listId = store.getState().todolist.targetId;
 
 			try {
-				const { data } = await axios.patch(`https://family-deck-back.herokuapp.com/api/todolist/${ listId }`,{
+				const { data } = await axiosConfig.patch(`/api/todolist/${ listId }`,{
 					title,
 					color: '',
 					deadline: '',
@@ -144,7 +144,7 @@ const todolistMiddleware = (store) => (next) => async (action) => {
 			const listId = action.listId;
 
 			try {
-				const { data } = await axios.patch(`https://family-deck-back.herokuapp.com/api/item/${ itemId }/status`,{
+				const { data } = await axiosConfig.patch(`/api/item/${ itemId }/status`,{
 					status: checked,
 				}, {
 					headers: {
@@ -170,7 +170,7 @@ const todolistMiddleware = (store) => (next) => async (action) => {
 			const listId = store.getState().todolist.targetId;
 
 			try {
-				const { data } = await axios.delete(`https://family-deck-back.herokuapp.com/api/item/${ itemId }`, {
+				const { data } = await axiosConfig.delete(`/api/item/${ itemId }`, {
 					headers: {
 						Authorization: `Bearer ${ token }`,
 					},
@@ -193,7 +193,7 @@ const todolistMiddleware = (store) => (next) => async (action) => {
 			const listId = store.getState().todolist.targetId;
 
 			try {
-				const { data } = await axios.delete(`https://family-deck-back.herokuapp.com/api/todolist/${ listId }`, {
+				const { data } = await axiosConfig.delete(`/api/todolist/${ listId }`, {
 					headers: {
 						Authorization: `Bearer ${ token }`,
 					},

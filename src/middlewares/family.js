@@ -1,4 +1,4 @@
-import axios from 'axios';
+import axiosConfig from './axiosConfig';
 import { GET_MEMBERS, setMembers } from '../actions/family';
 
 
@@ -11,7 +11,7 @@ const familyMiddleware = (store) => (next) => async (action) => {
 			const { familyId } = store.getState().user.family;
 
 			try {
-				const { data } = await axios.get(`https://family-deck-back.herokuapp.com/api/family/${ familyId }/members`, {
+				const { data } = await axiosConfig.get(`/api/family/${ familyId }/members`, {
 					headers: {
 						Authorization: `Bearer ${ token }`,
 					},

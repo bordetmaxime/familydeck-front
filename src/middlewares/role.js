@@ -1,4 +1,4 @@
-import axios from 'axios';
+import axiosConfig from './axiosConfig';
 import { GET_ROLE, setRole } from '../actions/role';
 
 
@@ -10,7 +10,7 @@ const roleMiddleware = (store) => (next) => async (action) => {
 			const token = store.getState().user.token;
 
 			try {
-				const { data } = await axios.get('https://family-deck-back.herokuapp.com/api/role', {
+				const { data } = await axiosConfig.get('/api/role', {
 					headers: {
 						Authorization: `Bearer ${ token }`,
 					},

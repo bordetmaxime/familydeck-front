@@ -1,5 +1,5 @@
-import axios from 'axios';
 import { LOGIN_USER, setErrLogin, setlogin } from '../actions/user';
+import axiosConfig from './axiosConfig';
 
 
 const userMiddleware = (store) => (next) => async (action) => { 
@@ -10,7 +10,7 @@ const userMiddleware = (store) => (next) => async (action) => {
 			const { userName, password } = store.getState().user;
 
 			try {
-				const { data } = await axios.post('https://family-deck-back.herokuapp.com/api/user/auth', {
+				const { data } = await axiosConfig.post('/api/user/auth', {
 					userName,
 					password,
 				});

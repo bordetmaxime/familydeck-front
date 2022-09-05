@@ -1,5 +1,5 @@
-import axios from 'axios';
-import { getMembers } from '../actions/family';
+import axiosConfig from './axiosConfig';
+import { getMembers, resetChildValue } from '../actions/family';
 import { deleteMsg, DELETE_MEMBER, GET_MEMBER, PATCH_MEMBER, savMember, setErrAddMember, setMember, SUBMIT_ADD_MEMBER } from '../actions/member';
 
 
@@ -13,7 +13,7 @@ const memberMiddleware = (store) => (next) => async (action) => {
 			const { token } = store.getState().user;
 
 			try {
-				const { data } = await axios.post(`https://family-deck-back.herokuapp.com/api/family/${ familyId }/members`, {
+				const { data } = await axiosConfig.post(`/api/family/${ familyId }/members`, {
 					firstname,
 					username,
 					roleId,
@@ -51,7 +51,7 @@ const memberMiddleware = (store) => (next) => async (action) => {
 			// console.log('FAMILYID====>', familyId);
 
 			try {
-				const { data } = await axios.get(`https://family-deck-back.herokuapp.com/api/family/${ familyId }/member/${ memberId }`,{
+				const { data } = await axiosConfig.get(`/api/family/${ familyId }/member/${ memberId }`,{
 					headers: {
 						Authorization: `Bearer ${ token }`,
 					},
@@ -73,7 +73,7 @@ const memberMiddleware = (store) => (next) => async (action) => {
 			const { token } = store.getState().user;
 
 			try {
-				const { data } = await axios.patch(`https://family-deck-back.herokuapp.com/api/member/${ memberId }`, {
+				const { data } = await axiosConfig.patch(`/api/member/${ memberId }`, {
 					firstname,
 					email,
 					datebirth,
@@ -109,7 +109,7 @@ const memberMiddleware = (store) => (next) => async (action) => {
 			// console.log('FAMILYID====>', familyId);
 
 			try {
-				const { data } = await axios.delete(`https://family-deck-back.herokuapp.com/api/family/${ familyId }/member/${ memberId }`,{
+				const { data } = await axiosConfig.delete(`/api/family/${ familyId }/member/${ memberId }`,{
 					headers: {
 						Authorization: `Bearer ${ token }`,
 					},
@@ -117,6 +117,7 @@ const memberMiddleware = (store) => (next) => async (action) => {
 				// console.log("MEMBER DELETE MIDDLEWARE====>", data);
 				store.dispatch(deleteMsg(data.msg));
 				store.dispatch(getMembers());
+        store.dispatch(resetChildValue());
       
 				break;
 			} catch (error) {

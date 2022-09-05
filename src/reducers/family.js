@@ -1,4 +1,4 @@
-import { CHILD_SELECTED, SET_CHILDS_MEMBERS, SET_MEMBERS } from '../actions/family';
+import { CHILD_SELECTED, RESET_CHILD_VALUE, SET_CHILDS_MEMBERS, SET_MEMBERS } from '../actions/family';
 
 export const initialState = {
 	members: [],
@@ -33,6 +33,12 @@ const reducer = (state = initialState, action = {}) => {
 				childSelectedValue: action.value,
         childSelectedName: action.name,
 			};
+
+    case RESET_CHILD_VALUE:
+      return {
+        ...state,
+        childSelectedValue: '',
+      }
     
 		default:
 			return state;

@@ -1,4 +1,4 @@
-import axios from 'axios';
+import axiosConfig from './axiosConfig';
 import { setErrInscr, setInscription, SUBMIT_INSCR } from '../actions/inscription';
 
 
@@ -10,7 +10,7 @@ const inscriptionMiddleware = (store) => (next) => async (action) => {
 			const { familyName, lastname, firstname, roleId, dateBirth, email,confirmEmail, password, confirmPassword } = store.getState().inscription;
 
 			try {
-				const { data } = await axios.post('https://family-deck-back.herokuapp.com/api/user/register', {
+				const { data } = await axiosConfig.post('/api/user/register', {
 					familyName,
 					lastname,
 					firstname,
