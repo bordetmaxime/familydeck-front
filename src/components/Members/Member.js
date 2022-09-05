@@ -100,16 +100,16 @@ const Member = () => {
 
 				<p id='member-login'>{ member.username }</p>
 
-				<p id='member-password'></p>
+				{/* <p id='member-password'></p>
 
-				<p id='member-confirmPassword'></p>
+				<p id='member-confirmPassword'></p> */}
 				
 
 				<div className='member__buttons'>
 					<Link to={ '/member/modify' }>
 						<FaPen />
 					</Link>
-					<FaTrash onClick={ openPopup } />
+					<FaTrash className='member__button' onClick={ openPopup } />
 					<Popup open={ open } >
 						<div className='deletePopUp'>
 							<h4 className='member__title4'>Confirmez la suppression</h4>

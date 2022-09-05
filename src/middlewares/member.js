@@ -1,6 +1,6 @@
 import axios from 'axios';
 import { getMembers } from '../actions/family';
-import { deleteMsg, DELETE_MEMBER, GET_MEMBER, PATCH_MEMBER, savMember, setMember, SUBMIT_ADD_MEMBER } from '../actions/member';
+import { deleteMsg, DELETE_MEMBER, GET_MEMBER, PATCH_MEMBER, savMember, setErrAddMember, setMember, SUBMIT_ADD_MEMBER } from '../actions/member';
 
 
 const memberMiddleware = (store) => (next) => async (action) => { 
@@ -38,7 +38,7 @@ const memberMiddleware = (store) => (next) => async (action) => {
 				break;
 			} catch (error) {
 				console.error(error);
-				// setErrInscr(error.response.data.msg);
+				store.dispatch(setErrAddMember(error.response.data.msg));
 				break;
 			}
 		}

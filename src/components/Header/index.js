@@ -34,6 +34,7 @@ const Header = () => {
 			</div>
 			<div className='logout-button' onClick={ logout } role="button" tabIndex={ 0 } >
 				<BiLogOutCircle />
+        <p>Déconnexion</p>
 			</div>
 
 		</div>

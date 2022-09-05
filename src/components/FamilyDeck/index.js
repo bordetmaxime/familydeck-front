@@ -38,7 +38,7 @@ const FamilyDeck = () => {
           	<Route path="/event/:id/modify" element={ <Events form={ 'form' } /> } />
           	<Route path="/todolists" element={ <Todolists /> } />
           	<Route path="/todolist/:id" element={ <Todolist /> } />
-          	<Route path="*" element={ <NotFound /> } />
+          	<Route path="*" element={ <NotFound loggedIn={loggedIn} /> } />
           </Routes>
 			}
 			{/* Routes autorisées si le user n'est pas connecté (loggedIn === false) */}

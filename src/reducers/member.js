@@ -1,4 +1,4 @@
-import { DELETE_MSG, DEL_REDIRECT_INFO, DEL_STATE_MEMBER, RESET_DELETE_MSG, SAV_MEMBER, SET_INPUT_MEMBER, SET_MEMBER, SET_MEMBER_MODIFY, SET_OPEN } from '../actions/member';
+import { DELETE_MSG, DEL_REDIRECT_INFO, DEL_STATE_MEMBER, RESET_DELETE_MSG, SAV_MEMBER, SET_ERR_ADD_MEMBER, SET_INPUT_MEMBER, SET_MEMBER, SET_MEMBER_MODIFY, SET_OPEN } from '../actions/member';
 
 export const initialState = {
 	familyId: '',
@@ -20,6 +20,7 @@ export const initialState = {
 	recupMember: false,
 	open: false,
 	deleteMsg: '',
+	erreurAddMember: '',
 	// state de reidrection
 	redirectMember: '',
 };
@@ -31,7 +32,14 @@ const reducer = (state = initialState, action = {}) => {
 		case SET_MEMBER:
 			return {
 				...state,
+        erreurAddMember: '',
 				redirectMember: '/members',
+			};
+
+		case SET_ERR_ADD_MEMBER:
+			return {
+				...state,
+				erreurAddMember: action.msg,
 			};
 
 		case SET_INPUT_MEMBER:

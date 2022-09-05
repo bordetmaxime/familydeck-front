@@ -1,18 +1,27 @@
 // == Import
 import './styles.scss';
 
-// == Import icones
-import { AiOutlineDown } from 'react-icons/ai';
 
 // == Composant du contenu de la page d'accueil
 const Content = () => {
 	return (
 		<div className="content_welcome">
 			<p>
-      In diam quam, dapibus efficitur lorem sed, sagittis eleifend metus. Etiam auctor efficitur nunc, eu convallis nisl lobortis a. Cras rutrum sapien quis pellentesque porta. Pellentesque sit amet tincidunt erat. Aliquam ligula mauris, faucibus ac vulputate et, venenatis in lorem. Sed eu convallis velit, sit amet aliquam libero. Fusce suscipit condimentum risus quis rhoncus. Sed porttitor, quam quis aliquam tincidunt, libero augue fringilla velit, a malesuada lorem mauris a mauris. Mauris ornare fringilla nisl eget tincidunt. Integer vulputate efficitur semper. Ut ultricies, lectus vitae dignissim imperdiet, magna magna ornare ex, sit amet varius mauris metus at felis. Ut rhoncus arcu rhoncus metus ornare consectetur. Nunc pellentesque nec turpis feugiat dapibus. Aliquam erat volutpat. Praesent sodales arcu sit amet lacus molestie, in laoreet velit facilisis.
+        Bienvenue sur l'application Family-Deck !!!
 			</p>
-			<p className="more-information">En savoir plus</p>
-			<AiOutlineDown className="more-information"/>
+			<p>
+        Cet outil va vous permettre de gérer votre organisation quotidienne pour votre famille. 
+        Que vous soyez un foyer parental classique, séparé, recomposé, vous allez pouvoir gérer votre ou vos foyers en toute simplicité. 
+        Fini la gestion des agendas papiers, des achats pour les enfants et même pour un membre de votre foyer, fini l'échange d'informations 
+        continu sur tel ou tel papier, des demandes d'autorisations de sortie des enfants, de l'argent de poche, du réglement du coiffeur, d'un achat de vêtement
+        Vous allez pouvoir gérer en un clic l'organisation de votre famille, de votre emploi du temps, toutes les réponses que vous aurez besoin se trouveront ici!!
+			</p>
+			<p>
+        Tenter l'expèrience Family-deck c'est l'adopter !! 
+			</p>
+			<p>
+        Alors on n'hésite pas, et clique sur le bouton inscription juste en dessus et créer aujourd'hui ton réseau familial. 			
+			</p>
 		</div>
 	);
 };

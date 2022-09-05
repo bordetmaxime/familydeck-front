@@ -26,4 +26,4 @@ export const inputInscr = ( name, value ) => ({
 
 export const delRedirection = () => ({
   type: DEL_REDIRECTION,
-})
+});

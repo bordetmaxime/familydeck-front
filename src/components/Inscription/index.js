@@ -89,7 +89,6 @@ const Inscription = () => {
 							<option value=""></option>
 							<option value="1">Père</option>
 							<option value="2">Mère</option>
-							<option value="3">Enfant</option>
 						</select>
 					</div>
 

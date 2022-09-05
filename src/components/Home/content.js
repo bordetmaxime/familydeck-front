@@ -9,6 +9,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { getMembers } from '../../actions/family';
 import { getLists } from '../../actions/todolist';
 import { getMember } from '../../actions/member';
+import { getRole } from '../../actions/role';
 
 // == Import des icons de la page home
 import { FaUsersCog } from '@react-icons/all-files/fa/FaUsersCog';
@@ -27,6 +28,7 @@ const Content = () => {
 
 	const handleMembers = () => {
 		dispatch(getMembers());
+		dispatch(getRole());
 	};
 
 	const handleChild = () => {
@@ -62,12 +64,16 @@ const Content = () => {
 				<h3>Evènements</h3>
 			</Link>
 
-			<Link to={ `/member/${ childId }` } className='content__button' onClick={ handleChild }>
-				<div className='content__icon'>
-					<CgGirl />
-				</div>
-				<h3>Infos Enfant</h3>
-			</Link>
+			{ 
+				childId && 
+        <Link to={ `/member/${ childId }` } className='content__button' onClick={ handleChild }>
+        	<div className='content__icon'>
+        		<CgGirl />
+        	</div>
+        	<h3>Infos Enfant</h3>
+        </Link>
+			}
+			
 
 			{/* <Link to={ `/member/${ userId }` } className='content__button'>
 				<div className='content__icon'>

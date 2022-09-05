@@ -37,6 +37,7 @@
   display: flex;
   flex-direction: column;
   color: vars.$blue;
+  padding: 0 0.5rem;
 
   &__form, &__infos {
     height: 100%;
@@ -53,6 +54,7 @@
     flex-direction: column;
     width: 95%;
     justify-content: center;
+    align-items: center;
 
     & input, select {
       height: 2rem;
@@ -94,6 +96,10 @@
     color: vars.$blue;
   }
 
+  &__button {
+    cursor: pointer;
+  }
+
   &__alerte {
     color: red;
   }
@@ -108,18 +114,26 @@
     margin:10px;
     font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
   }
+}
+
+.member__form {
+
+  & .member {
+    &__item {
+      align-items: stretch;
+    }
+  }
 
 }
 
 .semi {
     width: 45%;
-    align-items: stretch;
+    align-items: center;
   }
 
 // class de la fiche d'information du membre
 
 .member__title4{
-  padding-left: 1rem;
   color: vars.$blue;
   font-weight: bold;
 }
@@ -156,7 +170,18 @@
     &__title3 {
       font-size: 1.5rem;
     }
+
+    &__item {
+      align-items: center;
+    }
+
+    & p {
+      padding-left: 1rem;
+    }
   }
 
+  .semi {
+    align-items: center;
+  }
 
 }

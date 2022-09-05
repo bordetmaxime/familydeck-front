@@ -66,7 +66,7 @@ margin:5px;
 
 @media screen and (min-width: 1000px) {
   .item_card{
-    padding: 0 15rem;
+    padding: 0 10rem;
 
     & li {
       display: flex;
@@ -84,5 +84,14 @@ margin:5px;
     display: flex;
     padding: 0 5rem;
     align-items: center;
+  }
+
+  .header_icon {
+    cursor: pointer;
+  }
+
+  .form_card{
+    width:75%;
+    margin: 0 auto;
   }
 }

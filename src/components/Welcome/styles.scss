@@ -36,7 +36,7 @@
 }
 
 .content_welcome{
-  width: 80%;
+  width: 85%;
   flex-direction: column;
   margin:auto;
   text-align:center;
@@ -45,6 +45,10 @@
   border-radius: 10px;
   box-shadow: 0 0 0.5em silver, 0 0 5em silver , 0 0 0.5em silver;
   background-color: vars.$lightGrayOpacity;
+
+  & p {
+    padding-bottom: 1rem;
+  }
 }
 
 .connection_button {
@@ -55,6 +59,7 @@
 .welcome {
   margin : auto ;
   overflow: auto;
+  height: 100vh;
 }
 
 .welcome button {

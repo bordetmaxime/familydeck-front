@@ -42,9 +42,15 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 20vw;
+  flex-direction: column;
+  width: 25vw;
   font-size: 2rem;
   color: vars.$turquoise;
+  padding-right: 1rem;
+
+  & p {
+    font-size: 1rem;
+  }
 }
 
 // BreakPoint pour la mise en forme de la version desktop

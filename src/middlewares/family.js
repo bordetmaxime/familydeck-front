@@ -8,16 +8,16 @@ const familyMiddleware = (store) => (next) => async (action) => {
 
 		case GET_MEMBERS: {
 			const { token } = store.getState().user;
-      const { familyId } = store.getState().user.family;
+			const { familyId } = store.getState().user.family;
 
 			try {
-				const { data } = await axios.get(`https://family-deck-back.herokuapp.com/api/family/${familyId}/members`, {
+				const { data } = await axios.get(`https://family-deck-back.herokuapp.com/api/family/${ familyId }/members`, {
 					headers: {
-            Authorization: `Bearer ${token}`,
-          },
+						Authorization: `Bearer ${ token }`,
+					},
 				});
 				store.dispatch(setMembers(data));
-        // console.log('data FAMILY middleware ===>',data);
+				// console.log('data FAMILY middleware ===>',data);
 				break;
         
 			} catch (error) {

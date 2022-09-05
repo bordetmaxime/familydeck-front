@@ -1,4 +1,5 @@
 export const SET_MEMBER = 'SET_MEMBER';
+export const SET_ERR_ADD_MEMBER = 'SET_ERR_ADD_MEMBER';
 export const SET_MEMBER_MODIFY = 'SET_MEMBER_MODIFY';
 export const SET_INPUT_MEMBER = 'SET_INPUT_MEMBER';
 export const SUBMIT_ADD_MEMBER = 'SUBMIT_ADD_MEMBER';
@@ -16,6 +17,11 @@ export const SET_OPEN = 'SET_OPEN';
 
 export const setMember = ( msg ) => ({
 	type: SET_MEMBER,
+	msg,
+});
+
+export const setErrAddMember = ( msg ) => ({
+	type: SET_ERR_ADD_MEMBER,
 	msg,
 });
 
@@ -62,13 +68,13 @@ export const deleteMember = () => ({
 
 export const deleteMsg = (msg) => ({
 	type: DELETE_MSG,
-  msg,
+	msg,
 });
 
 export const resetDeleteMsg = () => ({
-  type: RESET_DELETE_MSG,
-})
+	type: RESET_DELETE_MSG,
+});
 
 export const setOpen = () => ({
-  type: SET_OPEN,
-})
+	type: SET_OPEN,
+});

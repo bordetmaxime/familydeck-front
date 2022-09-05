@@ -105,10 +105,10 @@
     border-bottom: none;
   }
 
-  .all_card{
-    flex-direction: row;
-    flex-wrap: wrap;
+  .all_card {
+    width: 75%;
     justify-content: center;
+    margin: 0 auto;
   }
 
   .card_alltodolists{
@@ -136,6 +136,10 @@
 
   .title{
     font-size:2rem;
+  }
+
+  .icon, .icon-item {
+    cursor: pointer;
   }
 }
 
