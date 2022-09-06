@@ -21,7 +21,7 @@ const Todolists= () => {
 
 	const dispatch = useDispatch();
 
-	const inputValue = useSelector(state => state.todolist.inputValue);
+	const inputValue = useSelector(state => state.todolist.inputAddList);
 
 	// appel l'action d'enregistrement dans le state de la valeur de l'input de création de liste
 	const handleOnChange = (event) => {

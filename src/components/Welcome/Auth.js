@@ -3,7 +3,7 @@ import './styles.scss';
 import { Link, useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import PropTypes from 'prop-types';
-import { setUserName, setPassword, loginUser, setLoggedIn } from '../../actions/user';
+import { setUserName, setPassword, loginUser, setLoggedIn, playLoader } from '../../actions/user';
 import { useEffect } from 'react';
 
 
@@ -39,6 +39,7 @@ const Auth = () => {
 	const loginSubmit = (event) => {
 		event.preventDefault();
 		dispatch(loginUser());
+    dispatch(playLoader());
 	};
 
 	return (

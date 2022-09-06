@@ -24,7 +24,7 @@ const AllTodolists = () => {
 	const inputModifValue = useSelector(state => state.todolist.inputValue);
 	const openModalList = useSelector(state => state.todolist.openModalList);
 	const targetId = useSelector(state => state.todolist.targetId);
-  const open = useSelector(state => state.todolist.open);
+	const open = useSelector(state => state.todolist.open);
 
 	// appel l'action d'afficher l'input de modification du nom de la liste ainsi que les corbeilles pour la suppression des items
 	const openModal = (event) => {
@@ -61,34 +61,38 @@ const AllTodolists = () => {
 	return (
 		<div className="all_card">
 
-			{ lists.map(list => (
-				<div key={ list.todolist_id } id={list.todolist_id}>
-					<header className="header_alltodolists">
-						{ 
-							openModalList && (list.todolist_id === Number(targetId)) ? 
-								<form className='form_modify_todolist' onSubmit={ SubmitModify }>
-									<input type="text" name="modify_list" value={ inputModifValue } placeholder={ list.todolist_title } onChange={ handleOnChange }/>
-									<button className='member__submit' type='submit'>Valider</button>
-								</form> :
-								<>
-									<Link to={ `/todolist/${ list.todolist_id }` } className="link_alltodolists">
-										<h2 className="title">{ list.todolist_title }</h2>
-									</Link>
-									<FaPen id={ list.todolist_id } name={ list.todolist_title } className="icon left" onClick={ openModal }/>
-									<FaTrash className="icon" onClick={ openPopup } />
-								</>
-						}
-					</header>
+			{lists.length > 0 ?
+				lists.map(list => (
+					<div key={ list.todolist_id } id={ list.todolist_id }>
+						<header className="header_alltodolists">
+							{ 
+								openModalList && (list.todolist_id === Number(targetId)) ? 
+									<form className='form_modify_todolist' onSubmit={ SubmitModify }>
+										<input type="text" name="modify_list" value={ inputModifValue } placeholder={ list.todolist_title } onChange={ handleOnChange }/>
+										<button className='member__submit' type='submit'>Valider</button>
+									</form> :
+									<>
+										<Link to={ `/todolist/${ list.todolist_id }` } className="link_alltodolists">
+											<h2 className="title">{ list.todolist_title }</h2>
+										</Link>
+										<FaPen id={ list.todolist_id } name={ list.todolist_title } className="icon left" onClick={ openModal }/>
+										<FaTrash className="icon" onClick={ openPopup } />
+									</>
+							}
+						</header>
 
-					<Popup open={ open } >
-						<div className='deletePopUp'>
-							<h4 className='member__title4'>Confirmez la suppression</h4>
-							<button className='member__submit' type='submit' onClick={ openPopup }>Annuler</button>
-							<button className='member__submit' type='submit' onClick={ handleDeleteList }>Valider</button>
-						</div>
-					</Popup>
-				</div>
-			))}
+						<Popup open={ open } >
+							<div className='deletePopUp'>
+								<h4 className='member__title4'>Confirmez la suppression</h4>
+								<button className='member__submit' type='submit' onClick={ openPopup }>Annuler</button>
+								<button className='member__submit' type='submit' onClick={ handleDeleteList }>Valider</button>
+							</div>
+						</Popup>
+					</div>
+				))
+				:
+				<p className='not-list'>Il n'y a aucune liste</p>
+			}
 
 		</div>
 

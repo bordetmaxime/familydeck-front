@@ -52,6 +52,7 @@
   overflow: auto;
 }
 
+
 .header_alltodolists{
   display: flex;
   padding:0.5rem;
@@ -91,6 +92,10 @@
 
 .checked {
   text-decoration: line-through;
+}
+
+.not-list {
+  text-align: center;
 }
 
 // BreakPoint pour la mise en forme de la version desktop

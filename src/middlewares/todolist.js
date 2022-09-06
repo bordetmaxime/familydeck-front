@@ -1,5 +1,5 @@
 import axiosConfig from './axiosConfig';
-import { CHECKBOX, deleteItemMsg, DELETE_ITEM, DELETE_LIST, getItems, getLists, GET_ITEMS, GET_LISTS, PATCH_LIST_MODIF, POST_NEW_ITEM, POST_NEW_LIST, setItems, setListModif, setLists, setNewItem, setNewList } from '../actions/todolist';
+import { CHECKBOX, deleteItemMsg, DELETE_ITEM, DELETE_LIST, getItems, getLists, GET_ITEMS, GET_LISTS, PATCH_LIST_MODIF, POST_NEW_ITEM, POST_NEW_LIST, resetItems, resetLists, setItems, setListModif, setLists, setNewItem, setNewList } from '../actions/todolist';
 
 
 const todolistMiddleware = (store) => (next) => async (action) => { 
@@ -44,7 +44,7 @@ const todolistMiddleware = (store) => (next) => async (action) => {
         
 			} catch (error) {
 				console.error(error);
-				console.log(error.response.data.msg);
+				console.log(error.response.data.message);
 				// store.dispatch(setErrLogin(error.response.data.msg));
 				break;
 			}
@@ -177,6 +177,7 @@ const todolistMiddleware = (store) => (next) => async (action) => {
 				});
 				store.dispatch(deleteItemMsg(data.msg));
 				store.dispatch(getItems(listId));
+        store.dispatch(resetItems());
 				// console.log('data CREATE NEW ITEM ===>',data);
 				break;
         
@@ -200,6 +201,7 @@ const todolistMiddleware = (store) => (next) => async (action) => {
 				});
 				store.dispatch(deleteItemMsg(data.msg));
 				store.dispatch(getLists());
+        store.dispatch(resetLists());
 				// console.log('data CREATE NEW ITEM ===>',data);
 				break;
         

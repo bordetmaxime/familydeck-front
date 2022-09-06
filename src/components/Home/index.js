@@ -15,6 +15,7 @@ import { useDispatch, useSelector } from 'react-redux';
 
 // == Import actions
 import { getMembers } from '../../actions/family';
+import { playLoader } from '../../actions/user';
 
 
 // == Composant structure de la page Home

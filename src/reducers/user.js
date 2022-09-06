@@ -1,4 +1,4 @@
-import { SET_ERR_LOGIN, SET_LOGGED_IN, SET_LOGGED_OUT, SET_LOGIN, SET_PASSWORD, SET_TOKEN, SET_USERNAME } from '../actions/user';
+import { PLAY_LOADER, SET_ERR_LOGIN, SET_LOGGED_IN, SET_LOGGED_OUT, SET_LOGIN, SET_PASSWORD, SET_TOKEN, SET_USERNAME } from '../actions/user';
 
 export const initialState = {
 	familyName: '',
@@ -18,6 +18,7 @@ export const initialState = {
 	route: '',
 	// State Messages
 	errLogin: '',
+	loader: false,
 };
 
 const reducer = (state = initialState, action = {}) => {
@@ -43,6 +44,7 @@ const reducer = (state = initialState, action = {}) => {
 			return {
 				...state,
 				errLogin: action.msg,
+				loader: !state.loader,
 			};
 			// changement du state avec les valeurs du champ login
 		case SET_USERNAME:
@@ -70,6 +72,12 @@ const reducer = (state = initialState, action = {}) => {
 				loggedIn: action.payload,
 				token: '',
 				userName: '',
+			};
+
+		case PLAY_LOADER:
+			return {
+				...state,
+				loader: !state.loader,
 			};
     
 		default:

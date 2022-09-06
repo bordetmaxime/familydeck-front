@@ -1,4 +1,4 @@
-import { LOGIN_USER, setErrLogin, setlogin } from '../actions/user';
+import { LOGIN_USER, playLoader, setErrLogin, setlogin } from '../actions/user';
 import axiosConfig from './axiosConfig';
 
 
@@ -15,6 +15,7 @@ const userMiddleware = (store) => (next) => async (action) => {
 					password,
 				});
 				store.dispatch(setlogin(data));
+        store.dispatch(playLoader());
         // console.log("DATA USER===> ",data);
 				break;
         

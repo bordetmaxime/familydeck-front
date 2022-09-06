@@ -117,8 +117,7 @@ const memberMiddleware = (store) => (next) => async (action) => {
 				// console.log("MEMBER DELETE MIDDLEWARE====>", data);
 				store.dispatch(deleteMsg(data.msg));
 				store.dispatch(getMembers());
-        store.dispatch(resetChildValue());
-      
+				store.dispatch(resetChildValue());      
 				break;
 			} catch (error) {
 				console.error(error);

@@ -100,12 +100,12 @@ const FormMember = () => {
 
 					<div className='member__item semi'>
 						<label htmlFor='member-height'>Taille en cm</label>
-						<input type='number' id='member-height' value={ size } name='size' onChange={ inputValue }></input>
+						<input type='number' min='0' max='250' id='member-height' value={ size } name='size' onChange={ inputValue }></input>
 					</div>
 
 					<div className='member__item semi'>
 						<label htmlFor='member-foot'>Pointure</label>
-						<input type='number' id='member-foot' value={ shoesize } name='shoesize' onChange={ inputValue }></input>
+						<input type='number' min='15' max='59' id='member-foot' value={ shoesize } name='shoesize' onChange={ inputValue }></input>
 					</div>
 
 					<div className='member__item semi'>

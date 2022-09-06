@@ -6,6 +6,7 @@ export const SET_PASSWORD = 'SET_PASSWORD';
 export const SET_TOKEN = 'SET_TOKEN';
 export const SET_LOGGED_OUT = 'SET_LOGGED_OUT';
 export const SET_LOGGED_IN = 'SET_LOGGED_IN';
+export const PLAY_LOADER = 'PLAY_LOADER';
 
 export const setlogin = ({ token, member, family }) => ({
 	type: SET_LOGIN,
@@ -43,4 +44,6 @@ export const setLoggedOut = (value) => ({
 	payload: value,
 });
 
-
+export const playLoader = () => ({
+  type: PLAY_LOADER,
+})

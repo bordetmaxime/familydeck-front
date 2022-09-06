@@ -9,6 +9,8 @@ import Header from './Header';
 import Start from './Start';
 import Auth from './Auth';
 import Message from './Message';
+import { Link } from 'react-router-dom';
+
 
 // == Composant structure de la page Welcome
 
@@ -25,6 +27,10 @@ const Welcome = ({ login }) => {
 			{ inscriptMsgSucces || inscriptionMsgErr || errLogin ? <Message /> : ''}
 
 			{login ? <Auth /> : <Start /> }
+
+      <Link to='/apropos'>
+        <p className='apropos__link'>A propos</p>
+      </Link>
 
 		</div>
 	);

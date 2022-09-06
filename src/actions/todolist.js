@@ -21,6 +21,7 @@ export const DELETE_ITEM_MSG = 'DELETE_ITEM_MSG';
 export const SET_OPEN_POPUP_LIST = 'SET_OPEN_POPUP_LIST';
 export const DELETE_LIST = 'DELETE_LIST';
 export const DELETE_LIST_MSG = 'DELETE_LIST_MSG';
+export const RESET_LISTS = 'RESET_LISTS';
 
 
 export const setLists = (data) => ({
@@ -124,6 +125,10 @@ export const setOpenPopupList = (listId) => ({
 
 export const deleteList = () => ({
 	type: DELETE_LIST,
+});
+
+export const resetLists = () => ({
+	type: RESET_LISTS,
 });
 
 export const deleteListMsg = (msg) => ({

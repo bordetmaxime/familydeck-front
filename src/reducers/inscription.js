@@ -14,7 +14,7 @@ export const initialState = {
 	// state messages
 	inscriptMsgSucces: '',
 	inscriptionMsgErr: '',
-	
+	loader: false,
 };
 
 const reducer = (state = initialState, action = {}) => {

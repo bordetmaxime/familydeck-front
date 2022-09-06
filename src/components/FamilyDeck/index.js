@@ -13,6 +13,8 @@ import Todolist from '../Todolist';
 import Members from '../Members';
 import NotFound from '../NotFound';
 import NotAutorized from '../NotFound/NotAutorized';
+import Loader from '../Loader';
+import Apropos from '../Welcome/Apropos';
 
 
 
@@ -21,11 +23,48 @@ const FamilyDeck = () => {
 
 	// State USER Inscription
 	const loggedIn = useSelector((state) => state.user.loggedIn);
+  const loader = useSelector(state => state.user.loader);
 
 	return (
 		<div className="familyDeck">
 			{/* Routes autorisées si le user est connecté (loggedIn === true) */}
-			{
+
+      { 
+        loader ? 
+        <Loader /> :
+        loggedIn ? 
+          <Routes>
+          	<Route path="/home" element={ <Home /> } />
+          	<Route path="/members" element={ <Members /> } />
+          	<Route path="/member/:id" element={ <Members /> } />
+          	<Route path="/member/modify" element={ <Members /> } />
+          	<Route path="/formMember" element={ <Members /> } />
+          	<Route path="/events" element={ <Events /> } />
+          	<Route path="/event/:id" element={ <Events event={ 'eventId' } /> } />
+          	<Route path="/event/:id/modify" element={ <Events form={ 'form' } /> } />
+          	<Route path="/todolists" element={ <Todolists /> } />
+          	<Route path="/todolist/:id" element={ <Todolist /> } />
+          	<Route path="*" element={ <NotFound loggedIn={loggedIn} /> } />
+          </Routes> 
+          :
+          <Routes>
+          	<Route path="/" element={ <Welcome /> } />
+            <Route path="/apropos" element={ <Apropos /> } />
+          	<Route path="/login" element={ <Welcome login={ 'login' } /> } />
+          	<Route path="/inscription" element={ <Inscription /> } />
+          	<Route path="/home" element={ <NotAutorized /> } />
+          	<Route path="/members" element={ <NotAutorized /> } />
+          	<Route path="/member" element={ <NotAutorized /> } />
+          	<Route path="/member/:id" element={ <NotAutorized /> } />
+          	<Route path="/events" element={ <NotAutorized /> } />
+          	<Route path="/event/:id" element={ <NotAutorized /> } />
+          	<Route path="/todolists" element={ <NotAutorized /> } />
+          	<Route path="/todolist/5" element={ <NotAutorized /> } />        
+          	<Route path="*" element={ <NotFound /> } />
+          </Routes>
+
+      }
+			{/* {
 				loggedIn && 
           <Routes>
           	<Route path="/home" element={ <Home /> } />
@@ -40,9 +79,9 @@ const FamilyDeck = () => {
           	<Route path="/todolist/:id" element={ <Todolist /> } />
           	<Route path="*" element={ <NotFound loggedIn={loggedIn} /> } />
           </Routes>
-			}
+			} */}
 			{/* Routes autorisées si le user n'est pas connecté (loggedIn === false) */}
-			{
+			{/* {
 				!loggedIn && 
           <Routes>
           	<Route path="/" element={ <Welcome /> } />
@@ -59,7 +98,7 @@ const FamilyDeck = () => {
           	<Route path="*" element={ <NotFound /> } />
           </Routes>
 
-			}
+			} */}
 
 		</div>
 	);

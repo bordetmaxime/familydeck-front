@@ -85,8 +85,12 @@ const Todolist= () => {
 
 	// appel l'action de récupération de la liste des items appartenant à la liste
 	useEffect(() => {
-		dispatch(getItems(listId.id));
-	},[]);
+    console.log(items.length);
+    if (items > 0) {
+      dispatch(getItems(listId.id));
+    }
+		
+	},[items]);
 
 	return (
 
